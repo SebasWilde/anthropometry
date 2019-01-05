@@ -16,6 +16,7 @@
   <link href="{% static 'assets/libs/flot/css/float-chart.css' %}" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
+  {% block extra_css %}{% endblock %}
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,21 +52,19 @@
         <!-- ============================================================== -->
         <!-- Logo -->
         <!-- ============================================================== -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'index' %}">
           <!-- Logo icon -->
           <b class="logo-icon p-l-10">
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             <!-- Dark Logo icon -->
             <img src="{% static 'assets/images/logo-icon.png' %}" alt="homepage" class="light-logo" />
-
           </b>
           <!--End Logo icon -->
           <!-- Logo text -->
           <span class="logo-text">
-                             <!-- dark Logo text -->
-                             <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="light-logo" />
-
-                        </span>
+             <!-- dark Logo text -->
+             <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="light-logo" />
+          </span>
           <!-- Logo icon -->
           <!-- <b class="logo-icon"> -->
           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -231,7 +230,7 @@
       <!-- Sidebar navigation-->
       <nav class="sidebar-nav">
         <ul id="sidebarnav" class="p-t-30">
-          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'index' %}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
           <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
           <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
           <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
@@ -286,8 +285,32 @@
   <!-- Page wrapper  -->
   <!-- ============================================================== -->
   <div class="page-wrapper">
-    {% block content %}
-    {% endblock %}
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h2 class="page-title">{% block title %}Dashboard{% endblock %}</h2>
+          <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+                {% block page %}
+                {% endblock %}
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      {% block content %}
+      {% endblock %}
+    </div>
   </div>
   <!-- ============================================================== -->
   <!-- End Page wrapper  -->
@@ -322,7 +345,7 @@
 <script src="{% static 'assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
 <script src="{% static 'assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
 <script src="{% static 'dist/js/pages/chart/chart-page-init.js' %}"></script>
-
+{% block extra_js %}{% endblock %}
 </body>
 
 </html>

@@ -1,49 +1,87 @@
 {% extends 'root/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+{% endblock %}
+
+{% block title %}Agregar deportista{% endblock %}
+{% block page %}
+  <li class="breadcrumb-item active" aria-current="page">Agregar deportista</li>
+{% endblock %}
 {% block content %}
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Agregar deportista</h1>
-    </div>
-    <div class="col-lg-12">
-      <form method="post">
-        {% csrf_token %}
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-8">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="id_nombres">Nombres:</label>
-                <input type="text" class="form-control" name="nombres" maxlength="45" placeholder="Nombres"  id="id_nombres" required>
+    <div class="card h-100">
+      <form class="form-horizontal" method="post">
+      {% csrf_token %}
+        <div class="card-body">
+          <h4 class="card-title">Información del deportista</h4>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="id_nombres">Nombres:</label>
+                  <input type="text" class="form-control" name="nombres" maxlength="45" placeholder="Nombres"  id="id_nombres" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="id_apellidos">Apellidos:</label>
+                  <input type="text" class="form-control" name="apellidos" maxlength="45" placeholder="Apellidos" id="id_apellidos" required>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <label for="id_apellidos">Apellidos:</label>
-                <input type="text" class="form-control" name="apellidos" maxlength="45" placeholder="Apellidos" id="id_apellidos" required>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="id_fecha_nacimiento">Fecha nacimiento:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="id_fecha_nacimiento" placeholder="mm/dd/yyyy"  name="fecha_nacimiento" autocomplete="off" required>
+                    <div class="input-group-append">
+                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="id_deporte">Deporte:</label>
+                  <select class="form-control" name="deporte" id="id_deporte">
+                    <option value="" selected="">---------</option>
+                    {% for option in form.fields.deporte.choices.queryset %}
+                      <option value="{{ option.pk }}">{{ option.deporte }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="id_asociacion">Asociacion:</label>
+                  <select class="form-control" name="asociacion" id="id_asociacion">
+                    <option value="" selected="">---------</option>
+                    {% for option in form.fields.asociacion.choices.queryset %}
+                      <option value="{{ option.pk }}">{{ option.nombre }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="id_fecha_nacimiento">Fecha nacimiento:</label>
-                <input type="date" class="form-control" name="fecha_nacimiento" id="id_fecha_nacimiento" required>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+              <div class="form-group">
+                <label for="id_informacion_extra">Informacion extra:</label>
+                <textarea class="form-control" name="informacion_extra" id="id_informacion_extra"></textarea>
               </div>
             </div>
           </div>
-          {{ form.as_p }}
-          <input type="submit" value="Save">
+          <div class="border-top">
+            <div class="card-body">
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
-  </div>
+{% endblock %}
 
+{% block extra_js %}
+  <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+
+  <script>
+      /*datwpicker*/
+      jQuery('#id_fecha_nacimiento').datepicker({
+          autoclose: true,
+          todayHighlight: true,
+          orientation: "bottom"
+      });
+  </script>
 {% endblock %}

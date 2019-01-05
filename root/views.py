@@ -1,8 +1,9 @@
 from django.views import View
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.db.models import F, ExpressionWrapper, fields
+from django.utils import timezone
 from .models import Deportista
 from .forms import DeportistaForm
 
@@ -19,6 +20,17 @@ class Index(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_class, {})
+
+
+class ListDeportista(LoginRequiredMixin, ListView):
+    model = Deportista
+    template_name = 'root/list_deportista.html'
+    paginate_by = 10
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('ordering', 'apellidos')
+        print(ordering)
+        return ordering
 
 
 class DetailDeportista(LoginRequiredMixin, DetailView):

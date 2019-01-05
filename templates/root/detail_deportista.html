@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'root/base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block extra_css %}
+{% endblock %}
+
+{% block title %}Detalle deportista{% endblock %}
+{% block page %}
+  <li class="breadcrumb-item" aria-current="page"><a href="{% url 'list-deportista' %}">Lista de deportistas</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Detalle deportista</li>
+{% endblock %}
