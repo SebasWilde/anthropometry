@@ -2,10 +2,60 @@
 {% load static %}
 
 {% block extra_css %}
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Detalle deportista{% endblock %}
 {% block page %}
   <li class="breadcrumb-item" aria-current="page"><a href="{% url 'list-deportista' %}">Lista de deportistas</a></li>
   <li class="breadcrumb-item active" aria-current="page">Detalle deportista</li>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <!-- code start -->
+    <div class="twPc-div">
+      <a class="twPc-bg twPc-block"></a>
+
+      <div>
+        <div class="twPc-button">
+          <a class="btn btn-warning btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>
+        </div>
+        <div class="twPc-avatarLink">
+          <img src="{% get_media_prefix %}{{ object.foto }}" class="twPc-avatarImg">
+        </div>
+        <div class="twPc-divUser">
+          <div class="twPc-divName">
+            <h3 class="my-0">{{ object.nombres|capfirst }} {{ object.apellidos|capfirst }}</h3>
+          </div>
+          <span>
+            <p class="sport">{{ object.deporte }}</p>
+			    </span>
+        </div>
+        <div class="twPc-divStats">
+          <ul class="twPc-Arrange">
+            <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Edad</span>
+              <span class="twPc-StatValue">{{ object.get_age }}</span>
+            </li>
+            <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Asociacion</span>
+              <span class="twPc-StatValue">{{ object.asociacion }}</span>
+            </li>
+            <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Ultimo peso</span>
+              <span class="twPc-StatValue">50 kg</span>
+            </li>
+            <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Ultima talla</span>
+              <span class="twPc-StatValue">1.50 m</span>
+            </li>
+            <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Ultima medicion</span>
+              <span class="twPc-StatValue">12/12/12</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 {% endblock %}
