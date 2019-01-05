@@ -2,10 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/antropometry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/antropometry.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antropometry/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/antropometry/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antropometry/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/antropometry/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/metisMenu.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/morris.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/sb-admin-2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/font-awesome.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/metisMenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/morris-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/morris.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/raphael.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/sb-admin-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/index2.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +44,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/antropometry/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+            <state relative-caret-position="-923">
+              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+              <folding>
+                <element signature="e#373#429#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -30,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="150">
+              <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -40,39 +75,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/root/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8130">
-              <caret line="542" column="14" selection-start-line="542" selection-start-column="14" selection-end-line="542" selection-end-column="14" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5625">
-              <caret line="375" column="19" selection-start-line="375" selection-start-column="19" selection-end-line="375" selection-end-column="19" />
-              <folding>
-                <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="-120">
+              <caret line="19" column="196" selection-start-line="19" selection-start-column="196" selection-end-line="19" selection-end-column="196" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/antropometry/urls.py">
+        <entry file="file://$PROJECT_DIR$/templates/root/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="150">
+              <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
               <folding>
-                <element signature="e#636#668#0" expanded="true" />
+                <element signature="e#12038#12059#0#HTML" expanded="true" />
+                <element signature="e#17836#17854#0#HTML" expanded="true" />
+                <element signature="e#18364#18382#0#HTML" expanded="true" />
+                <element signature="e#18886#18904#0#HTML" expanded="true" />
+                <element signature="e#19408#19425#0#HTML" expanded="true" />
+                <element signature="e#23237#23258#0#HTML" expanded="true" />
+                <element signature="e#23735#23740#0#HTML" expanded="true" />
+                <element signature="e#26471#26497#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/dist/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="8489" column="1" selection-start-line="8489" selection-start-column="1" selection-end-line="8489" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/root/index2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="555" column="52" lean-forward="true" selection-end-line="1012" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -80,20 +132,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/root/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -112,6 +155,18 @@
     <findStrings>
       <find>fa</find>
       <find>font-awesome</find>
+      <find>out</find>
+      <find>Dashboard</find>
+      <find>SB</find>
+      <find>user</find>
+      <find>1.jpg</find>
+      <find>../</find>
+      <find>page</find>
+      <find>wrapper</find>
+      <find>../../</find>
+      <find>loginform</find>
+      <find>.</find>
+      <find>to-login</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,13 +175,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/antropometry/settings.py" />
         <option value="$PROJECT_DIR$/antropometry/urls.py" />
+        <option value="$PROJECT_DIR$/root/admin.py" />
+        <option value="$PROJECT_DIR$/antropometry/settings.py" />
+        <option value="$PROJECT_DIR$/templates/root/detail_deportista.html" />
+        <option value="$PROJECT_DIR$/root/urls.py" />
+        <option value="$PROJECT_DIR$/root/forms.py" />
+        <option value="$PROJECT_DIR$/root/views.py" />
+        <option value="$PROJECT_DIR$/root/models.py" />
+        <option value="$PROJECT_DIR$/templates/root/add_deportista.html" />
+        <option value="$PROJECT_DIR$/templates/root/index2.html" />
         <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/templates/root/index.html" />
-        <option value="$PROJECT_DIR$/root/views.py" />
-        <option value="$PROJECT_DIR$/root/urls.py" />
-        <option value="$PROJECT_DIR$/root/models.py" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
       </list>
     </option>
   </component>
@@ -142,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,12 +213,46 @@
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="antropometry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -170,15 +264,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/root" />
-      <recent name="$PROJECT_DIR$/static/fonts" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/static/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/media/default" />
       <recent name="$PROJECT_DIR$/static/fonts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/templates/root" />
+      <recent name="$PROJECT_DIR$/static/fonts" />
+      <recent name="$PROJECT_DIR$/static/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -230,22 +325,27 @@
       <updated>1544284928297</updated>
       <workItem from="1544284930374" duration="3233000" />
       <workItem from="1544289585142" duration="863000" />
-      <workItem from="1544292355682" duration="1218000" />
+      <workItem from="1544292355682" duration="1380000" />
+      <workItem from="1544484898116" duration="233000" />
+      <workItem from="1546492032769" duration="3311000" />
+      <workItem from="1546557848104" duration="3189000" />
+      <workItem from="1546641125098" duration="48000" />
+      <workItem from="1546643329606" duration="17060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5314000" />
+    <option name="totallyTimeSpent" value="29317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25778133" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28092578" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -268,13 +368,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/metisMenu.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/sb-admin-2.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/morris.css">
@@ -287,69 +381,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/antropometry/settings.py">
+    <entry file="file://$PROJECT_DIR$/root/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8130">
-          <caret line="542" column="14" selection-start-line="542" selection-start-column="14" selection-end-line="542" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5625">
-          <caret line="375" column="19" selection-start-line="375" selection-start-column="19" selection-end-line="375" selection-end-column="19" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/antropometry/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#636#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/urls.py">
+    <entry file="file://$PROJECT_DIR$/root/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="392">
+          <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/models.py">
+    <entry file="file://$PROJECT_DIR$/root/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state relative-caret-position="60">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14550">
+          <caret line="4" column="93901" selection-start-line="4" selection-start-column="93901" selection-end-line="4" selection-end-column="93901" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/sb-admin-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="280" column="1" lean-forward="true" selection-start-line="267" selection-end-line="280" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/images/users/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="555" column="52" lean-forward="true" selection-end-line="1012" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/dist/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="8489" column="1" selection-start-line="8489" selection-start-column="1" selection-end-line="8489" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="19" column="196" selection-start-line="19" selection-start-column="196" selection-end-line="19" selection-end-column="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+          <folding>
+            <element signature="e#12038#12059#0#HTML" expanded="true" />
+            <element signature="e#17836#17854#0#HTML" expanded="true" />
+            <element signature="e#18364#18382#0#HTML" expanded="true" />
+            <element signature="e#18886#18904#0#HTML" expanded="true" />
+            <element signature="e#19408#19425#0#HTML" expanded="true" />
+            <element signature="e#23237#23258#0#HTML" expanded="true" />
+            <element signature="e#23735#23740#0#HTML" expanded="true" />
+            <element signature="e#26471#26497#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/libs/flot/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="9123" column="4" selection-start-line="9123" selection-start-column="4" selection-end-line="9123" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/antropometry/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-923">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="e#373#429#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
         </state>
       </provider>
     </entry>
