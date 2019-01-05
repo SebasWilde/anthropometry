@@ -10,67 +10,88 @@
   <li class="breadcrumb-item active" aria-current="page">Agregar deportista</li>
 {% endblock %}
 {% block content %}
-    <div class="card h-100">
-      <form class="form-horizontal" method="post">
+  <div class="card h-100">
+    <form class="form-horizontal" method="post">
       {% csrf_token %}
-        <div class="card-body">
-          <h4 class="card-title">Información del deportista</h4>
-          <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-8">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="id_nombres">Nombres:</label>
-                  <input type="text" class="form-control" name="nombres" maxlength="45" placeholder="Nombres"  id="id_nombres" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="id_apellidos">Apellidos:</label>
-                  <input type="text" class="form-control" name="apellidos" maxlength="45" placeholder="Apellidos" id="id_apellidos" required>
-                </div>
+      <div class="card-body">
+        <h4 class="card-title">Información del deportista</h4>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="id_nombres">Nombres:</label>
+                <input type="text" class="form-control" name="nombres" maxlength="45" placeholder="Nombres"  id="id_nombres" required
+                    {% if object %}
+                       value="{{ object.nombres }}"
+                    {% endif %}>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-4">
-                  <label for="id_fecha_nacimiento">Fecha nacimiento:</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="id_fecha_nacimiento" placeholder="mm/dd/yyyy"  name="fecha_nacimiento" autocomplete="off" required>
-                    <div class="input-group-append">
-                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="id_deporte">Deporte:</label>
-                  <select class="form-control" name="deporte" id="id_deporte">
-                    <option value="" selected="">---------</option>
-                    {% for option in form.fields.deporte.choices.queryset %}
-                      <option value="{{ option.pk }}">{{ option.deporte }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="id_asociacion">Asociacion:</label>
-                  <select class="form-control" name="asociacion" id="id_asociacion">
-                    <option value="" selected="">---------</option>
-                    {% for option in form.fields.asociacion.choices.queryset %}
-                      <option value="{{ option.pk }}">{{ option.nombre }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="id_informacion_extra">Informacion extra:</label>
-                <textarea class="form-control" name="informacion_extra" id="id_informacion_extra"></textarea>
+              <div class="form-group col-md-6">
+                <label for="id_apellidos">Apellidos:</label>
+                <input type="text" class="form-control" name="apellidos" maxlength="45" placeholder="Apellidos" id="id_apellidos" required
+                    {% if object %}
+                       value="{{ object.apellidos }}"
+                    {% endif %}>
               </div>
             </div>
-          </div>
-          <div class="border-top">
-            <div class="card-body">
-              <button type="submit" class="btn btn-primary">Agregar</button>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="id_fecha_nacimiento">Fecha nacimiento:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="id_fecha_nacimiento" placeholder="mm/dd/yyyy"  name="fecha_nacimiento" autocomplete="off" required
+                      {% if object %}
+                         value="{{ object.fecha_nacimiento|date:'m/d/Y' }}"
+                      {% endif %}>
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="id_deporte">Deporte:</label>
+                <select class="form-control" name="deporte" id="id_deporte">
+                  <option value="" selected="">---------</option>
+                  {% for option in form.fields.deporte.choices.queryset %}
+                    <option value="{{ option.pk }}"
+                        {% if object and option == object.deporte %}
+                            selected
+                        {% endif %}
+                    >{{ option.deporte }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="id_asociacion">Asociacion:</label>
+                <select class="form-control" name="asociacion" id="id_asociacion">
+                  <option value="" selected="">---------</option>
+                  {% for option in form.fields.asociacion.choices.queryset %}
+                    <option value="{{ option.pk }}"
+                        {% if object and option == object.asociacion %}
+                            selected
+                        {% endif %}
+                    >{{ option.nombre }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="id_informacion_extra">Informacion extra:</label>
+              <textarea class="form-control" name="informacion_extra" id="id_informacion_extra">
+                {% if object %}
+                  {{ object.informacion_extra }}
+                {% endif %}
+              </textarea>
             </div>
           </div>
         </div>
-      </form>
-    </div>
+        <div class="border-top">
+          <div class="card-body">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 {% endblock %}
 
 {% block extra_js %}

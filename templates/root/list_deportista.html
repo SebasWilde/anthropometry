@@ -19,7 +19,7 @@
             <select name="ordering" class="form-control form-control-sm mx-2" id="id_ordering">
               <option value="nombres">Nombres</option>
               <option value="apellidos">Apellidos</option>
-              <option value="edad">Edad</option>
+              <option value="fecha_nacimiento">Edad</option>
               <option value="deporte">Deporte</option>
               <option value="asociacion">Asociacion</option>
             </select>
@@ -53,7 +53,10 @@
               <td>{{ deportista.get_age }}</td>
               <td>{{ deportista.deporte|capfirst }}</td>
               <td>{{ deportista.asociacion|capfirst }}</td>
-              <td><a class="btn btn-info btn-sm" href="{% url 'detail-deportista' pk=deportista.pk %}"><i class="fas fa-eye"></i></a></td>
+              <td class="text-center">
+                <a class="btn btn-info btn-sm" href="{% url 'detail-deportista' pk=deportista.pk %}"><i class="fas fa-eye"></i></a>
+                <a class="btn btn-warning btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>
+              </td>
             </tr>
           {% endfor %}
           </tbody>

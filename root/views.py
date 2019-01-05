@@ -1,9 +1,8 @@
 from django.views import View
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import F, ExpressionWrapper, fields
-from django.utils import timezone
+from django.urls import reverse_lazy
 from .models import Deportista
 from .forms import DeportistaForm
 
@@ -29,7 +28,6 @@ class ListDeportista(LoginRequiredMixin, ListView):
 
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', 'apellidos')
-        print(ordering)
         return ordering
 
 
@@ -39,6 +37,12 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
 
 
 class CreateDeportista(CreateView):
+    model = Deportista
+    form_class = DeportistaForm
+    template_name = 'root/add_deportista.html'
+
+
+class UpdateDeportista(UpdateView):
     model = Deportista
     form_class = DeportistaForm
     template_name = 'root/add_deportista.html'

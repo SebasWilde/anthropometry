@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Asociaciona la cual pertenece un deportista
 class Asociacion(models.Model):
-    nombre = models.CharField(max_length=125)
+    nombre = models.CharField(max_length=125, unique=True)
 
     def __str__(self):
         return self.nombre
@@ -12,7 +12,7 @@ class Asociacion(models.Model):
 
 # Deporte
 class Deporte(models.Model):
-    deporte = models.CharField(max_length=45)
+    deporte = models.CharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.deporte
