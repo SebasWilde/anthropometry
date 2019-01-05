@@ -20,6 +20,7 @@
       <div>
         <div class="twPc-button">
           <a class="btn btn-warning btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>
+          <a class="btn btn-info btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-address-book"></i></a>
         </div>
         <div class="twPc-avatarLink">
           <img src="{% get_media_prefix %}{{ object.foto }}" class="twPc-avatarImg">

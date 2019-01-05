@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/root/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/add_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/add_deportista.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/root/detail_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/detail_deportista.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/profile.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="66" column="3" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+            <state relative-caret-position="382">
+              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="127" column="31" lean-forward="true" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -28,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+            <state relative-caret-position="300">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -127,12 +136,12 @@
         <option value="$PROJECT_DIR$/antropometry/settings.py" />
         <option value="$PROJECT_DIR$/antropometry/urls.py" />
         <option value="$PROJECT_DIR$/root/constants.py" />
-        <option value="$PROJECT_DIR$/templates/root/add_deportista.html" />
         <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/static/css/profile.css" />
         <option value="$PROJECT_DIR$/root/models.py" />
+        <option value="$PROJECT_DIR$/static/css/profile.css" />
         <option value="$PROJECT_DIR$/templates/root/detail_deportista.html" />
+        <option value="$PROJECT_DIR$/templates/root/add_deportista.html" />
       </list>
     </option>
   </component>
@@ -265,15 +274,16 @@
       <workItem from="1546641125098" duration="48000" />
       <workItem from="1546643329606" duration="26751000" />
       <workItem from="1546672957483" duration="57000" />
-      <workItem from="1546707374595" duration="9067000" />
+      <workItem from="1546707374595" duration="10726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48132000" />
+    <option name="totallyTimeSpent" value="49791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2905028" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -418,18 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="78" column="84" selection-start-line="78" selection-start-column="84" selection-end-line="78" selection-end-column="84" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
@@ -482,15 +480,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        <state relative-caret-position="300">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/profile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="66" column="3" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+        <state relative-caret-position="382">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="127" column="31" lean-forward="true" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
         </state>
       </provider>
     </entry>
