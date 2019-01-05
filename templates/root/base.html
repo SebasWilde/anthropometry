@@ -10,12 +10,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon.png' %}">
   <title>Anthropometry</title>
   <!-- Custom CSS -->
   <link href="{% static 'assets/libs/flot/css/float-chart.css' %}" rel="stylesheet">
   <!-- Custom CSS -->
-  <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/dist/css/style.min.css' %}" rel="stylesheet">
   {% block extra_css %}{% endblock %}
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -57,19 +57,19 @@
           <b class="logo-icon p-l-10">
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             <!-- Dark Logo icon -->
-            <img src="{% static 'assets/images/logo-icon.png' %}" alt="homepage" class="light-logo" />
+            <img src="{% static 'img/logo-icon.png' %}" alt="homepage" class="light-logo" />
           </b>
           <!--End Logo icon -->
           <!-- Logo text -->
           <span class="logo-text">
              <!-- dark Logo text -->
-             <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="light-logo" />
+             <img src="{% static 'img/logo-text.png' %}" alt="homepage" class="light-logo" />
           </span>
           <!-- Logo icon -->
           <!-- <b class="logo-icon"> -->
           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
           <!-- Dark Logo icon -->
-          <!-- <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="light-logo" /> -->
+          <!-- <img src="{% static 'img/logo-text.png' %}" alt="homepage" class="light-logo" /> -->
 
           <!-- </b> -->
           <!--End Logo icon -->
@@ -198,7 +198,7 @@
           <!-- User profile and search -->
           <!-- ============================================================== -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'assets/images/users/1.jpg' %}" alt="user" class="rounded-circle" width="31"></a>
+            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'img/users/1.jpg' %}" alt="user" class="rounded-circle" width="31"></a>
             <div class="dropdown-menu dropdown-menu-right user-dd animated">
               <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
               <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -329,13 +329,13 @@
 <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
 <script src="{% static 'assets/extra-libs/sparkline/sparkline.js' %}"></script>
 <!--Wave Effects -->
-<script src="{% static 'dist/js/waves.js' %}"></script>
+<script src="{% static 'js/dist/js/waves.js' %}"></script>
 <!--Menu sidebar -->
-<script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
+<script src="{% static 'js/dist/js/sidebarmenu.js' %}"></script>
 <!--Custom JavaScript -->
-<script src="{% static 'dist/js/custom.min.js' %}"></script>
+<script src="{% static 'js/dist/js/custom.min.js' %}"></script>
 <!--This page JavaScript -->
-<!-- <script src={% static 'dist/js/pages/dashboards/dashboard1.js' %}"></script> -->
+<!-- <script src={% static 'js/dist/js/pages/dashboards/dashboard1.js' %}"></script> -->
 <!-- Charts js Files -->
 <script src="{% static 'assets/libs/flot/excanvas.js' %}"></script>
 <script src="{% static 'assets/libs/flot/jquery.flot.js' %}"></script>
@@ -344,7 +344,7 @@
 <script src="{% static 'assets/libs/flot/jquery.flot.stack.js' %}"></script>
 <script src="{% static 'assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
 <script src="{% static 'assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
-<script src="{% static 'dist/js/pages/chart/chart-page-init.js' %}"></script>
+<script src="{% static 'js/dist/js/pages/chart/chart-page-init.js' %}"></script>
 {% block extra_js %}{% endblock %}
 </body>
 
