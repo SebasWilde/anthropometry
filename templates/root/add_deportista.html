@@ -5,9 +5,13 @@
   <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
 {% endblock %}
 
-{% block title %}Agregar deportista{% endblock %}
+{% block title %}
+  {% if object %}Editar{% else %}Agregar{% endif %} deportista{% endblock %}
 {% block page %}
-  <li class="breadcrumb-item active" aria-current="page">Agregar deportista</li>
+  {% if object %}
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'list-deportista' %}">Lista de deportistas</a></li>
+  {% endif %}
+  <li class="breadcrumb-item active" aria-current="page">{% if object %}Editar{% else %}Agregar{% endif %} deportista</li>
 {% endblock %}
 {% block content %}
   <div class="card h-100">
@@ -16,7 +20,14 @@
       <div class="card-body">
         <h4 class="card-title">Información del deportista</h4>
         <div class="row">
-          <div class="col-md-4"></div>
+          <div class="col-md-4 py-3">
+            <input class="d-none" type="file" name="foto" accept="image/*" id="id_foto" onchange="readURL(this);">
+            <label for="id_foto">
+              <div class="border border-secondary">
+                <img id="display_img" src="{% get_media_prefix %}default/default_user.png" class="img-fluid">
+              </div>
+            </label>
+          </div>
           <div class="col-md-8">
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -35,7 +46,7 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                 <label for="id_fecha_nacimiento">Fecha nacimiento:</label>
                 <div class="input-group">
                   <input type="text" class="form-control" id="id_fecha_nacimiento" placeholder="mm/dd/yyyy"  name="fecha_nacimiento" autocomplete="off" required
@@ -47,9 +58,25 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
+                <label for="id_sexo">Sexo:</label>
+                <select class="form-control" name="sexo" id="id_sexo" required>
+                  {% for option in form.fields.sexo.choices %}
+                    {% if not forloop.first %}
+                      <option value="{{ option.0 }}"
+                          {% if object and option.0 == object.sexo %}
+                              selected
+                          {% endif %}
+                      >{{ option.1 }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
                 <label for="id_deporte">Deporte:</label>
-                <select class="form-control" name="deporte" id="id_deporte">
+                <select class="form-control" name="deporte" id="id_deporte" required>
                   <option value="" selected="">---------</option>
                   {% for option in form.fields.deporte.choices.queryset %}
                     <option value="{{ option.pk }}"
@@ -60,9 +87,9 @@
                   {% endfor %}
                 </select>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                 <label for="id_asociacion">Asociacion:</label>
-                <select class="form-control" name="asociacion" id="id_asociacion">
+                <select class="form-control" name="asociacion" id="id_asociacion" required>
                   <option value="" selected="">---------</option>
                   {% for option in form.fields.asociacion.choices.queryset %}
                     <option value="{{ option.pk }}"
@@ -74,15 +101,11 @@
                 </select>
               </div>
             </div>
-            <div class="form-group">
-              <label for="id_informacion_extra">Informacion extra:</label>
-              <textarea class="form-control" name="informacion_extra" id="id_informacion_extra">
-                {% if object %}
-                  {{ object.informacion_extra }}
-                {% endif %}
-              </textarea>
-            </div>
           </div>
+        </div>
+        <div class="form-group">
+          <label for="id_informacion_extra">Informacion extra:</label>
+          <textarea class="form-control" name="informacion_extra" id="id_informacion_extra">{% if object %}{{ object.informacion_extra }}{% endif %}</textarea>
         </div>
         <div class="border-top">
           <div class="card-body">
@@ -104,5 +127,18 @@
           todayHighlight: true,
           orientation: "bottom"
       });
+
+      /*load image */
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#display_img')
+                      .attr('src', e.target.result)
+              };
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
   </script>
 {% endblock %}
