@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.timezone import now
 from datetime import datetime
 from .constants import SEXO
-
+from decimal import *
 
 # Asociaciona la cual pertenece un deportista
 class Asociacion(models.Model):
@@ -92,113 +92,141 @@ class Medida(models.Model):
     pliege_pierna = models.DecimalField(max_digits=3, decimal_places=1)
 
     def __str__(self):
-        return self.deportista
+        return self.deportista.__str__()
 
     def get_absolute_url(self):
         return reverse('detail-deportista', kwargs={'pk': self.deportista.pk})
 
-    def get_sum_plieges(self):
-        return self.triceps + self.subescapular + self.supraespinal + \
+    def get_sum_pliegues(self):
+        sum_pliegues = self.triceps + self.subescapular + self.supraespinal + \
                self.abdominales + self.muslo_medio + self.pliege_pierna
+        return sum_pliegues.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_grasa_corporal(self):
-        return ((0.1051 * self.get_sum_plieges()) + 2.585) / 100
+        grasa_corporal = ((Decimal(0.1051) * self.get_sum_pliegues()) +
+                          (Decimal(2.585))) / Decimal(100)
+        return grasa_corporal.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_masa_magra(self):
-        return self.peso_bruto - (self.peso_bruto * self.get_grasa_corporal())
+        masa_magra = self.peso_bruto - (
+                self.peso_bruto * self.get_grasa_corporal())
+        return masa_magra.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_peso_ideal_menor(self):
-        return self.get_masa_magra() / 0.95
+        peso_ideal_menor = self.get_masa_magra() / Decimal(0.95)
+        return peso_ideal_menor.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_peso_ideal_mayor(self):
-        return self.get_masa_magra() / 0.91
+        peso_ideal_mayor = self.get_masa_magra() / Decimal(0.91)
+        return peso_ideal_mayor.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_indice_masa_corporal(self):
-        return self.peso_bruto / (pow(float(self.estatura), 2))
+        indice_masa_corporal = self.peso_bruto / \
+                               Decimal(pow(float(self.estatura)/100.0, 2))
+        return indice_masa_corporal.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_indice_sustancia_activa(self):
-        return (self.get_masa_magra() * 100000) / pow(float(self.estatura), 3)
+        indice_sustancia_activa = (self.get_masa_magra() * Decimal(100000)) / \
+                                  (Decimal(pow(float(self.estatura), 3))
+                                   .quantize(Decimal('.01'),
+                                             rounding=ROUND_UP))
+        return indice_sustancia_activa.quantize(Decimal('.01'),
+                                                rounding=ROUND_UP)
 
     def get_indice_cintaura_cadera(self):
-        return self.cintura / self.cadera
+        indice_cintaura_cadera =  self.cintura / self.cadera
+        return indice_cintaura_cadera.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_indice_citura_talla(self):
-        return self.cintura / self.estatura
+        indice_citura_talla = self.cintura / self.estatura
+        return indice_citura_talla.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_endomorfismo(self):
         x = (self.triceps + self.subescapular + self.supraespinal) * \
-            170.18 / self.estatura
-        return (0.1451 * x) - (0.00068 * pow(float(x), 2)) + \
-               (0.0000014 * pow(float(x), 3)) - 0.7182
+            Decimal(170.18) / self.estatura
+        endomorfismo = (Decimal(0.1451) * x) - \
+               (Decimal(0.00068) * Decimal(pow(float(x), 2))) + \
+               (Decimal(0.0000014) * Decimal(pow(float(x), 3))) - \
+               (Decimal(0.7182))
+        return endomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_mesomorfismo(self):
-        return (0.858 * self.humeral) + (0.601 * self.femoral) + \
-               (0.188 * (self.brazo_flexionado - (self.triceps / 10))) + \
-               (0.161 * (self.perimetro_pantorrilla - (self.pliege_pierna / 10))) \
-               + (0.131 * self.estatura) - 4.5
+        E = self.humeral
+        K = self.femoral
+        A = self.brazo_flexionado - (self.triceps / Decimal(10))
+        C = self.perimetro_pantorrilla - (self.pliege_pierna / Decimal(10))
+        H = self.estatura
+        mesomorfismo = (Decimal(0.858) * E) + (Decimal(0.601) * K) + \
+                       (Decimal(0.188) * A) + (Decimal(0.161) * C) - \
+                       (Decimal(0.131) * H) + Decimal(4.5)
+        return mesomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_ectomorfismo(self):
-        rpi = self.estatura / (pow(float(self.peso_bruto), 0.3333))
-        if rpi > 40.75:
-            return (0.732 * rpi) - 28.58
-        elif 38.25 <= rpi <= 40.75:
-            return (0.463 * rpi) - 17.63
-        elif rpi < 38.25:
-            return 0.1
+        rpi = self.estatura / Decimal((pow(float(self.peso_bruto), 0.3333)))
+        ectomorfismo = None
+        if rpi > Decimal(40.75):
+            ectomorfismo = (Decimal(0.732) * rpi) - Decimal(28.58)
+        elif Decimal(38.25) <= rpi <= Decimal(40.75):
+            ectomorfismo = (Decimal(0.463) * rpi) - Decimal(17.63)
+        elif rpi < Decimal(38.25):
+            ectomorfismo = Decimal(0.1)
+        return ectomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_caracterizacion(self):
         endo = self.get_endomorfismo()
         meso = self.get_mesomorfismo()
         ecto = self.get_ectomorfismo()
         metrics = [endo, meso, ecto]
-        if abs(endo-meso) < 1 and abs(endo-ecto) < 1 and abs(meso-ecto) < 1:
+        if abs(endo-meso) < Decimal(1) and \
+                abs(endo-ecto) < Decimal(1) and \
+                abs(meso-ecto) < Decimal(1):
             return 'Central'
         elif max(metrics) == endo:
-            if (ecto - meso) > 0.5:
+            if (ecto - meso) > Decimal(0.5):
                 return 'Endo ectomórfico'
-            elif abs(ecto - meso) < 0.5:
+            elif abs(ecto - meso) < Decimal(0.5):
                 return 'Endo balanceado'
-            elif (meso - ecto) > 0.5:
+            elif (meso - ecto) > Decimal(0.5):
                 return 'Endo mesomórfico'
-        elif min(metrics) == ecto and abs(endo - meso) < 0.5:
+        elif min(metrics) == ecto and abs(endo - meso) < Decimal(0.5):
             return 'Endomorfo mesomorfo'
         elif max(metrics) == meso:
-            if (endo - ecto) > 0.5:
+            if (endo - ecto) > Decimal(0.5):
                 return 'Meso endomórfico'
-            elif abs(endo - ecto) < 0.5:
+            elif abs(endo - ecto) < Decimal(0.5):
                 return 'Meso balanceado'
-            elif (ecto - endo) > 0.5:
+            elif (ecto - endo) > Decimal(0.5):
                 return 'Meso ectomórfico'
-        elif min(metrics) == endo and abs(ecto - meso) < 0.5:
+        elif min(metrics) == endo and abs(ecto - meso) < Decimal(0.5):
             return 'Ectomorfo mesomorfo'
         elif max(metrics) == ecto:
-            if (meso - endo) > 0.5:
+            if (meso - endo) > Decimal(0.5):
                 return 'Ecto mesomórfico'
-            elif abs(meso - endo) < 0.5:
+            elif abs(meso - endo) < Decimal(0.5):
                 return 'Ecto balanceado'
-            elif (endo - meso) > 0.5:
+            elif (endo - meso) > Decimal(0.5):
                 return 'Ecto endomórfico'
-        elif min(metrics) == meso and abs(ecto - endo) < 0.5:
+        elif min(metrics) == meso and abs(ecto - endo) < Decimal(0.5):
             return 'Ectomorfo endomorfo'
 
     def get_observacion_masa_grasa(self):
-        sum_6_pliegues = self.get_sum_plieges()
-        if sum_6_pliegues > 65:
+        sum_6_pliegues = self.get_sum_pliegues()
+        if sum_6_pliegues > Decimal(65):
             return 'red', 'Muy elevada masa grasa'
-        elif 51 < sum_6_pliegues < 65:
+        elif Decimal(51) < sum_6_pliegues < Decimal(65):
             return 'yellow', 'Elevada masa grasa'
         else:
             return 'blue', 'Adecuada masa grasa'
 
     def get_observacion_masa_muscular(self):
         imc = self.get_indice_masa_corporal()
-        if imc < 16.3:
+        if imc < Decimal(16.3):
             return 'red', 'Muy escasa masa muscular'
-        elif imc < 18.0:
+        elif imc < Decimal(18.0):
             return 'yellow', 'Escasa masa muscular'
-        elif 18.0 < imc < 20.6:
+        elif Decimal(18.0) < imc < Decimal(20.6):
             return 'blue', 'Adecuada Musculatura'
-        elif imc > 20.6:
+        elif imc > Decimal(20.6):
             return 'orange', 'Elevada Musculatura'
 
 

@@ -36,6 +36,13 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
     model = Deportista
     template_name = 'root/detail_deportista.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(DetailDeportista, self).get_context_data(**kwargs)
+        medidas = Medida.objects.filter(deportista__id=self.kwargs.get('pk'))\
+            .order_by('fecha_registro')
+        context['medidas'] = medidas
+        return context
+
 
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
