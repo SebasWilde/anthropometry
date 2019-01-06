@@ -75,7 +75,9 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="id_deporte">Deporte:</label>
+                <label for="id_deporte">
+                  Deporte: ( <i class="fas fa-plus text-success" data-toggle="modal" data-target="#deporteModal"></i> )
+                </label>
                 <select class="form-control" name="deporte" id="id_deporte" required>
                   <option value="" selected="">---------</option>
                   {% for option in form.fields.deporte.choices.queryset %}
@@ -88,7 +90,9 @@
                 </select>
               </div>
               <div class="form-group col-md-6">
-                <label for="id_asociacion">Asociacion:</label>
+                <label for="id_asociacion">
+                  Asociacion: ( <i class="fas fa-plus text-success" data-toggle="modal" data-target="#asociacionModal"></i> )
+                </label>
                 <select class="form-control" name="asociacion" id="id_asociacion" required>
                   <option value="" selected="">---------</option>
                   {% for option in form.fields.asociacion.choices.queryset %}
@@ -107,15 +111,16 @@
           <label for="id_informacion_extra">Informacion extra:</label>
           <textarea class="form-control" name="informacion_extra" id="id_informacion_extra">{% if object %}{{ object.informacion_extra }}{% endif %}</textarea>
         </div>
-        <div class="border-top">
-          <div class="card-body">
+        <div class="border-top py-2">
             <button type="submit" class="btn btn-success">Agregar</button>
-            <button onclick="window.history.back();" class="btn btn-danger">Cancelar</a>
-          </div>
+            <button onclick="window.history.back();" class="btn btn-danger">Cancelar</button>
         </div>
       </div>
     </form>
   </div>
+  {% include 'includes/add_deporte.html' %}
+  {% include 'includes/add_asociacion.html' %}
+
 {% endblock %}
 
 {% block extra_js %}

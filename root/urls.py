@@ -7,6 +7,9 @@ from .views import (
     DetailDeportista,
     CreateDeportista,
     UpdateDeportista,
+    CreateDeporte,
+    CreateAsociacion,
+    CreateMedida,
 )
 
 
@@ -19,4 +22,7 @@ urlpatterns = [
     path('deportista/add/', CreateDeportista.as_view(), name='add-deportista'),
     path('deportista/edit/<int:pk>/', UpdateDeportista.as_view(),
          name='edit-deportista'),
+    path('deporte/add/', CreateDeporte.as_view(), name='add-deporte'),
+    path('asociacion/add/', CreateAsociacion.as_view(), name='add-asociacion'),
+    path('medida/add/', CreateMedida.as_view(), name='add-medida'),
 ]

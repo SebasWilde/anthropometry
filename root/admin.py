@@ -4,4 +4,4 @@ from .models import *
 admin.site.register(Asociacion)
 admin.site.register(Deporte)
 admin.site.register(Deportista)
-
+admin.site.register(Medida)

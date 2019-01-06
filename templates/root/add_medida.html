@@ -1,0 +1,161 @@
+{% extends 'root/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+{% endblock %}
+
+{% block title %}Tomar medidas{% endblock %}
+{% block page %}
+  {% if object %}
+  {% endif %}
+  <li class="breadcrumb-item active" aria-current="page">Tomar medidas</li>
+{% endblock %}
+{% block content %}
+  <div class="card h-100">
+    <form class="form-horizontal" method="post">
+      {% csrf_token %}
+      <div class="card-body">
+        <div id="medida-info-basica">
+          <h4 class="card-title">Información básica</h4>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id_deportista">Deportista:</label>
+              <select class="form-control" name="deportista" required="" id="id_deportista">
+                {% for option in form.fields.deportista.choices.queryset %}
+                  <option value="{{ option.pk }}">{{ option }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_fecha_registro">Fecha registro:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="id_fecha_registro" placeholder="mm/dd/yyyy"  name="fecha_registro" autocomplete="off" required
+                       value="{{ form.fecha_registro.value|date:'m/d/Y' }}">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_medicion">Tipo de medicion:</label>
+              <select class="form-control" name="" required="" id="id_medicion">
+                <option>Tipo 1</option>
+                <option>Tipo 2</option>
+                <option>Tipo 3</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+        <div id="medida-basicos">
+          <h4 class="card-title">Medidas básicas</h4>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="id_peso_bruto">Peso bruto:</label>
+              <input class="form-control" type="number" name="peso_bruto" step="0.1" required="" id="id_peso_bruto">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="id_estatura">Estatura:</label>
+              <input class="form-control" type="number" name="estatura" step="0.1" required="" id="id_estatura">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="id_talla_sentado">Talla sentado:</label>
+              <input class="form-control" type="number" name="talla_sentado" step="0.1" required="" id="id_talla_sentado">
+            </div>
+          </div>
+        </div>
+        <div id="medida-pliegues">
+          <h4 class="card-title">Medidas de pliegues</h4>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="id_triceps">Triceps:</label>
+              <input class="form-control" type="number" name="triceps" step="0.1" required id="id_triceps">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_subescapular">Subescapular:</label>
+              <input class="form-control" type="number" name="subescapular" step="0.1" required id="id_subescapular">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_biceps">Biceps:</label>
+              <input class="form-control" type="number" name="biceps" step="0.1" required id="id_biceps">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_suprailiaco">Suprailiaco:</label>
+              <input class="form-control" type="number" name="suprailiaco" step="0.1" required id="id_suprailiaco"
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="id_supraespinal">Supraespinal:</label>
+              <input class="form-control" type="number" name="supraespinal" step="0.1" required id="id_supraespinal">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_abdominales">Abdominales:</label>
+              <input class="form-control" type="number" name="abdominales" step="0.1" required id="id_abdominales">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_muslo_medio">Muslo medio:</label>
+              <input class="form-control" type="number" name="muslo_medio" step="0.1" required id="id_muslo_medio">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_pliege_pierna">Pliege pierna:</label>
+              <input class="form-control" type="number" name="pliege_pierna" step="0.1" required id="id_pliege_pierna">
+            </div>
+          </div>
+        </div>
+        <div id="medida-perimetros">
+          <h4 class="card-title">Medidas de perímetros</h4>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="id_brazo_flexionado">Brazo flexionado:</label>
+              <input class="form-control" type="number" name="brazo_flexionado" step="0.1" required="" id="id_brazo_flexionado">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_cintura">Cintura:</label>
+              <input class="form-control" type="number" name="cintura" step="0.1" required="" id="id_cintura">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_cadera">Cadera:</label>
+              <input class="form-control" type="number" name="cadera" step="0.1" required="" id="id_cadera">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="id_perimetro_pantorrilla">Perimetro pantorrilla:</label>
+              <input class="form-control" type="number" name="perimetro_pantorrilla" step="0.1" required="" id="id_perimetro_pantorrilla">
+            </div>
+          </div>
+        </div>
+        <div id="medida-diametros">
+          <h4 class="card-title">Medidas de diametros</h4>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id_humeral">Humeral:</label>
+              <input class="form-control" type="number" name="humeral" step="0.1" required="" id="id_humeral">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id_femoral">Femoral:</label>
+              <input class="form-control" type="number" name="femoral" step="0.1" required="" id="id_femoral">
+            </div>
+          </div>
+        </div>
+        <div class="border-top py-2">
+          <button type="submit" class="btn btn-success">Agregar</button>
+          <button onclick="window.history.back();" class="btn btn-danger">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+
+  <script>
+      /*datwpicker*/
+      jQuery('#id_fecha_registro').datepicker({
+          autoclose: true,
+          todayHighlight: true,
+          orientation: "bottom"
+      });
+
+  </script>
+{% endblock %}
