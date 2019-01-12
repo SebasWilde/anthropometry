@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/add_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/add_deportista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/add_medida.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/add_medida.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/root/detail_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/detail_deportista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/list_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/list_deportista.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="55" column="86" selection-start-line="55" selection-start-column="86" selection-end-line="55" selection-end-column="86" />
+            <state relative-caret-position="180">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -34,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/list_deportista.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="71" selection-start-line="71" selection-end-line="77" selection-end-column="11" />
+            <state relative-caret-position="330">
+              <caret line="58" column="129" lean-forward="true" selection-start-line="58" selection-start-column="112" selection-end-line="58" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -52,8 +45,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
+            <state relative-caret-position="-8572">
               <caret line="40" column="39" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/root/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="282" column="38" lean-forward="true" selection-start-line="282" selection-start-column="38" selection-end-line="282" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -217,23 +219,6 @@
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -332,12 +317,12 @@
       <workItem from="1546672957483" duration="57000" />
       <workItem from="1546707374595" duration="34576000" />
       <workItem from="1546957088865" duration="605000" />
-      <workItem from="1547244259917" duration="5151000" />
+      <workItem from="1547244259917" duration="5706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79397000" />
+    <option name="totallyTimeSpent" value="79952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -437,13 +422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="200" column="209" selection-start-line="200" selection-start-column="209" selection-end-line="200" selection-end-column="209" />
         </state>
       </provider>
     </entry>
@@ -575,24 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/list_deportista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" selection-start-line="71" selection-end-line="77" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -603,10 +567,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8572">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/libs/flot/API.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-360" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="282" column="38" lean-forward="true" selection-start-line="282" selection-start-column="38" selection-end-line="282" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/list_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="58" column="129" lean-forward="true" selection-start-line="58" selection-start-column="112" selection-end-line="58" selection-end-column="129" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="55" column="86" selection-start-line="55" selection-start-column="86" selection-end-line="55" selection-end-column="86" />
+        <state relative-caret-position="180">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
         </state>
       </provider>
     </entry>

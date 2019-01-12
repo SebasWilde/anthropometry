@@ -19,7 +19,7 @@
         <a class="twPc-bg twPc-block"></a>
         <div>
           <div class="twPc-button">
-            <a class="btn btn-warning btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>
+            <a class="btn btn-primary btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>
             <a class="btn btn-info btn-sm" href="#"><i class="fas fa-address-book"></i></a>
           </div>
           <div class="twPc-avatarLink">
@@ -113,7 +113,7 @@
               <tbody>
               {% for medida in medidas %}
                 <tr>
-                  <td><a class="btn btn-warning btn-sm" href="{% url 'edit-medida' medida.id %}"><i class="fas fa-weight"></i></a></td>
+                  <td><a class="btn btn-primary btn-sm" href="{% url 'edit-medida' medida.id %}"><i class="fas fa-pencil-alt"></i></a></td>
                   <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
                   <td>{{ medida.peso_bruto }}</td>
                   <td>{{ medida.get_peso_ideal_menor }}</td>
