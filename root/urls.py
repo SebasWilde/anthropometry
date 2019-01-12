@@ -10,6 +10,7 @@ from .views import (
     CreateDeporte,
     CreateAsociacion,
     CreateMedida,
+    UpdateMedida,
 )
 
 
@@ -25,4 +26,7 @@ urlpatterns = [
     path('deporte/add/', CreateDeporte.as_view(), name='add-deporte'),
     path('asociacion/add/', CreateAsociacion.as_view(), name='add-asociacion'),
     path('medida/add/', CreateMedida.as_view(), name='add-medida'),
+    path('medida/add/<int:deportista_pk>/', CreateMedida.as_view(),
+         name='add-medida'),
+    path('medida/edit/<int:pk>/', UpdateMedida.as_view(), name='edit-medida'),
 ]

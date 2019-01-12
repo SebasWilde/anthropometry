@@ -2,7 +2,8 @@ from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+# from django.contrib.auth.models import User
+# from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Deportista, Deporte, Asociacion, Medida
 from .forms import DeportistaForm, DeporteForm, AsociacionForm, MedidaForm
@@ -39,7 +40,7 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(DetailDeportista, self).get_context_data(**kwargs)
         medidas = Medida.objects.filter(deportista__id=self.kwargs.get('pk'))\
-            .order_by('fecha_registro')
+            .order_by('-fecha_registro')
         context['medidas'] = medidas
         return context
 
@@ -91,5 +92,20 @@ class CreateMedida(LoginRequiredMixin, CreateView):
     model = Medida
     form_class = MedidaForm
     template_name = 'root/add_medida.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        deportista_id = self.kwargs.get('deportista_pk', None)
+        if deportista_id:
+            deportista = Deportista.objects.get(pk=deportista_id)
+            context['deportista'] = deportista
+        return context
+
+
+class UpdateMedida(LoginRequiredMixin, UpdateView):
+    model = Medida
+    form_class = MedidaForm
+    template_name = 'root/add_medida.html'
+
 
 

@@ -8,6 +8,7 @@
 {% block title %}Tomar medidas{% endblock %}
 {% block page %}
   {% if object %}
+      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'detail-deportista' object.pk %}">Detalle deportista</a></li>
   {% endif %}
   <li class="breadcrumb-item active" aria-current="page">Tomar medidas</li>
 {% endblock %}
@@ -20,18 +21,31 @@
           <h4 class="card-title">Información básica</h4>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="id_deportista">Deportista:</label>
-              <select class="form-control" name="deportista" required="" id="id_deportista">
-                {% for option in form.fields.deportista.choices.queryset %}
-                  <option value="{{ option.pk }}">{{ option }}</option>
-                {% endfor %}
-              </select>
+              {% if deportista %}
+                <label>Deportista:</label>
+                <h5>{{ deportista }}</h5>
+                <input type="hidden" name="deportista" value="{{ deportista.pk }}">
+              {% else %}
+                <label for="id_deportista">Deportista:</label>
+                <select class="form-control" name="deportista" required="" id="id_deportista">
+                  {% for option in form.fields.deportista.choices.queryset %}
+                    <option value="{{ option.pk }}"
+                        {% if object and option == object.deportista %}
+                            selected
+                        {% endif %}>{{ option }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}
             </div>
             <div class="form-group col-md-3">
               <label for="id_fecha_registro">Fecha registro:</label>
               <div class="input-group">
                 <input type="text" class="form-control" id="id_fecha_registro" placeholder="mm/dd/yyyy"  name="fecha_registro" autocomplete="off" required
-                       value="{{ form.fecha_registro.value|date:'m/d/Y' }}">
+                    {% if object %}
+                       value="{{ object.fecha_registro|date:'m/d/Y' }}"
+                    {% else %}
+                       value="{{ form.fecha_registro.value|date:'m/d/Y' }}"
+                    {% endif %}>
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
@@ -45,7 +59,6 @@
                 <option>Tipo 3</option>
               </select>
             </div>
-
           </div>
         </div>
         <div id="medida-basicos">
@@ -53,15 +66,24 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="id_peso_bruto">Peso bruto:</label>
-              <input class="form-control" type="number" name="peso_bruto" step="0.1" required="" id="id_peso_bruto">
+              <input class="form-control" type="number" name="peso_bruto" step="0.1" required="" id="id_peso_bruto"
+                  {% if object %}
+                     value="{{ object.peso_bruto }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-4">
               <label for="id_estatura">Estatura:</label>
-              <input class="form-control" type="number" name="estatura" step="0.1" required="" id="id_estatura">
+              <input class="form-control" type="number" name="estatura" step="0.1" required="" id="id_estatura"
+                  {% if object %}
+                     value="{{ object.estatura }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-4">
               <label for="id_talla_sentado">Talla sentado:</label>
-              <input class="form-control" type="number" name="talla_sentado" step="0.1" required="" id="id_talla_sentado">
+              <input class="form-control" type="number" name="talla_sentado" step="0.1" required="" id="id_talla_sentado"
+                  {% if object %}
+                     value="{{ object.talla_sentado }}"
+                  {% endif %}>
             </div>
           </div>
         </div>
@@ -70,37 +92,61 @@
           <div class="form-row">
             <div class="form-group col-md-3">
               <label for="id_triceps">Triceps:</label>
-              <input class="form-control" type="number" name="triceps" step="0.1" required id="id_triceps">
+              <input class="form-control" type="number" name="triceps" step="0.1" required id="id_triceps"
+                  {% if object %}
+                     value="{{ object.triceps }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_subescapular">Subescapular:</label>
-              <input class="form-control" type="number" name="subescapular" step="0.1" required id="id_subescapular">
+              <input class="form-control" type="number" name="subescapular" step="0.1" required id="id_subescapular"
+                  {% if object %}
+                     value="{{ object.subescapular }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_biceps">Biceps:</label>
-              <input class="form-control" type="number" name="biceps" step="0.1" required id="id_biceps">
+              <input class="form-control" type="number" name="biceps" step="0.1" required id="id_biceps"
+                  {% if object %}
+                     value="{{ object.biceps }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_suprailiaco">Suprailiaco:</label>
               <input class="form-control" type="number" name="suprailiaco" step="0.1" required id="id_suprailiaco"
+                  {% if object %}
+                     value="{{ object.suprailiaco }}"
+                  {% endif %}>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-3">
               <label for="id_supraespinal">Supraespinal:</label>
-              <input class="form-control" type="number" name="supraespinal" step="0.1" required id="id_supraespinal">
+              <input class="form-control" type="number" name="supraespinal" step="0.1" required id="id_supraespinal"
+                  {% if object %}
+                     value="{{ object.supraespinal }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_abdominales">Abdominales:</label>
-              <input class="form-control" type="number" name="abdominales" step="0.1" required id="id_abdominales">
+              <input class="form-control" type="number" name="abdominales" step="0.1" required id="id_abdominales"
+                  {% if object %}
+                     value="{{ object.abdominales }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_muslo_medio">Muslo medio:</label>
-              <input class="form-control" type="number" name="muslo_medio" step="0.1" required id="id_muslo_medio">
+              <input class="form-control" type="number" name="muslo_medio" step="0.1" required id="id_muslo_medio"
+                  {% if object %}
+                     value="{{ object.muslo_medio }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_pliege_pierna">Pliege pierna:</label>
-              <input class="form-control" type="number" name="pliege_pierna" step="0.1" required id="id_pliege_pierna">
+              <input class="form-control" type="number" name="pliege_pierna" step="0.1" required id="id_pliege_pierna"
+                  {% if object %}
+                     value="{{ object.pliege_pierna }}"
+                  {% endif %}>
             </div>
           </div>
         </div>
@@ -109,19 +155,31 @@
           <div class="form-row">
             <div class="form-group col-md-3">
               <label for="id_brazo_flexionado">Brazo flexionado:</label>
-              <input class="form-control" type="number" name="brazo_flexionado" step="0.1" required="" id="id_brazo_flexionado">
+              <input class="form-control" type="number" name="brazo_flexionado" step="0.1" required="" id="id_brazo_flexionado"
+                  {% if object %}
+                     value="{{ object.brazo_flexionado }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_cintura">Cintura:</label>
-              <input class="form-control" type="number" name="cintura" step="0.1" required="" id="id_cintura">
+              <input class="form-control" type="number" name="cintura" step="0.1" required="" id="id_cintura"
+                  {% if object %}
+                     value="{{ object.cintura }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_cadera">Cadera:</label>
-              <input class="form-control" type="number" name="cadera" step="0.1" required="" id="id_cadera">
+              <input class="form-control" type="number" name="cadera" step="0.1" required="" id="id_cadera"
+                  {% if object %}
+                     value="{{ object.cadera }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-3">
               <label for="id_perimetro_pantorrilla">Perimetro pantorrilla:</label>
-              <input class="form-control" type="number" name="perimetro_pantorrilla" step="0.1" required="" id="id_perimetro_pantorrilla">
+              <input class="form-control" type="number" name="perimetro_pantorrilla" step="0.1" required="" id="id_perimetro_pantorrilla"
+                  {% if object %}
+                     value="{{ object.perimetro_pantorrilla }}"
+                  {% endif %}>
             </div>
           </div>
         </div>
@@ -130,16 +188,22 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="id_humeral">Humeral:</label>
-              <input class="form-control" type="number" name="humeral" step="0.1" required="" id="id_humeral">
+              <input class="form-control" type="number" name="humeral" step="0.1" required="" id="id_humeral"
+                  {% if object %}
+                     value="{{ object.humeral }}"
+                  {% endif %}>
             </div>
             <div class="form-group col-md-6">
               <label for="id_femoral">Femoral:</label>
-              <input class="form-control" type="number" name="femoral" step="0.1" required="" id="id_femoral">
+              <input class="form-control" type="number" name="femoral" step="0.1" required="" id="id_femoral"
+                  {% if object %}
+                     value="{{ object.femoral }}"
+                  {% endif %}>
             </div>
           </div>
         </div>
         <div class="border-top py-2">
-          <button type="submit" class="btn btn-success">Agregar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
           <button onclick="window.history.back();" class="btn btn-danger">Cancelar</button>
         </div>
       </div>
