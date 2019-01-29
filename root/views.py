@@ -79,6 +79,20 @@ class CreateDeporte(LoginRequiredMixin, CreateView):
         return reverse_lazy(next_url)
 
 
+class ListDeporte(LoginRequiredMixin, ListView):
+    model = Deporte
+    template_name = 'root/list_deporte.html'
+    form_class_deporte = DeporteForm
+    # paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(ListDeporte, self).get_context_data(**kwargs)
+        if 'form_deporte' not in context:
+            context['form_deporte'] = self.form_class_deporte
+        context['url'] = 'list-deporte'
+        return context
+
+
 class CreateAsociacion(LoginRequiredMixin, CreateView):
     model = Asociacion
     form_class = AsociacionForm
@@ -86,6 +100,19 @@ class CreateAsociacion(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         next_url = self.request.POST.get('url', 'index')
         return reverse_lazy(next_url)
+
+
+class ListAsociacion(LoginRequiredMixin, ListView):
+    model = Asociacion
+    template_name = 'root/list_asociacion.html'
+    form_class_asociacion = AsociacionForm
+
+    def get_context_data(self, **kwargs):
+        context = super(ListAsociacion, self).get_context_data(**kwargs)
+        if 'form_asociacion' not in context:
+            context['form_asociacion'] = self.form_class_asociacion
+        context['url'] = 'list-asociacion'
+        return context
 
 
 class CreateMedida(LoginRequiredMixin, CreateView):

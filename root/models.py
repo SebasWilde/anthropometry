@@ -5,9 +5,12 @@ from datetime import datetime
 from .constants import SEXO
 from decimal import *
 
-# Asociaciona la cual pertenece un deportista
+
+# Asociacion a la cual pertenece un deportista
 class Asociacion(models.Model):
     nombre = models.CharField(max_length=125, unique=True)
+    foto = models.ImageField(
+        upload_to='asociacion', default='/defautl/default_asociacion.png')
 
     def __str__(self):
         return self.nombre
