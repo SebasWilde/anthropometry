@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="modal fade" id="asociacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar asociación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form role="form" method="post" action="{% url 'add-institucion' %}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <input type="hidden" name="user" value="{{ user.id }}">
+          <div class="form-row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <input class="d-none" type="file" name="logo" accept="image/*" id="id_logo" onchange="readURL(this);">
+                <label for="id_logo">
+                  <div class="border border-secondary">
+                    <img id="display_img" src="{% get_media_prefix %}default/default_institucion.png" class="img-fluid">
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="id_nombres">Nombre de la institucion:</label>
+                <input type="text" class="form-control" name="nombre" maxlength="45" placeholder="Nombre de la asociacion"  id="id_nombre">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Save changes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

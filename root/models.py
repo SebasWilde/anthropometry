@@ -10,12 +10,15 @@ from decimal import *
 # Asociacion a la cual pertenece un deportista
 class Institucion(models.Model):
     nombre = models.CharField(max_length=125, unique=True)
-    foto = models.ImageField(
+    logo = models.ImageField(
         upload_to='institucion', default='/defautl/default_institucion.png')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
+
+    def get_absolute_url(self):
+        return reverse('list-institucion')
 
 
 # Deporte
@@ -57,7 +60,7 @@ class Deportista(models.Model):
         Deporte, on_delete=models.SET_NULL, null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL,
                                   null=True, blank=True)
-    asociacion = models.ForeignKey(
+    institucion = models.ForeignKey(
         Institucion, on_delete=models.SET_NULL, null=True, blank=True)
     informacion_extra = models.TextField(null=True, blank=True)
     fecha_registro = models.DateTimeField(auto_now_add=True)

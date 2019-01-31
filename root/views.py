@@ -117,23 +117,27 @@ class ListDeporte(LoginRequiredMixin, ListView):
 class CreateInstitucion(LoginRequiredMixin, CreateView):
     model = Institucion
     form_class = InstitucionForm
-
-    def get_success_url(self):
-        next_url = self.request.POST.get('url', 'index')
-        return reverse_lazy(next_url)
+    template_name = 'includes/add_institucion.html'
 
 
-class ListAsociacion(LoginRequiredMixin, ListView):
-    model = Institucion
-    template_name = 'root/list_asociacion.html'
+class ListInstitucion(LoginRequiredMixin, ListView):
+    template_name = 'root/list_institucion.html'
     form_class_asociacion = InstitucionForm
 
     def get_context_data(self, **kwargs):
-        context = super(ListAsociacion, self).get_context_data(**kwargs)
+        context = super(ListInstitucion, self).get_context_data(**kwargs)
         if 'form_asociacion' not in context:
             context['form_asociacion'] = self.form_class_asociacion
         context['url'] = 'list-asociacion'
         return context
+
+    def get_queryset(self):
+        queryset = Institucion.objects.filter(user=self.request.user)
+        for institucion in queryset:
+            number_of_deportista = Deportista.objects.filter(
+                institucion=institucion).count()
+            institucion.number_of_deportista = number_of_deportista
+        return queryset
 
 
 class CreateMedida(LoginRequiredMixin, CreateView):
