@@ -5,8 +5,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.models import User
 # from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from .models import Deportista, Deporte, Asociacion, Medida
-from .forms import DeportistaForm, DeporteForm, AsociacionForm, MedidaForm
+from .models import Deportista, Deporte, Institucion, Medida
+from .forms import (
+    DeportistaForm,
+    DeporteForm,
+    CategoriaForm,
+    InstitucionForm,
+    MedidaForm,
+)
 
 
 class Index2(View):
@@ -23,6 +29,9 @@ class Index(LoginRequiredMixin, View):
         return render(request, self.template_class, {})
 
 
+# TODO: Do query
+# TODO: On change ordering submit
+# TODO: DO pagination
 class ListDeportista(LoginRequiredMixin, ListView):
     model = Deportista
     template_name = 'root/list_deportista.html'
@@ -33,6 +42,8 @@ class ListDeportista(LoginRequiredMixin, ListView):
         return ordering
 
 
+# TODO:Do tab of extra info
+# TODO: Display text field
 class DetailDeportista(LoginRequiredMixin, DetailView):
     model = Deportista
     template_name = 'root/detail_deportista.html'
@@ -45,11 +56,13 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
         return context
 
 
+# TODO: Not allow create deportista or institucion
+# TODO: Add personal info
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
     form_class = DeportistaForm
     form_class_deporte = DeporteForm
-    form_class_asociacion = AsociacionForm
+    form_class_asociacion = InstitucionForm
     template_name = 'root/add_deportista.html'
 
     def get_context_data(self, **kwargs):
@@ -64,21 +77,25 @@ class CreateDeportista(LoginRequiredMixin, CreateView):
         return context
 
 
+# TODO: Update personal info
 class UpdateDeportista(LoginRequiredMixin, UpdateView):
     model = Deportista
     form_class = DeportistaForm
     template_name = 'root/add_deportista.html'
 
 
+# TODO: Create categories
 class CreateDeporte(LoginRequiredMixin, CreateView):
     model = Deporte
     form_class = DeporteForm
+    form_class_2 = CategoriaForm
 
     def get_success_url(self):
         next_url = self.request.POST.get('url', 'index')
         return reverse_lazy(next_url)
 
 
+# TODO: DO pagination
 class ListDeporte(LoginRequiredMixin, ListView):
     model = Deporte
     template_name = 'root/list_deporte.html'
@@ -92,10 +109,14 @@ class ListDeporte(LoginRequiredMixin, ListView):
         context['url'] = 'list-deporte'
         return context
 
+# TODO: Detail Deporte
 
-class CreateAsociacion(LoginRequiredMixin, CreateView):
-    model = Asociacion
-    form_class = AsociacionForm
+# TODO: Update Deporte and categori¿y
+
+
+class CreateInstitucion(LoginRequiredMixin, CreateView):
+    model = Institucion
+    form_class = InstitucionForm
 
     def get_success_url(self):
         next_url = self.request.POST.get('url', 'index')
@@ -103,9 +124,9 @@ class CreateAsociacion(LoginRequiredMixin, CreateView):
 
 
 class ListAsociacion(LoginRequiredMixin, ListView):
-    model = Asociacion
+    model = Institucion
     template_name = 'root/list_asociacion.html'
-    form_class_asociacion = AsociacionForm
+    form_class_asociacion = InstitucionForm
 
     def get_context_data(self, **kwargs):
         context = super(ListAsociacion, self).get_context_data(**kwargs)

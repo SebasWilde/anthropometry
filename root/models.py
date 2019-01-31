@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.timezone import now
 from datetime import datetime
@@ -7,10 +8,11 @@ from decimal import *
 
 
 # Asociacion a la cual pertenece un deportista
-class Asociacion(models.Model):
+class Institucion(models.Model):
     nombre = models.CharField(max_length=125, unique=True)
     foto = models.ImageField(
-        upload_to='asociacion', default='/defautl/default_asociacion.png')
+        upload_to='institucion', default='/defautl/default_institucion.png')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -24,6 +26,25 @@ class Deporte(models.Model):
         return self.deporte
 
 
+# Categoria
+class Categoria(models.Model):
+    categoria = models.CharField(max_length=45)
+    deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
+    parametro_mayor_masa_grasa = models.DecimalField(max_digits=3,
+                                                     decimal_places=1)
+    parametro_menor_masa_grasa = models.DecimalField(max_digits=3,
+                                                     decimal_places=1)
+    parametro_mayor_masa_muscular = models.DecimalField(max_digits=3,
+                                                        decimal_places=1)
+    parametro_medio_masa_muscular = models.DecimalField(max_digits=3,
+                                                        decimal_places=1)
+    parametro_menor_masa_muscular = models.DecimalField(max_digits=3,
+                                                        decimal_places=1)
+
+    def __str__(self):
+        return self.categoria
+
+
 # Deportista
 class Deportista(models.Model):
     nombres = models.CharField(max_length=45)
@@ -34,8 +55,10 @@ class Deportista(models.Model):
         upload_to='deportista', default='/defautl/default_user.png')
     deporte = models.ForeignKey(
         Deporte, on_delete=models.SET_NULL, null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL,
+                                  null=True, blank=True)
     asociacion = models.ForeignKey(
-        Asociacion, on_delete=models.SET_NULL, null=True, blank=True)
+        Institucion, on_delete=models.SET_NULL, null=True, blank=True)
     informacion_extra = models.TextField(null=True, blank=True)
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
@@ -50,25 +73,25 @@ class Deportista(models.Model):
         return 0 if age < 1 else age
 
 
-# class DeportistaInfo(models.Model):
-#     deportista = models.OneToOneField(Deportista, on_delete=models.CASCADE)
-#     dni = models.CharField(max_length=8, null=True, blank=True)
-#     lugar_nacimiento = models.CharField(max_length=45, null=True, blank=True)
-#     direccion = models.TextField(null=True, blank=True)
-#     nombre_padre = models.CharField(max_length=200, null=True, blank=True)
-#     nombre_madre = models.CharField(max_length=200, null=True, blank=True)
-#     telefono = models.CharField(max_length=9, null=True, blank=True)
-#     celular = models.CharField(max_length=9, null=True, blank=True)
-#     email = models.EmailField(null=True, blank=True)
-#     contacto_emergencia_numero = models.CharField(
-#         max_length=9, null=True, blank=True)
-#     contacto_emergencia = models.CharField(
-#         max_length=45, null=True, blank=True)
-#     eduacion = models.CharField(max_length=120, null=True, blank=True)
-#     observaciones = models.TextField(null=True, blank=True)
-#
-#     def __str__(self):
-#         return self.deportista
+class DeportistaInfo(models.Model):
+    deportista = models.OneToOneField(Deportista, on_delete=models.CASCADE)
+    dni = models.CharField(max_length=8, null=True, blank=True)
+    lugar_nacimiento = models.CharField(max_length=45, null=True, blank=True)
+    direccion = models.TextField(null=True, blank=True)
+    nombre_padre = models.CharField(max_length=200, null=True, blank=True)
+    nombre_madre = models.CharField(max_length=200, null=True, blank=True)
+    telefono = models.CharField(max_length=9, null=True, blank=True)
+    celular = models.CharField(max_length=9, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    contacto_emergencia = models.CharField(
+        max_length=45, null=True, blank=True)
+    contacto_emergencia_numero = models.CharField(
+        max_length=9, null=True, blank=True)
+    eduacion = models.CharField(max_length=120, null=True, blank=True)
+    observaciones = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.deportista
 
 
 # Medidas que se toman
@@ -137,7 +160,7 @@ class Medida(models.Model):
                                                 rounding=ROUND_UP)
 
     def get_indice_cintaura_cadera(self):
-        indice_cintaura_cadera =  self.cintura / self.cadera
+        indice_cintaura_cadera = self.cintura / self.cadera
         return indice_cintaura_cadera.quantize(Decimal('.01'), rounding=ROUND_UP)
 
     def get_indice_citura_talla(self):
@@ -231,5 +254,4 @@ class Medida(models.Model):
             return 'blue', 'Adecuada Musculatura'
         elif imc > Decimal(20.6):
             return 'orange', 'Elevada Musculatura'
-
 

@@ -1,8 +1,10 @@
 from django import forms
 from .models import (
     Deportista,
+    DeportistaInfo,
     Deporte,
-    Asociacion,
+    Categoria,
+    Institucion,
     Medida,
 )
 
@@ -13,15 +15,27 @@ class DeportistaForm(forms.ModelForm):
         exclude = ['fecha_registro']
 
 
+class DeportistaInfoForm(forms.ModelForm):
+    class Meta:
+        model = DeportistaInfo
+        exclude = ['deportista']
+
+
 class DeporteForm(forms.ModelForm):
     class Meta:
         model = Deporte
         fields = '__all__'
 
 
-class AsociacionForm(forms.ModelForm):
+class CategoriaForm(forms.ModelForm):
     class Meta:
-        model = Asociacion
+        model = Categoria
+        fields = '__all__'
+
+
+class InstitucionForm(forms.ModelForm):
+    class Meta:
+        model = Institucion
         fields = '__all__'
 
 

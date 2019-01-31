@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/general.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/detail_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/detail_deportista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/default/default_asociacion.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/default/default_institucion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/migrations/0002_auto_20190105_1700.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/migrations/0003_deportista_sexo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/migrations/0004_auto_20190106_0352.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/migrations/0005_asociacion_foto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3450">
-              <caret line="230" column="31" lean-forward="true" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
+            <state relative-caret-position="532">
+              <caret line="230" column="31" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -28,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="532">
               <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
             </state>
           </provider>
@@ -37,26 +47,65 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/profile.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-413">
-              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2775">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="495">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/root/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2276">
+              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1740">
+              <caret line="116" column="14" lean-forward="true" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -75,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fa</find>
       <find>font-awesome</find>
       <find>out</find>
       <find>Dashboard</find>
@@ -104,6 +152,8 @@
       <find>r</find>
       <find>plus</find>
       <find>asociacion</find>
+      <find>1</find>
+      <find>get_grasa_corporal</find>
     </findStrings>
     <replaceStrings>
       <replace>images</replace>
@@ -130,30 +180,30 @@
         <option value="$PROJECT_DIR$/static/css/profile.css" />
         <option value="$PROJECT_DIR$/templates/includes/add_deporte.html" />
         <option value="$PROJECT_DIR$/templates/includes/add_asociacion.html" />
-        <option value="$PROJECT_DIR$/root/admin.py" />
-        <option value="$PROJECT_DIR$/root/forms.py" />
         <option value="$PROJECT_DIR$/templates/root/add_deportista.html" />
         <option value="$PROJECT_DIR$/static/js/general.js" />
         <option value="$PROJECT_DIR$/templates/root/add_medida.html" />
-        <option value="$PROJECT_DIR$/root/models.py" />
         <option value="$PROJECT_DIR$/root/urls.py" />
         <option value="$PROJECT_DIR$/templates/root/list_deporte.html" />
         <option value="$PROJECT_DIR$/templates/root/list_deportista.html" />
         <option value="$PROJECT_DIR$/templates/root/list_asociacion.html" />
-        <option value="$PROJECT_DIR$/root/views.py" />
         <option value="$PROJECT_DIR$/templates/root/index.html" />
         <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/static/css/table.css" />
         <option value="$PROJECT_DIR$/templates/root/detail_deportista.html" />
         <option value="$PROJECT_DIR$/static/css/general.css" />
+        <option value="$PROJECT_DIR$/root/admin.py" />
+        <option value="$PROJECT_DIR$/root/forms.py" />
+        <option value="$PROJECT_DIR$/root/views.py" />
+        <option value="$PROJECT_DIR$/root/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="77" />
-    <option name="y" value="47" />
-    <option name="width" value="1279" />
-    <option name="height" value="701" />
+    <option name="x" value="1366" />
+    <option name="y" value="-2" />
+    <option name="width" value="1024" />
+    <option name="height" value="770" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -161,6 +211,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,18 +222,35 @@
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="root" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
@@ -199,7 +267,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,18 +356,21 @@
       <workItem from="1547497519602" duration="105000" />
       <workItem from="1548647395512" duration="1991000" />
       <workItem from="1548782443497" duration="2015000" />
-      <workItem from="1548801031828" duration="2780000" />
+      <workItem from="1548801031828" duration="2965000" />
+      <workItem from="1548806043169" duration="4603000" />
+      <workItem from="1548828002503" duration="23000" />
+      <workItem from="1548903997165" duration="3083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87025000" />
+    <option name="totallyTimeSpent" value="94919000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <frame x="1366" y="-2" width="1024" height="770" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3104549" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.4192229" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -409,26 +479,6 @@
     <entry file="file://$PROJECT_DIR$/root/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/assets/libs/bootstrap/dist/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -510,20 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#493#630#0" />
-            <element signature="e#676#812#0" />
-            <element signature="e#1139#1505#0" />
-            <element signature="e#2288#2385#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/list_deportista.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -552,45 +588,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/table.css" />
     <entry file="file://$PROJECT_DIR$/static/css/profile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2775">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3450">
-          <caret line="230" column="31" lean-forward="true" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
+        <state relative-caret-position="495">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="230" column="31" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="116" column="14" lean-forward="true" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2276">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
