@@ -41,7 +41,8 @@
             <th>Apellidos</th>
             <th>Edad</th>
             <th>Deporte</th>
-            <th>Asociacion</th>
+            <th>Categoria</th>
+            <th>Institución</th>
             <th>Opciones</th>
           </tr>
           </thead>
@@ -53,7 +54,8 @@
               <td>{{ deportista.apellidos|capfirst }}</td>
               <td>{{ deportista.get_age }}</td>
               <td>{{ deportista.deporte|capfirst }}</td>
-              <td>{{ deportista.asociacion|capfirst }}</td>
+              <td>{{ deportista.categoria|capfirst }}</td>
+              <td>{{ deportista.institucion|capfirst }}</td>
               <td class="text-center">
                 <a class="btn btn-warning btn-sm" href="{% url 'add-medida' deportista.pk %}"><i class="fas fa-weight"></i></a>
                 <a class="btn btn-primary btn-sm" href="{% url 'edit-deportista' pk=deportista.pk %}"><i class="fas fa-pencil-alt"></i></a>

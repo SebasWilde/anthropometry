@@ -31,7 +31,7 @@
               <h3 class="my-0">{{ object.nombres|capfirst }} {{ object.apellidos|capfirst }}</h3>
             </div>
             <span>
-            <p class="sport">{{ object.deporte }}</p>
+            <p class="sport">{{ object.deporte }} {% if object.categoria %}<span class="text-secondary">({{ object.categoria }})</span>{% endif %}</p>
 			    </span>
           </div>
           <div class="twPc-divStats">
@@ -41,8 +41,8 @@
                 <span class="twPc-StatValue">{{ object.get_age }}</span>
               </li>
               <li class="twPc-ArrangeSizeFit">
-                <span class="twPc-StatLabel twPc-block">Asociacion</span>
-                <span class="twPc-StatValue">{{ object.asociacion }}</span>
+                <span class="twPc-StatLabel twPc-block">Institución</span>
+                <span class="twPc-StatValue">{{ object.institucion }}</span>
               </li>
               <li class="twPc-ArrangeSizeFit">
                 <span class="twPc-StatLabel twPc-block">Ultimo peso</span>

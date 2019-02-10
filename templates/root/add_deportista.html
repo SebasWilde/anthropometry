@@ -78,8 +78,8 @@
                 <label for="id_deporte">
                   Deporte:
                 </label>
-                <select class="form-control" name="deporte" id="id_deporte" required>
-                  <option value="" selected="">---------</option>
+                <select class="form-control" name="deporte" id="id_deporte">
+                  <option value="" selected="">No definido</option>
                   {% for option in form.fields.deporte.choices.queryset %}
                     <option value="{{ option.pk }}"
                         {% if object and option == object.deporte %}
@@ -90,30 +90,48 @@
                 </select>
               </div>
               <div class="form-group col-md-6">
-                <label for="id_asociacion">
-                  Institucion:
+                <label for="id_categoria">
+                  Categoria:
                 </label>
-                <select class="form-control" name="institucion" id="id_institucion" required>
-                  <option value="" selected="">---------</option>
-                  {% for option in form.fields.institucion.choices.queryset %}
-                    <option value="{{ option.pk }}"
-                        {% if object and option == object.asociacion %}
+                <select class="form-control" name="categoria" id="id_categoria">
+                  <option id="default-category-option"  value="" selected="">No definido</option>
+                  {% for option in form.fields.categoria.choices.queryset %}
+                    <option value="{{ option.pk }}" data-id-deporte="{{ option.deporte.id }}"
+                        {% if object and not option.deporte == object.deporte %}
+                            class="d-none" disabled
+                        {% endif %}
+                        {% if object and option == object.categoria %}
                             selected
                         {% endif %}
-                    >{{ option.nombre }}</option>
+                    >{{ option }}</option>
                   {% endfor %}
                 </select>
               </div>
             </div>
+            <div class="form-group">
+              <label for="id_institucion">
+                Institucion:
+              </label>
+              <select class="form-control" name="institucion" id="id_institucion">
+                <option value="" selected="">No definido</option>
+                {% for option in form.fields.institucion.choices.queryset %}
+                  <option value="{{ option.pk }}"
+                      {% if object and option == object.institucion %}
+                          selected
+                      {% endif %}
+                  >{{ option.nombre }}</option>
+                {% endfor %}
+              </select>
+            </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="id_informacion_extra">Informacion extra:</label>
-          <textarea class="form-control" name="informacion_extra" id="id_informacion_extra">{% if object %}{{ object.informacion_extra }}{% endif %}</textarea>
+          <label for="id_observaciones">Observaciones:</label>
+          <textarea class="form-control" name="observaciones" id="id_observaciones">{% if object %}{{ object.observaciones }}{% endif %}</textarea>
         </div>
         <div class="border-top py-2">
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <button onclick="window.history.back();" class="btn btn-danger">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <button onclick="window.history.back();" class="btn btn-danger">Cancelar</button>
         </div>
       </div>
     </form>
@@ -143,5 +161,19 @@
               reader.readAsDataURL(input.files[0]);
           }
       }
+
+      /* Display categories on select deporte */
+      let select_deporte = $('#id_deporte');
+      let select_categoria = $('#id_categoria');
+      let options_categories = $('#id_categoria option').not('#default-category-option');
+      select_deporte.change(function () {
+          let deporte = $(this).val();
+          select_categoria.val('');
+          options_categories.addClass('d-none');
+          options_categories.prop('disabled', true);
+          options_categories.filter(function () {
+              return $(this).data('id-deporte') === parseInt(deporte)
+          }).removeClass('d-none').prop('disabled', false);
+      });
   </script>
 {% endblock %}
