@@ -3,6 +3,7 @@
 
 {% block extra_css %}
   <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -125,9 +126,96 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="id_observaciones">Observaciones:</label>
-          <textarea class="form-control" name="observaciones" id="id_observaciones">{% if object %}{{ object.observaciones }}{% endif %}</textarea>
+        <a id="btnCollapse" class="a-disable" data-toggle="collapse" href="#collapseInfo" role="button" aria-expanded="false" aria-controls="collapseInfo">
+          <h4 class="card-title">Información extra<i class="fas fa-chevron-down ml-2"></i></h4>
+        </a>
+        <div class="collapse" id="collapseInfo">
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_dni">DNI:</label>
+              <input type="text" class="form-control" name="dni" maxlength="8" id="id_dni"
+                  {% if object.deportistainfo.dni %}
+                     value="{{ object.deportistainfo.dni }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_telefono">Teléfono:</label>
+              <input type="text" class="form-control" name="telefono" maxlength="9" id="id_telefono"
+                  {% if object.deportistainfo.telefono %}
+                     value="{{ object.deportistainfo.telefono }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_celular">Celular:</label>
+              <input type="text" class="form-control" name="celular" maxlength="9" id="id_celular"
+                  {% if object.deportistainfo.celular %}
+                     value="{{ object.deportistainfo.celular }}"
+                  {% endif %}>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_email">Email:</label>
+              <input type="email" class="form-control" name="email" maxlength="254" id="id_email"
+                  {% if object.deportistainfo.email %}
+                     value="{{ object.deportistainfo.email }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_eduacion">Eduacion:</label>
+              <input type="text" class="form-control" name="eduacion" maxlength="120" id="id_eduacion"
+                  {% if object.deportistainfo.educacion %}
+                     value="{{ object.deportistainfo.educacion }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_lugar_nacimiento">Lugar nacimiento:</label>
+              <input type="text" class="form-control" name="lugar_nacimiento" maxlength="45" id="id_lugar_nacimiento"
+                  {% if object.deportistainfo.lugar_nacimiento %}
+                     value="{{ object.deportistainfo.lugar_nacimiento }}"
+                  {% endif %}>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="id_direccion">Direccion:</label>
+            <textarea class="form-control" name="direccion" id="id_direccion">{% if object.deportistainfo.direccion %}{{ object.deportistainfo.direccion }}{% endif %}</textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_nombre_padre">Nombre padre:</label>
+              <input type="text" class="form-control" name="nombre_padre" maxlength="200" id="id_nombre_padre"
+                  {% if object.deportistainfo.nombre_padre %}
+                     value="{{ object.deportistainfo.nombre_padre }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_nombre_madre">Nombre madre:</label>
+              <input type="text" class="form-control" name="nombre_madre" maxlength="200" id="id_nombre_madre"
+                  {% if object.deportistainfo.nombre_madre %}
+                     value="{{ object.deportistainfo.nombre_madre }}"
+                  {% endif %}>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_contacto_emergencia">Nombre de contacto en caso de emergencia:</label>
+              <input type="text" class="form-control" name="contacto_emergencia" maxlength="45" id="id_contacto_emergencia"
+                  {% if object.deportistainfo.contacto_emergencia %}
+                     value="{{ object.deportistainfo.contacto_emergencia }}"
+                  {% endif %}>
+            </div>
+            <div class="form-group col-md">
+              <label for="id_contacto_emergencia_numero">Número de contacto en caso de emergencia:</label>
+              <input type="text" class="form-control" name="contacto_emergencia_numero" maxlength="9" id="id_contacto_emergencia_numero"
+                  {% if object.deportistainfo.contacto_emergencia %}
+                     value="{{ object.deportistainfo.contacto_emergencia }}"
+                  {% endif %}>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="id_observaciones">Observaciones:</label>
+            <textarea class="form-control" name="observaciones" id="id_observaciones">{% if object.deportistainfo.observaciones %}{{ object.deportistainfo.observaciones }}{% endif %}</textarea>
+          </div>
         </div>
         <div class="border-top py-2">
           <button type="submit" class="btn btn-success">Guardar</button>
@@ -175,5 +263,11 @@
               return $(this).data('id-deporte') === parseInt(deporte)
           }).removeClass('d-none').prop('disabled', false);
       });
+
+      /* */
+      let btn_collpase = $('#btnCollapse');
+      btn_collpase.on('click', function () {
+          $(this).find('i').toggleClass('fa-rotate-180')
+      })
   </script>
 {% endblock %}

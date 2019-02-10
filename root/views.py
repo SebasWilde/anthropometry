@@ -3,9 +3,9 @@ from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.models import User
-# from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from .models import Deportista, Deporte, Institucion, Medida, Categoria
+from .models import Deportista, Deporte, Institucion, Medida, Categoria, DeportistaInfo
 from .forms import (
     DeportistaForm,
     DeporteForm,
@@ -61,7 +61,7 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
     form_class = DeportistaForm
-    DeportistaInfoForm = DeportistaInfoForm
+    second_form_class = DeportistaInfoForm
     template_name = 'root/add_deportista.html'
 
     def get_context_data(self, **kwargs):
@@ -69,16 +69,56 @@ class CreateDeportista(LoginRequiredMixin, CreateView):
         if 'form' not in context:
             context['form'] = self.form_class
         if 'form_info' not in context:
-            context['form_info'] = self.DeportistaInfoForm
+            context['form_info'] = self.second_form_class
         context['url'] = 'add-deportista'
         return context
 
+    def post(self, request, *args, **kwargs):
+        form_deportista = self.form_class(request.POST)
+        form_info_deportista = self.second_form_class(request.POST)
+        if form_deportista.is_valid() and form_info_deportista.is_valid():
+            deportista = form_deportista.save()
+            info_deportista = form_info_deportista.save(commit=False)
+            info_deportista.deportista = deportista
+            info_deportista.save()
 
-# TODO: Update personal info
+            return HttpResponseRedirect(deportista.get_absolute_url())
+        else:
+            return self.render_to_response(self.get_context_data(
+                form=form_deportista, form_info=form_info_deportista))
+
+
 class UpdateDeportista(LoginRequiredMixin, UpdateView):
     model = Deportista
+    second_model = DeportistaInfo
     form_class = DeportistaForm
+    second_form_class = DeportistaInfoForm
     template_name = 'root/add_deportista.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateDeportista, self).get_context_data(**kwargs)
+
+        if 'form' not in context:
+            context['form'] = self.form_class
+        if 'form_info' not in context:
+            context['form_info'] = self.second_form_class
+        context['url'] = 'add-deportista'
+        return context
+
+    def post(self, request, *args, **kwargs):
+        deportista = Deportista.objects.get(pk=kwargs['pk'])
+        info_deportista = DeportistaInfo.objects.get(deportista=deportista)
+        form_deportista = self.form_class(request.POST, instance=deportista)
+        form_info_deportista = self.second_form_class(
+            request.POST, instance=info_deportista)
+        if form_deportista.is_valid() and form_info_deportista.is_valid():
+            form_deportista.save()
+            form_info_deportista.save()
+
+            return HttpResponseRedirect(deportista.get_absolute_url())
+        else:
+            return self.render_to_response(self.get_context_data(
+                form=form_deportista, form_info=form_info_deportista))
 
 
 class CreateDeporte(LoginRequiredMixin, CreateView):

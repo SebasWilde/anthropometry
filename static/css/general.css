@@ -26,3 +26,8 @@ table.table tr.cursor-pointer:hover{
 .table > tbody > tr > td, .table > thead > tr > th {
      vertical-align: middle;
 }
+
+.a-disable {
+    color: inherit !important;
+    text-decoration: none;
+}

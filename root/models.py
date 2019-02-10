@@ -68,7 +68,6 @@ class Deportista(models.Model):
                                   null=True, blank=True)
     institucion = models.ForeignKey(
         Institucion, on_delete=models.SET_NULL, null=True, blank=True)
-    informacion_extra = models.TextField(null=True, blank=True)
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -100,7 +99,7 @@ class DeportistaInfo(models.Model):
     observaciones = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.deportista
+        return self.deportista.nombres
 
 
 # Medidas que se toman
