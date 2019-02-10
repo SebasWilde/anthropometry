@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link href="{% static 'css/general.css' %}" rel="stylesheet">
+  <link href="{% static 'css/general.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Lista de deportistas{% endblock %}
@@ -68,11 +68,5 @@
 {% endblock %}
 
 {% block extra_js %}
-  <script>
-      $(function () {
-          $('table.table tr').click(function () {
-              window.location.href = $(this).data('url')
-          });
-      })
-  </script>
+  <script src="{% static 'js/general.js' %}"></script>
 {% endblock %}

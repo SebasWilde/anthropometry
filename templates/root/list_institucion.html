@@ -89,12 +89,12 @@
           }
       });
 
-      {#modal_institucion.on('hide.bs.modal', function (event) {#}
-      {#    let form = modal_institucion.find('form');#}
-      {#    form.trigger('reset');#}
-      {#    let display_img = form.find('#display_img');#}
-      {#    display_img.attr('src', display_img.data('default'));#}
-      {#});#}
+      modal_institucion.on('hide.bs.modal', function (event) {
+          let form = modal_institucion.find('form');
+          form.trigger('reset');
+          let display_img = form.find('#display_img');
+          display_img.attr('src', display_img.data('default'));
+      });
 
   </script>
 {% endblock %}

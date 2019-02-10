@@ -5,7 +5,7 @@
   <link href="{% static 'css/general.css' %}" rel="stylesheet">
 {% endblock %}
 
-{% block title %}Lista de deportistas{% endblock %}
+{% block title %}Lista de deportes{% endblock %}
 {% block page %}
   <li class="breadcrumb-item active" aria-current="page">Lista de deportes</li>
 {% endblock %}
@@ -19,26 +19,34 @@
             <label>Buscar:</label>
             <input type="search" class="form-control form-control-sm ml-2 mr-0" name="search">
             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></button>
-            <i class="fas fa-plus text-success mx-3" data-toggle="modal" data-target="#deporteModal"></i>
+            <i class="fas fa-plus text-success mx-3 cursor-pointer" data-toggle="modal" data-target="#deporteModal"
+               data-url="{% url 'add-deporte' %}"></i>
           </div>
         </div>
+      </form>
+      <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send message">
       </form>
       <div class="table-responsive">
         <table id="zero_config" class="table table-striped table-bordered">
           <thead>
           <tr>
-            <th>#</th>
-            <th>Deporte</th>
-            <th>Opciones</th>
+            <th class="font-weight-bold">#</th>
+            <th class="font-weight-bold">Deporte</th>
+            <th class="font-weight-bold">Número de deportistas</th>
+            <th class="font-weight-bold">Opciones</th>
           </tr>
           </thead>
           <tbody>
           {% for deporte in object_list %}
-            <tr>
+            <tr data-url="{% url 'detail-deporte' deporte.id  %}" class="cursor-pointer">
               <td>{{ forloop.counter }}</td>
               <td>{{ deporte|capfirst }}</td>
-              <td class="text-center">
-                <a class="btn btn-primary btn-sm" href="#"><i class="fas fa-pencil-alt"></i></a>
+              <td>{{ deporte.number_of_deportista }}</td>
+              <td class="text-center options">
+                <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#deporteModal"
+                   data-url="{% url 'edit-deporte' deporte.pk %}" data-deporte="{{ deporte }}"><i class="fas fa-pencil-alt"></i></a>
               </td>
             </tr>
           {% endfor %}
@@ -51,4 +59,24 @@
 {% endblock %}
 
 {% block extra_js %}
+  <script>
+      /* Set data in modal */
+      let modal_deporte = $('#deporteModal');
+      modal_deporte.on('show.bs.modal', function (event) {
+          let form = modal_deporte.find('form');
+          let button = $(event.relatedTarget);
+          let url = button.data('url');
+          form.attr('action', url);
+          if (button.data('deporte')){
+              form.find('#id_deporte').val(button.data('deporte'));
+              modal_deporte.find('#title-modal').text('Editar')
+          }
+      });
+      modal_deporte.on('hide.bs.modal', function (event) {
+          let form = modal_deporte.find('form');
+          form.trigger('reset');
+          modal_deporte.find('#title-modal').text('Agregar')
+      });
+  </script>
+  <script src="{% static 'js/general.js' %}"></script>
 {% endblock %}

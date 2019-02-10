@@ -76,7 +76,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="id_deporte">
-                  Deporte: ( <i class="fas fa-plus text-success" data-toggle="modal" data-target="#deporteModal"></i> )
+                  Deporte:
                 </label>
                 <select class="form-control" name="deporte" id="id_deporte" required>
                   <option value="" selected="">---------</option>
@@ -91,11 +91,11 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="id_asociacion">
-                  Asociacion: ( <i class="fas fa-plus text-success" data-toggle="modal" data-target="#asociacionModal"></i> )
+                  Institucion:
                 </label>
-                <select class="form-control" name="asociacion" id="id_asociacion" required>
+                <select class="form-control" name="institucion" id="id_institucion" required>
                   <option value="" selected="">---------</option>
-                  {% for option in form.fields.asociacion.choices.queryset %}
+                  {% for option in form.fields.institucion.choices.queryset %}
                     <option value="{{ option.pk }}"
                         {% if object and option == object.asociacion %}
                             selected
@@ -118,9 +118,6 @@
       </div>
     </form>
   </div>
-  {% include 'includes/add_deporte.html' %}
-  {% include 'includes/add_institucion.html' %}
-
 {% endblock %}
 
 {% block extra_js %}

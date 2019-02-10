@@ -1,0 +1,50 @@
+<div class="modal fade" id="categoriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><span id="title-modal">Agregar</span> categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="{% url 'add-categoria' %}">
+        {% csrf_token %}
+        <input type="hidden" name="deporte" value="{{ deporte.pk }}">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="id_categoria">Categoria:</label>
+            <input type="text" class="form-control" name="categoria" maxlength="45" required="" id="id_categoria">
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="id_parametro_mayor_masa_grasa">Parametro mayor masa grasa:</label>
+              <input type="number" class="form-control" name="parametro_mayor_masa_grasa" step="0.1" required="" id="id_parametro_mayor_masa_grasa">
+            </div>
+            <div class="form-group col">
+              <label for="id_parametro_menor_masa_grasa">Parametro menor masa grasa:</label>
+              <input type="number" class="form-control" name="parametro_menor_masa_grasa" step="0.1" required="" id="id_parametro_menor_masa_grasa">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="id_parametro_mayor_masa_muscular">Parametro mayor masa muscular:</label>
+              <input type="number" class="form-control" name="parametro_mayor_masa_muscular" step="0.1" required="" id="id_parametro_mayor_masa_muscular">
+            </div>
+            <div class="form-group col">
+              <label for="id_parametro_medio_masa_muscular">Parametro medio masa muscular:</label>
+              <input type="number" class="form-control" name="parametro_medio_masa_muscular" step="0.1" required="" id="id_parametro_medio_masa_muscular">
+            </div>
+            <div class="form-group col">
+              <label for="id_parametro_menor_masa_muscular">Parametro menor masa muscular:</label>
+              <input type="number" class="form-control" name="parametro_menor_masa_muscular" step="0.1" required="" id="id_parametro_menor_masa_muscular">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Save changes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

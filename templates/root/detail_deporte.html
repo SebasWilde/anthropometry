@@ -1,0 +1,141 @@
+{% extends 'root/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+  <link href="{% static 'css/general.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Detalle deporte{% endblock %}
+{% block page %}
+  <li class="breadcrumb-item" aria-current="page"><a href="{% url 'list-deporte' %}">Lista de deportes</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Detalle deporte</li>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Profile info -->
+      <div class="twPc-div">
+        <a class="twPc-bg twPc-block"></a>
+        <div>
+          <div class="twPc-button">
+            <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#deporteModal"
+               data-url="{% url 'edit-deporte' deporte.pk %}" data-deporte="{{ deporte }}"><i class="fas fa-pencil-alt"></i></a>
+            <a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#categoriaModal"
+               data-url="{% url 'add-categoria' %}">Agregar categoria <i class="fas fa-plus"></i></a>
+          </div>
+          <div class="twPc-divUser px-2">
+            <div class="twPc-divName">
+              <h3 class="my-0">{{ object }}</h3>
+            </div>
+          </div>
+          <div class="twPc-divStats">
+            <ul class="twPc-Arrange">
+              <li class="twPc-ArrangeSizeFit">
+                <span class="twPc-StatLabel twPc-block">Número de deportistas</span>
+                <span class="twPc-StatValue">{{ object.number_of_deportista }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Categorias info info -->
+      {% for categoria in categorias %}
+        <div class="card my-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="card-title mb-3">{{ categoria|upper }}</h5>
+              </div>
+              <div class="col-md-4 text-right">
+                <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#categoriaModal"
+                   data-url="{% url 'edit-categoria' categoria.pk %}" data-categoria="{{ categoria }}"
+                   data-grasa-mayor="{{ categoria.parametro_mayor_masa_grasa }}"
+                   data-grasa-menor="{{ categoria.parametro_menor_masa_grasa }}"
+                   data-muscular-mayor="{{ categoria.parametro_mayor_masa_muscular }}"
+                   data-muscular-medio="{{ categoria.parametro_medio_masa_muscular }}"
+                   data-muscular-menor="{{ categoria.parametro_menor_masa_muscular }}"><i class="fas fa-pencil-alt"></i></a>
+              </div>
+            </div>
+            <div class="twPc-divStats">
+              <ul class="twPc-Arrange">
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Número de deportistas</span>
+                  <span class="twPc-StatValue">{{ categoria.number_of_deportista }}</span>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Parametro Mayor Masa Grasa</span>
+                  <span class="twPc-StatValue">{{ categoria.parametro_mayor_masa_grasa }}</span>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Parametro Menor Masa Grasa</span>
+                  <span class="twPc-StatValue">{{ categoria.parametro_menor_masa_grasa }}</span>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Parametro Mayor Masa Grasa</span>
+                  <span class="twPc-StatValue">{{ categoria.parametro_mayor_masa_muscular }}</span>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Parametro Medio Masa Grasa</span>
+                  <span class="twPc-StatValue">{{ categoria.parametro_medio_masa_muscular }}</span>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                  <span class="twPc-StatLabel twPc-block">Parametro Menor Masa Grasa</span>
+                  <span class="twPc-StatValue">{{ categoria.parametro_menor_masa_muscular }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% include 'includes/add_deporte.html' %}
+  {% include 'includes/add_categoria.html' %}
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+      /* Set data in modal deporte */
+      let modal_deporte = $('#deporteModal');
+      modal_deporte.on('show.bs.modal', function (event) {
+          let form = modal_deporte.find('form');
+          let button = $(event.relatedTarget);
+          let url = button.data('url');
+          form.attr('action', url);
+          if (button.data('deporte')){
+              form.find('#id_deporte').val(button.data('deporte'));
+              modal_deporte.find('#title-modal').text('Editar')
+          }
+      });
+      modal_deporte.on('hide.bs.modal', function (event) {
+          let form = modal_deporte.find('form');
+          form.trigger('reset');
+          modal_deporte.find('#title-modal').text('Agregar')
+      });
+
+      /* Set data in modal categoria */
+      let modal_categoria = $('#categoriaModal');
+      modal_categoria.on('show.bs.modal', function (event) {
+          let form = modal_categoria.find('form');
+          let button = $(event.relatedTarget);
+          let url = button.data('url');
+          form.attr('action', url);
+          if (button.data('categoria')){
+              form.find('#id_categoria').val(button.data('categoria'));
+              form.find('#id_parametro_mayor_masa_grasa').val(button.data('grasa-mayor'));
+              form.find('#id_parametro_menor_masa_grasa').val(button.data('grasa-menor'));
+              form.find('#id_parametro_mayor_masa_muscular').val(button.data('muscular-mayor'));
+              form.find('#id_parametro_medio_masa_muscular').val(button.data('muscular-medio'));
+              form.find('#id_parametro_menor_masa_muscular').val(button.data('muscular-menor'));
+              modal_categoria.find('#title-modal').text('Editar')
+          }
+      });
+      modal_categoria.on('hide.bs.modal', function (event) {
+          let form = modal_categoria.find('form');
+          form.trigger('reset');
+          modal_categoria.find('#title-modal').text('Agregar')
+      });
+  </script>
+{% endblock %}

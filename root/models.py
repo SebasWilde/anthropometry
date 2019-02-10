@@ -28,6 +28,9 @@ class Deporte(models.Model):
     def __str__(self):
         return self.deporte
 
+    def get_absolute_url(self):
+        return reverse('detail-deporte', kwargs={'pk': self.pk})
+
 
 # Categoria
 class Categoria(models.Model):
@@ -46,6 +49,9 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.categoria
+
+    def get_absolute_url(self):
+        return reverse('detail-deporte', kwargs={'pk': self.deporte.pk})
 
 
 # Deportista

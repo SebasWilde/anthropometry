@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.models import User
 # from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from .models import Deportista, Deporte, Institucion, Medida
+from .models import Deportista, Deporte, Institucion, Medida, Categoria
 from .forms import (
     DeportistaForm,
     DeporteForm,
@@ -56,7 +56,7 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
         return context
 
 
-# TODO: Not allow create deportista or institucion
+# TODO: Not allow create deportista or institucion and add categoria
 # TODO: Add personal info
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
@@ -84,34 +84,65 @@ class UpdateDeportista(LoginRequiredMixin, UpdateView):
     template_name = 'root/add_deportista.html'
 
 
-# TODO: Create categories
 class CreateDeporte(LoginRequiredMixin, CreateView):
     model = Deporte
     form_class = DeporteForm
-    form_class_2 = CategoriaForm
+    template_name = 'includes/add_deporte.html'
 
-    def get_success_url(self):
-        next_url = self.request.POST.get('url', 'index')
-        return reverse_lazy(next_url)
+
+class UpdateDeporte(LoginRequiredMixin, UpdateView):
+    model = Deporte
+    form_class = DeporteForm
+    template_name = 'includes/add_deporte.html'
 
 
 # TODO: DO pagination
 class ListDeporte(LoginRequiredMixin, ListView):
     model = Deporte
     template_name = 'root/list_deporte.html'
-    form_class_deporte = DeporteForm
-    # paginate_by = 10
+
+    def get_queryset(self):
+        queryset = Deporte.objects.all()
+        for deporte in queryset:
+            number_of_deportista = Deportista.objects.filter(
+                deporte=deporte).count()
+            deporte.number_of_deportista = number_of_deportista
+        return queryset
+
+
+# TODO: Add pagination to categories
+class DetailDeporte(LoginRequiredMixin, DetailView):
+    model = Deporte
+    template_name = 'root/detail_deporte.html'
+
+    def get_object(self, queryset=None):
+        object = super(DetailDeporte, self).get_object(queryset)
+        number_of_deportista = Deportista.objects.filter(
+            deporte=object).count()
+        object.number_of_deportista = number_of_deportista
+        return object
 
     def get_context_data(self, **kwargs):
-        context = super(ListDeporte, self).get_context_data(**kwargs)
-        if 'form_deporte' not in context:
-            context['form_deporte'] = self.form_class_deporte
-        context['url'] = 'list-deporte'
+        context = super(DetailDeporte, self).get_context_data(**kwargs)
+        categorias = Categoria.objects.filter(deporte__id=self.kwargs.get('pk'))
+        for categoria in categorias:
+            number_of_deportista = Deportista.objects.filter(
+                categoria=categoria).count()
+            categoria.number_of_deportista = number_of_deportista
+        context['categorias'] = categorias
         return context
 
-# TODO: Detail Deporte
 
-# TODO: Update Deporte and categori¿y
+class CreateCategoria(LoginRequiredMixin, CreateView):
+    model = Categoria
+    form_class = CategoriaForm
+    template_name = 'includes/add_categoria.html'
+
+
+class UpdateCategoria(LoginRequiredMixin, UpdateView):
+    model = Categoria
+    form_class = CategoriaForm
+    template_name = 'includes/add_categoria.html'
 
 
 class CreateInstitucion(LoginRequiredMixin, CreateView):
@@ -126,9 +157,9 @@ class UpdateInstitucion(LoginRequiredMixin, UpdateView):
     template_name = 'includes/add_institucion.html'
 
 
+# TODO: DO pagination
 class ListInstitucion(LoginRequiredMixin, ListView):
     template_name = 'root/list_institucion.html'
-    form_class_asociacion = InstitucionForm
 
     def get_queryset(self):
         queryset = Institucion.objects.filter(user=self.request.user)
