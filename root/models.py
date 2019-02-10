@@ -61,7 +61,7 @@ class Deportista(models.Model):
     fecha_nacimiento = models.DateField()
     sexo = models.CharField(max_length=2, choices=SEXO)
     foto = models.ImageField(
-        upload_to='deportista', default='/defautl/default_user.png')
+        upload_to='deportista', default='defautl/default_user.png')
     deporte = models.ForeignKey(
         Deporte, on_delete=models.SET_NULL, null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL,

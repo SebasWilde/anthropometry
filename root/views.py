@@ -12,6 +12,7 @@ from .forms import (
     CategoriaForm,
     InstitucionForm,
     MedidaForm,
+    DeportistaInfoForm,
 )
 
 
@@ -50,29 +51,25 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailDeportista, self).get_context_data(**kwargs)
-        medidas = Medida.objects.filter(deportista__id=self.kwargs.get('pk'))\
+        medidas = Medida.objects.filter(deportista__id=self.kwargs.get('pk')) \
             .order_by('-fecha_registro')
         context['medidas'] = medidas
         return context
 
 
-# TODO: Not allow create deportista or institucion and add categoria
 # TODO: Add personal info
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
     form_class = DeportistaForm
-    form_class_deporte = DeporteForm
-    form_class_asociacion = InstitucionForm
+    DeportistaInfoForm = DeportistaInfoForm
     template_name = 'root/add_deportista.html'
 
     def get_context_data(self, **kwargs):
         context = super(CreateDeportista, self).get_context_data(**kwargs)
         if 'form' not in context:
             context['form'] = self.form_class
-        if 'form_deporte' not in context:
-            context['form_deporte'] = self.form_class_deporte
-        if 'form_asociacion' not in context:
-            context['form_asociacion'] = self.form_class_asociacion
+        if 'form_info' not in context:
+            context['form_info'] = self.DeportistaInfoForm
         context['url'] = 'add-deportista'
         return context
 
