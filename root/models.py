@@ -11,7 +11,7 @@ from decimal import *
 class Institucion(models.Model):
     nombre = models.CharField(max_length=125, unique=True)
     logo = models.ImageField(
-        upload_to='institucion', default='/defautl/default_institucion.png')
+        upload_to='institucion', default='default/default_institucion.png')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -120,16 +120,15 @@ class CreateInstitucion(LoginRequiredMixin, CreateView):
     template_name = 'includes/add_institucion.html'
 
 
+class UpdateInstitucion(LoginRequiredMixin, UpdateView):
+    model = Institucion
+    form_class = InstitucionForm
+    template_name = 'includes/add_institucion.html'
+
+
 class ListInstitucion(LoginRequiredMixin, ListView):
     template_name = 'root/list_institucion.html'
     form_class_asociacion = InstitucionForm
-
-    def get_context_data(self, **kwargs):
-        context = super(ListInstitucion, self).get_context_data(**kwargs)
-        if 'form_asociacion' not in context:
-            context['form_asociacion'] = self.form_class_asociacion
-        context['url'] = 'list-asociacion'
-        return context
 
     def get_queryset(self):
         queryset = Institucion.objects.filter(user=self.request.user)

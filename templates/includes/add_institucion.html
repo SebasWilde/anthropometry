@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="modal fade" id="asociacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="institucionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,7 +9,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form role="form" method="post" action="{% url 'add-institucion' %}">
+      <form role="form" method="post" action="{% url 'add-institucion' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="modal-body">
           <input type="hidden" name="user" value="{{ user.id }}">
@@ -19,7 +19,7 @@
                 <input class="d-none" type="file" name="logo" accept="image/*" id="id_logo" onchange="readURL(this);">
                 <label for="id_logo">
                   <div class="border border-secondary">
-                    <img id="display_img" src="{% get_media_prefix %}default/default_institucion.png" class="img-fluid">
+                    <img id="display_img" src="{% get_media_prefix %}default/default_institucion.png" data-default="{% get_media_prefix %}default/default_institucion.png" class="img-fluid">
                   </div>
                 </label>
               </div>
