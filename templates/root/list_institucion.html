@@ -86,6 +86,7 @@
               let logo = button.data('logo');
               form.find('#display_img').attr('src', logo);
               form.find('#id_nombre').val(name);
+              modal_institucion.find('#title-modal').text('Editar')
           }
       });
 
@@ -94,6 +95,7 @@
           form.trigger('reset');
           let display_img = form.find('#display_img');
           display_img.attr('src', display_img.data('default'));
+          modal_institucion.find('#title-modal').text('Agregar')
       });
 
   </script>
