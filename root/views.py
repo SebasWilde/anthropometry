@@ -107,7 +107,10 @@ class UpdateDeportista(LoginRequiredMixin, UpdateView):
 
     def post(self, request, *args, **kwargs):
         deportista = Deportista.objects.get(pk=kwargs['pk'])
-        info_deportista = DeportistaInfo.objects.get(deportista=deportista)
+        try:
+            info_deportista = DeportistaInfo.objects.get(deportista=deportista)
+        except DeportistaInfo.DoesNotExist:
+            info_deportista = DeportistaInfo.objects.create(deportista=deportista)
         form_deportista = self.form_class(request.POST, instance=deportista)
         form_info_deportista = self.second_form_class(
             request.POST, instance=info_deportista)

@@ -264,7 +264,7 @@ class Medida(models.Model):
         p_muscular_medio = self.deportista.categoria.\
             parametro_medio_masa_muscular
         p_muscular_menor = self.deportista.categoria.\
-            parametro_medio_masa_muscular
+            parametro_menor_masa_muscular
         if not p_muscular_mayor and not p_muscular_medio and \
                 not p_muscular_menor:
             return 'black', 'Sin categoria'

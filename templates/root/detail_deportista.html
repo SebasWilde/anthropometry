@@ -1,6 +1,6 @@
 {% extends 'root/base.html' %}
 {% load static %}
-
+{% load app_filters %}
 {% block extra_css %}
   <link href="{% static 'css/profile.css' %}" rel="stylesheet">
   <link href="{% static 'css/general.css' %}" rel="stylesheet">
@@ -119,19 +119,21 @@
                     <td><a class="btn btn-primary btn-sm" href="{% url 'edit-medida' medida.id %}"><i class="fas fa-pencil-alt"></i></a></td>
                     <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
                     <td>{{ medida.peso_bruto }}</td>
-                    <td>{{ medida.get_peso_ideal_menor }}</td>
-                    <td>{{ medida.get_peso_ideal_mayor }}</td>
+                    <td>{{ medida.get_peso_ideal_menor|floatformat:1 }}</td>
+                    <td>{{ medida.get_peso_ideal_mayor|floatformat:1 }}</td>
                     <td>{{ medida.estatura }}</td>
-                    <td>{{ medida.get_indice_masa_corporal }}</td>
-                    <td>{{ medida.get_masa_magra }}</td>
-                    <td>{{ medida.get_indice_sustancia_activa }}</td>
+                    <td>{{ medida.get_indice_masa_corporal|floatformat:1 }}</td>
+                    <td>{{ medida.get_masa_magra|floatformat:1 }}</td>
+                    <td>{{ medida.get_indice_sustancia_activa|floatformat:1 }}</td>
                     <td>{{ medida.get_sum_pliegues }}</td>
-                    <td>{{ medida.get_grasa_corporal }}</td>
+                    {% with grasa_corporal=medida.get_grasa_corporal|as_percentage %}
+                      <td>{{ grasa_corporal|floatformat:1 }}%</td>
+                    {% endwith %}
                     <td>{{ medida.talla_sentado }}</td>
                     <td>{{ medida.cintura }}</td>
                     <td>{{ medida.cadera }}</td>
-                    <td>{{ medida.get_indice_cintaura_cadera }}</td>
-                    <td>{{ medida.get_indice_citura_talla }}</td>
+                    <td>{{ medida.get_indice_cintaura_cadera|floatformat:2 }}</td>
+                    <td>{{ medida.get_indice_citura_talla|floatformat:2 }}</td>
                     <td>{{ medida.humeral }}</td>
                     <td>{{ medida.femoral }}</td>
                     <td>{{ medida.brazo_flexionado }}</td>
@@ -144,9 +146,9 @@
                     <td>{{ medida.abdominales }}</td>
                     <td>{{ medida.muslo_medio }}</td>
                     <td>{{ medida.pliege_pierna }}</td>
-                    <td>{{ medida.get_endomorfismo }}</td>
-                    <td>{{ medida.get_mesomorfismo }}</td>
-                    <td>{{ medida.get_ectomorfismo }}</td>
+                    <td>{{ medida.get_endomorfismo|floatformat:1 }}</td>
+                    <td>{{ medida.get_mesomorfismo|floatformat:1 }}</td>
+                    <td>{{ medida.get_ectomorfismo|floatformat:1 }}</td>
                     <td>{{ medida.get_caracterizacion }}</td>
                     <td class="bg-{{ medida.get_observacion_masa_grasa.0 }} text-white font-weight-bold">{{ medida.get_observacion_masa_grasa.1 }}</td>
                     <td class="bg-{{ medida.get_observacion_masa_muscular.0 }} text-white font-weight-bold">{{ medida.get_observacion_masa_muscular.1 }}</td>
