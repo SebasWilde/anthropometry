@@ -3,12 +3,13 @@
 
 {% block extra_css %}
   <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link href="{% static 'css/selectstyle.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Tomar medidas{% endblock %}
 {% block page %}
   {% if object %}
-      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'detail-deportista' object.pk %}">Detalle deportista</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'detail-deportista' object.pk %}">Detalle deportista</a></li>
   {% endif %}
   <li class="breadcrumb-item active" aria-current="page">Tomar medidas</li>
 {% endblock %}
@@ -27,7 +28,8 @@
                 <input type="hidden" name="deportista" value="{{ deportista.pk }}">
               {% else %}
                 <label for="id_deportista">Deportista:</label>
-                <select class="form-control" name="deportista" required="" id="id_deportista">
+                <select class="form-control" name="deportista" required="" id="id_deportista"
+                        theme="google" placeholder="Selecciona a tu deportista" data-search="true">
                   {% for option in form.fields.deportista.choices.queryset %}
                     <option value="{{ option.pk }}"
                         {% if object and option == object.deportista %}
@@ -212,7 +214,7 @@
 {% endblock %}
 {% block extra_js %}
   <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
-
+  <script src="{% static 'js/selectstyle.js' %}"></script>
   <script>
       /*datwpicker*/
       jQuery('#id_fecha_registro').datepicker({
@@ -220,6 +222,9 @@
           todayHighlight: true,
           orientation: "bottom"
       });
+
+      /* Select searchable */
+      $('#id_deportista').selectstyle();
 
   </script>
 {% endblock %}
