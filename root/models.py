@@ -134,46 +134,43 @@ class Medida(models.Model):
     def get_sum_pliegues(self):
         sum_pliegues = self.triceps + self.subescapular + self.supraespinal + \
                self.abdominales + self.muslo_medio + self.pliege_pierna
-        return sum_pliegues.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return sum_pliegues
 
     def get_grasa_corporal(self):
         grasa_corporal = ((Decimal(0.1051) * self.get_sum_pliegues()) +
                           (Decimal(2.585))) / Decimal(100)
-        return grasa_corporal.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return grasa_corporal
 
     def get_masa_magra(self):
         masa_magra = self.peso_bruto - (
                 self.peso_bruto * self.get_grasa_corporal())
-        return masa_magra.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return masa_magra
 
     def get_peso_ideal_menor(self):
         peso_ideal_menor = self.get_masa_magra() / Decimal(0.95)
-        return peso_ideal_menor.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return peso_ideal_menor
 
     def get_peso_ideal_mayor(self):
         peso_ideal_mayor = self.get_masa_magra() / Decimal(0.91)
-        return peso_ideal_mayor.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return peso_ideal_mayor
 
     def get_indice_masa_corporal(self):
         indice_masa_corporal = self.peso_bruto / \
                                Decimal(pow(float(self.estatura)/100.0, 2))
-        return indice_masa_corporal.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return indice_masa_corporal
 
     def get_indice_sustancia_activa(self):
         indice_sustancia_activa = (self.get_masa_magra() * Decimal(100000)) / \
-                                  (Decimal(pow(float(self.estatura), 3))
-                                   .quantize(Decimal('.01'),
-                                             rounding=ROUND_UP))
-        return indice_sustancia_activa.quantize(Decimal('.01'),
-                                                rounding=ROUND_UP)
+                                  (Decimal(pow(float(self.estatura), 3)))
+        return indice_sustancia_activa
 
     def get_indice_cintaura_cadera(self):
         indice_cintaura_cadera = self.cintura / self.cadera
-        return indice_cintaura_cadera.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return indice_cintaura_cadera
 
     def get_indice_citura_talla(self):
         indice_citura_talla = self.cintura / self.estatura
-        return indice_citura_talla.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return indice_citura_talla
 
     def get_endomorfismo(self):
         x = (self.triceps + self.subescapular + self.supraespinal) * \
@@ -182,7 +179,7 @@ class Medida(models.Model):
                (Decimal(0.00068) * Decimal(pow(float(x), 2))) + \
                (Decimal(0.0000014) * Decimal(pow(float(x), 3))) - \
                (Decimal(0.7182))
-        return endomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return endomorfismo
 
     def get_mesomorfismo(self):
         E = self.humeral
@@ -193,7 +190,7 @@ class Medida(models.Model):
         mesomorfismo = (Decimal(0.858) * E) + (Decimal(0.601) * K) + \
                        (Decimal(0.188) * A) + (Decimal(0.161) * C) - \
                        (Decimal(0.131) * H) + Decimal(4.5)
-        return mesomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return mesomorfismo
 
     def get_ectomorfismo(self):
         rpi = self.estatura / Decimal((pow(float(self.peso_bruto), 0.3333)))
@@ -204,7 +201,7 @@ class Medida(models.Model):
             ectomorfismo = (Decimal(0.463) * rpi) - Decimal(17.63)
         elif rpi < Decimal(38.25):
             ectomorfismo = Decimal(0.1)
-        return ectomorfismo.quantize(Decimal('.01'), rounding=ROUND_UP)
+        return ectomorfismo
 
     def get_caracterizacion(self):
         endo = self.get_endomorfismo()
@@ -244,22 +241,35 @@ class Medida(models.Model):
             return 'Ectomorfo endomorfo'
 
     def get_observacion_masa_grasa(self):
+        p_grasa_mayor = self.deportista.categoria.parametro_mayor_masa_grasa
+        p_grasa_menor = self.deportista.categoria.parametro_menor_masa_grasa
+        if not p_grasa_mayor and not p_grasa_menor:
+            return 'black', 'Sin categoria'
         sum_6_pliegues = self.get_sum_pliegues()
-        if sum_6_pliegues > Decimal(65):
+        if sum_6_pliegues > p_grasa_mayor:
             return 'red', 'Muy elevada masa grasa'
-        elif Decimal(51) < sum_6_pliegues < Decimal(65):
+        elif p_grasa_menor < sum_6_pliegues < p_grasa_mayor:
             return 'yellow', 'Elevada masa grasa'
         else:
             return 'blue', 'Adecuada masa grasa'
 
     def get_observacion_masa_muscular(self):
+        p_muscular_mayor = self.deportista.categoria.\
+            parametro_mayor_masa_muscular
+        p_muscular_medio = self.deportista.categoria.\
+            parametro_medio_masa_muscular
+        p_muscular_menor = self.deportista.categoria.\
+            parametro_medio_masa_muscular
+        if not p_muscular_mayor and not p_muscular_medio and \
+                not p_muscular_menor:
+            return 'black', 'Sin categoria'
         imc = self.get_indice_masa_corporal()
-        if imc < Decimal(16.3):
+        if imc < p_muscular_menor:
             return 'red', 'Muy escasa masa muscular'
-        elif imc < Decimal(18.0):
+        elif imc < p_muscular_medio:
             return 'yellow', 'Escasa masa muscular'
-        elif Decimal(18.0) < imc < Decimal(20.6):
+        elif p_muscular_medio < imc < p_muscular_mayor:
             return 'blue', 'Adecuada Musculatura'
-        elif imc > Decimal(20.6):
+        elif imc > p_muscular_mayor:
             return 'orange', 'Elevada Musculatura'
 
