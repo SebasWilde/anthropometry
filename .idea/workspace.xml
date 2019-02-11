@@ -14,45 +14,23 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/root/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="266" column="34" lean-forward="true" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                    <element signature="e#309#657#0" />
-                    <element signature="e#703#907#0" />
-                    <element signature="e#957#1935#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/root/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="273">
-                  <caret line="44" column="33" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                    <element signature="e#309#657#0" />
-                    <element signature="e#703#907#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/root/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#309#657#0" />
+                <element signature="e#703#907#0" />
+                <element signature="e#957#1935#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,7 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SB</find>
       <find>user</find>
       <find>1.jpg</find>
       <find>../</find>
@@ -96,6 +73,7 @@
       <find>url</find>
       <find>rever</find>
       <find>.quantize(Decimal('.01'), rounding=ROUND_UP)</find>
+      <find>get_age</find>
     </findStrings>
     <replaceStrings>
       <replace>images</replace>
@@ -269,12 +247,12 @@
       <workItem from="1548903997165" duration="8258000" />
       <workItem from="1548912497182" duration="21000" />
       <workItem from="1549756832978" duration="17162000" />
-      <workItem from="1549824887710" duration="15973000" />
+      <workItem from="1549824887710" duration="17077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133250000" />
+    <option name="totallyTimeSpent" value="134354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -602,8 +580,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/root/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="266" column="34" lean-forward="true" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
+        <state relative-caret-position="435">
+          <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#309#657#0" />

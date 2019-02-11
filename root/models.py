@@ -77,8 +77,13 @@ class Deportista(models.Model):
         return reverse('detail-deportista', kwargs={'pk': self.pk})
 
     def get_age(self):
-        age = datetime.now().year - self.fecha_nacimiento.year
-        return 0 if age < 1 else age
+        current_date = datetime.today().date()
+        days_left = current_date - self.fecha_nacimiento
+        years = ((days_left.total_seconds()) / (365.242 * 24 * 3600))
+        years_int = int(years)
+        months = (years - years_int) * 12
+        months_int = int(months)
+        return "%s,%s" % (str(years_int), str(months_int))
 
 
 class DeportistaInfo(models.Model):
