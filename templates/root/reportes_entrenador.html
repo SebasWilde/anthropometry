@@ -1,0 +1,95 @@
+{% extends 'root/base.html' %}
+{% load static %}
+{% load app_filters %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+{% endblock %}
+
+{% block title %}
+  Reportes para el entrenador
+{% endblock %}
+
+{% block page %}
+  <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'reporter' %}">Reportes</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Reportes entrenador</li>
+{% endblock %}
+{% block content %}
+  <div class="card h-100">
+    <div class="card-body">
+      <h4 class="card-title">INFORME DE EVALUACIÓN ANTROPOMÉTRICA</h4>
+      <h5>Institucion - deporte - categoria</h5>
+      <div class="table-responsive">
+        <table id="zero_config" class="table table-striped table-bordered text-center">
+          <thead>
+          <tr>
+            <th>N°</th>
+            <th>Apellidos y Nombres</th>
+            <th>F. de Eval</th>
+            <th>Edad</th>
+            <th>Peso bruto(kg)</th>
+            <th>Estatura(cm)</th>
+            <th>IMC</th>
+            <th>Masa magra(kg)</th>
+            <th>Sum pliegues(mm)</th>
+            <th>% Grasa corporal</th>
+            <th>Talla sentado</th>
+            <th>Indice cintura cadera</th>
+            <th>TRC</th>
+            <th>SUBS</th>
+            <th>BICP</th>
+            <th>SPRI</th>
+            <th>SPRE</th>
+            <th>ABD</th>
+            <th>MSM</th>
+            <th>PANT</th>
+            <th>Endo</th>
+            <th>Meso</th>
+            <th>Ecto</th>
+            <th>Caracterización</th>
+            <th>Observación masa grasa</th>
+            <th>Observación masa muscular</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for medida in mediciones %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ medida.deportista.get_full_name }}</td>
+              <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
+              <td>{{ medida.get_age_at_moment_metrics }}</td>
+              <td>{{ medida.peso_bruto }}</td>
+              <td>{{ medida.estatura }}</td>
+              <td>{{ medida.get_indice_masa_corporal|floatformat:1 }}</td>
+              <td>{{ medida.get_masa_magra|floatformat:1 }}</td>
+              <td>{{ medida.get_sum_pliegues }}</td>
+              {% with grasa_corporal=medida.get_grasa_corporal|as_percentage %}
+                <td>{{ grasa_corporal|floatformat:1 }}%</td>
+              {% endwith %}
+              <td>{{ medida.talla_sentado }}</td>
+              <td>{{ medida.get_indice_cintaura_cadera|floatformat:2 }}</td>
+              <td>{{ medida.triceps }}</td>
+              <td>{{ medida.subescapular }}</td>
+              <td>{{ medida.biceps }}</td>
+              <td>{{ medida.suprailiaco }}</td>
+              <td>{{ medida.supraespinal }}</td>
+              <td>{{ medida.abdominales }}</td>
+              <td>{{ medida.muslo_medio }}</td>
+              <td>{{ medida.pliege_pierna }}</td>
+              <td>{{ medida.get_endomorfismo|floatformat:1 }}</td>
+              <td>{{ medida.get_mesomorfismo|floatformat:1 }}</td>
+              <td>{{ medida.get_ectomorfismo|floatformat:1 }}</td>
+              <td>{{ medida.get_caracterizacion }}</td>
+              <td class="bg-{{ medida.get_observacion_masa_grasa.0 }} text-white font-weight-bold">{{ medida.get_observacion_masa_grasa.1 }}</td>
+              <td class="bg-{{ medida.get_observacion_masa_muscular.0 }} text-white font-weight-bold">{{ medida.get_observacion_masa_muscular.1 }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-success my-3" type="button">Descargar excel</button>
+    </div>
+  </div>
+{% endblock %}
+

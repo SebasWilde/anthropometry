@@ -230,4 +230,54 @@ class UpdateMedida(LoginRequiredMixin, UpdateView):
     template_name = 'root/add_medida.html'
 
 
+class ReporterView(LoginRequiredMixin, View):
+    template_name = 'root/reportes.html'
 
+    def get(self, request, *args, **kwargs):
+        reporter_type = request.GET.get('reporter_type', 'entrenador')
+        context = dict()
+        if reporter_type == 'entrenador':
+            deportes = Deporte.objects.all()
+            categorias = Categoria.objects.all()
+            context = {
+                'deportes': deportes,
+                'categorias': categorias,
+            }
+        elif reporter_type == 'deportista':
+            deportistas = Deportista.objects.all()
+            context = {
+                'deportistas': deportistas,
+            }
+        context['reporter_type'] = reporter_type
+        return render(request, self.template_name, context)
+
+
+class ReporterTrainerView(LoginRequiredMixin, View):
+    template_name = 'root/reportes_entrenador.html'
+
+    def get(self, request, *args, **kwargs):
+        deporte = request.GET.get('deporte', None)
+        if not deporte:
+            return HttpResponseRedirect(reverse_lazy('reporter'))
+        categoria = request.GET.get('categoria', None)
+        if categoria:
+            deportistas = Deportista.objects.filter(deporte=deporte,
+                                                    categoria=categoria)
+        else:
+            deportistas = Deportista.objects.filter(deporte=deporte)
+
+        mediciones = Medida.objects.filter(deportista__in=deportistas)\
+            .order_by('deportista__apellidos', '-fecha_registro')
+
+        context = {
+            'mediciones': mediciones
+        }
+
+        return render(request, self.template_name, context)
+
+
+class ReporterDeportistaView(LoginRequiredMixin, View):
+    template_name = ''
+
+    def get(self, request, *args, **kwargs):
+        pass

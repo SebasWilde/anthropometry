@@ -85,6 +85,9 @@ class Deportista(models.Model):
         months_int = int(months)
         return "%s,%s" % (str(years_int), str(months_int))
 
+    def get_full_name(self):
+        return self.apellidos + ' ' + self.nombres
+
 
 class DeportistaInfo(models.Model):
     deportista = models.OneToOneField(Deportista, on_delete=models.CASCADE)
@@ -135,6 +138,15 @@ class Medida(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail-deportista', kwargs={'pk': self.deportista.pk})
+
+    def get_age_at_moment_metrics(self):
+        current_date = self.fecha_registro
+        days_left = current_date - self.deportista.fecha_nacimiento
+        years = ((days_left.total_seconds()) / (365.242 * 24 * 3600))
+        years_int = int(years)
+        months = (years - years_int) * 12
+        months_int = int(months)
+        return "%s,%s" % (str(years_int), str(months_int))
 
     def get_sum_pliegues(self):
         sum_pliegues = self.triceps + self.subescapular + self.supraespinal + \

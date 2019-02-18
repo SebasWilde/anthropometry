@@ -18,6 +18,9 @@ from .views import (
     UpdateMedida,
     CreateCategoria,
     UpdateCategoria,
+    ReporterView,
+    ReporterTrainerView,
+    ReporterDeportistaView,
 )
 
 
@@ -49,4 +52,9 @@ urlpatterns = [
     path('medida/add/<int:deportista_pk>/', CreateMedida.as_view(),
          name='add-medida'),
     path('medida/edit/<int:pk>/', UpdateMedida.as_view(), name='edit-medida'),
+    path('reportes/', ReporterView.as_view(), name='reporter'),
+    path('reportes/entrenador/', ReporterTrainerView.as_view(),
+         name='reporter-entrenador'),
+    path('reportes/deportista/', ReporterDeportistaView.as_view(),
+         name='reporter-deportista'),
 ]

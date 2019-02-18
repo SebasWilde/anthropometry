@@ -1,0 +1,125 @@
+{% extends 'root/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+  <link href="{% static 'css/selectstyle.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+  Reportes
+{% endblock %}
+
+{% block page %}
+  <li class="breadcrumb-item active" aria-current="page">Reportes</li>
+{% endblock %}
+{% block content %}
+  <div class="card h-100">
+    <div class="card-body">
+      <h4 class="card-title">Panel de configuración</h4>
+      <form class="form-horizontal" method="get">
+        <div class="form-group">
+          <label>Tipo de reporte:</label>
+          <select class="form-control" name="reporter_type" id="id_reporter_type">
+            <option value="entrenador" {% if reporter_type == 'entrenador' %}selected{% endif %}>Entrenador</option>
+            <option value="deportista" {% if reporter_type == 'deportista' %}selected{% endif %}>Deportista</option>
+          </select>
+        </div>
+      </form>
+      <form class="form-horizontal" method="GET"
+            action="{% if reporter_type == 'entrenador'  %}{% url 'reporter-entrenador' %}{% elif reporter_type == 'deportista' %}{% url 'reporter-deportista' %}{% endif %}">
+        <div class="form-row report entrenador {% if reporter_type == 'deportista' %}d-none{% endif %}">
+          <div class="form-group col-md-6">
+            <label for="id_deporte">
+              Deporte:
+            </label>
+            <select class="form-control" name="deporte" id="id_deporte"
+            {% if reporter_type == 'entrenador' %}required{% endif %}>
+              <option value="" selected="">No definido</option>
+              {% for option in deportes %}
+                <option value="{{ option.pk }}"
+                    {% if object and option == object.deporte %}
+                        selected
+                    {% endif %}
+                >{{ option.deporte }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="id_categoria">
+              Categoria:
+            </label>
+            <select class="form-control" name="categoria" id="id_categoria">
+              <option id="default-category-option"  value="" selected="">No definido</option>
+              {% for option in categorias %}
+                <option value="{{ option.pk }}" data-id-deporte="{{ option.deporte.id }}"
+                    {% if object and not option.deporte == object.deporte %}
+                        class="d-none" disabled
+                    {% endif %}
+                    {% if object and option == object.categoria %}
+                        selected
+                    {% endif %}
+                >{{ option }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="form-group report deportista {% if reporter_type == 'entrenador' %}d-none{% endif %}">
+          <label for="id_deportista">Deportista:</label>
+          <select class="form-control" name="deportista" {% if reporter_type == 'deportista' %}required{% endif %} id="id_deportista"
+                  theme="google" placeholder="Selecciona a tu deportista" data-search="true">
+            {% for option in deportistas %}
+              <option value="{{ option.pk }}"
+                  {% if object and option == object.deportista %}
+                      selected
+                  {% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="border-top py-2">
+          <button type="submit" class="btn btn-info">Vista previa</button>
+          <button class="btn btn-success">Descargar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/selectstyle.js' %}"></script>
+
+  <script>
+      let type_reporter = $('#id_reporter_type');
+      /* On change type of reporter do a get */
+      type_reporter.change(function () {
+          $(this).closest('form').submit();
+      });
+
+      let forms_entrenador = $('.entrenador');
+      let forms_deportista = $('.deportista');
+
+      if (!forms_entrenador.hasClass('d-none')){
+          /* Display categories on select deporte */
+          let select_deporte = $('#id_deporte');
+          let select_categoria = $('#id_categoria');
+          let options_categories = $('#id_categoria option').not('#default-category-option');
+          select_deporte.change(function () {
+              let deporte = $(this).val();
+              select_categoria.val('');
+              options_categories.addClass('d-none');
+              options_categories.prop('disabled', true);
+              options_categories.filter(function () {
+                  return $(this).data('id-deporte') === parseInt(deporte)
+              }).removeClass('d-none').prop('disabled', false);
+          });
+      }
+
+      if (!forms_deportista.hasClass('d-none')){
+          /* Select searchable */
+          $('#id_deportista').selectstyle();
+      }
+
+  </script>
+{% endblock %}
