@@ -1,0 +1,158 @@
+{% extends 'root/base.html' %}
+{% load static %}
+{% load app_filters %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+{% endblock %}
+
+{% block title %}
+  Reportes para el deportista
+{% endblock %}
+
+{% block page %}
+  <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'reporter' %}">Reportes</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Reportes deportista</li>
+{% endblock %}
+{% block content %}
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h5 class="font-weight-bold text-dark">AREA DE NUTRICIÓN</h5>
+          <h4 class="card-title text-center text-dark font-weight-bold">FICHA RESUMEN DE EVALUACIÓN ANTROPOMÉTRICA</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-dark font-weight-bold">Deportista: {{ deportista|upper }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="text-dark font-weight-bold">F. de Nac: {{ deportista.fecha_nacimiento|date:'d/m/Y' }}</p>
+        </div>
+        <div class="col-md-4">
+          <p class="text-dark font-weight-bold">Posición: Defensa</p>
+        </div>
+        <div class="col-md-4">
+          <p class="text-dark font-weight-bold">Categoria: {{ deportista.categoria|upper }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4 class="card-title text-center text-dark font-weight-bold">RESULTADOS</h4>
+        </div>
+      </div>
+
+    <div class="table-responsive">
+      <table id="zero_config" class="table table-bordered text-center">
+        <tbody>
+        <tr>
+          <th class="font-weight-bold text-dark">Fecha</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <th class="font-weight-bold text-dark">Edad</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_age_at_moment_metrics }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <th class="font-weight-bold text-dark">Estatura</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.estatura }}</td>
+          {% endfor %}
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+      <div class="table-responsive">
+      <table id="zero_config" class="table table-bordered text-center">
+        <tbody>
+        <tr>
+          <th class="font-weight-bold text-dark">Peso</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.peso_bruto }}</td>
+          {% endfor %}
+        </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="table-responsive">
+      <table id="zero_config" class="table table-bordered text-center">
+        <tbody>
+        <tr>
+          <th class="font-weight-bold text-dark">% Grasa (YC)</th>
+          {% for medida in mediciones %}
+            {% with grasa_corporal=medida.get_grasa_corporal|as_percentage %}
+              <td>{{ grasa_corporal|floatformat:1 }}%</td>
+            {% endwith %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <th class="font-weight-bold text-dark">&Sigma; 6 Pliegues</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_sum_pliegues }}</td>
+          {% endfor %}
+        </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="table-responsive">
+      <table id="zero_config" class="table table-bordered text-center">
+        <tbody>
+        <tr>
+          <th class="font-weight-bold text-dark">IMC</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_indice_masa_corporal|floatformat:1 }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <th class="font-weight-bold text-dark">AKS</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_indice_sustancia_activa|floatformat:1 }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4 class="card-title text-center text-dark font-weight-bold">CATEGORIZACIÓN</h4>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+      <table id="zero_config" class="table table-bordered text-center">
+        <tbody>
+        <tr>
+          <th class="font-weight-bold text-dark">Masa Grasa</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_observacion_masa_grasa.1 }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <th class="font-weight-bold text-dark">Masa Muscular</th>
+          {% for medida in mediciones %}
+            <td>{{ medida.get_observacion_masa_muscular.1 }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+        </tbody>
+      </table>
+      </div>
+
+      <button class="btn btn-success my-3" type="button">Descargar excel</button>
+    </div>
+  </div>
+{% endblock %}
+

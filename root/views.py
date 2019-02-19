@@ -236,6 +236,7 @@ class ReporterView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         reporter_type = request.GET.get('reporter_type', 'entrenador')
         context = dict()
+        instituciones = Institucion.objects.filter(user=request.user)
         if reporter_type == 'entrenador':
             deportes = Deporte.objects.all()
             categorias = Categoria.objects.all()
@@ -249,6 +250,7 @@ class ReporterView(LoginRequiredMixin, View):
                 'deportistas': deportistas,
             }
         context['reporter_type'] = reporter_type
+        context['instituciones'] = instituciones
         return render(request, self.template_name, context)
 
 
@@ -277,7 +279,18 @@ class ReporterTrainerView(LoginRequiredMixin, View):
 
 
 class ReporterDeportistaView(LoginRequiredMixin, View):
-    template_name = ''
+    template_name = 'root/reportes_deportista.html'
 
     def get(self, request, *args, **kwargs):
-        pass
+        deportista_pk = request.GET.get('deportista', None)
+        if not deportista_pk:
+            return HttpResponseRedirect(reverse_lazy('reporter'))
+        deportista = Deportista.objects.get(pk=deportista_pk)
+        mediciones = Medida.objects.filter(deportista=deportista)\
+            .order_by('-fecha_registro')
+        context = {
+            'mediciones': mediciones,
+            'deportista': deportista,
+        }
+
+        return render(request, self.template_name, context)

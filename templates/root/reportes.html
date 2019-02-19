@@ -35,7 +35,7 @@
               Deporte:
             </label>
             <select class="form-control" name="deporte" id="id_deporte"
-            {% if reporter_type == 'entrenador' %}required{% endif %}>
+                    {% if reporter_type == 'entrenador' %}required{% endif %}>
               <option value="" selected="">No definido</option>
               {% for option in deportes %}
                 <option value="{{ option.pk }}"
@@ -76,6 +76,19 @@
                   {% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
+        </div>
+        <div class="form-row report">
+          <div class="col-md-6 form-group">
+            <label for="id_institucion">
+              Institucion:
+            </label>
+            <select class="form-control" name="institucion" id="id_institucion" required>
+              <option value="" selected="">No definido</option>
+              {% for option in instituciones %}
+                <option value="{{ option.pk }}">{{ option.nombre }}</option>
+              {% endfor %}
+            </select>
+          </div>
         </div>
         <div class="border-top py-2">
           <button type="submit" class="btn btn-info">Vista previa</button>
