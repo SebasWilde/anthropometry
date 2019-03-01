@@ -19,8 +19,7 @@
   <div class="card h-100">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-12 text-center">
-          <h5 class="font-weight-bold text-dark">AREA DE NUTRICIÓN</h5>
+        <div class="col-md-12 text-center my-4">
           <h4 class="card-title text-center text-dark font-weight-bold">FICHA RESUMEN DE EVALUACIÓN ANTROPOMÉTRICA</h4>
         </div>
       </div>
@@ -30,125 +29,124 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <p class="text-dark font-weight-bold">F. de Nac: {{ deportista.fecha_nacimiento|date:'d/m/Y' }}</p>
         </div>
-        <div class="col-md-4">
-          <p class="text-dark font-weight-bold">Posición: Defensa</p>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <p class="text-dark font-weight-bold">Categoria: {{ deportista.categoria|upper }}</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row my-3">
         <div class="col">
           <h4 class="card-title text-center text-dark font-weight-bold">RESULTADOS</h4>
         </div>
       </div>
 
-    <div class="table-responsive">
-      <table id="zero_config" class="table table-bordered text-center">
-        <tbody>
-        <tr>
-          <th class="font-weight-bold text-dark">Fecha</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-          <th class="font-weight-bold text-dark">Edad</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_age_at_moment_metrics }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-          <th class="font-weight-bold text-dark">Estatura</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.estatura }}</td>
-          {% endfor %}
-        </tr>
-        </tbody>
-      </table>
-    </div>
+      <div class="table-responsive my-2">
+        <table id="zero_config" class="table table-bordered text-center">
+          <tbody>
+          <tr>
+            <th class="font-weight-bold text-dark">Fecha</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.fecha_registro|date:'d/m/Y' }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">Edad</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_age_at_moment_metrics }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">Estatura</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.estatura }}</td>
+            {% endfor %}
+          </tr>
 
-      <div class="table-responsive">
-      <table id="zero_config" class="table table-bordered text-center">
-        <tbody>
-        <tr>
-          <th class="font-weight-bold text-dark">Peso</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.peso_bruto }}</td>
-          {% endfor %}
-        </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
       </div>
 
-      <div class="table-responsive">
-      <table id="zero_config" class="table table-bordered text-center">
-        <tbody>
-        <tr>
-          <th class="font-weight-bold text-dark">% Grasa (YC)</th>
-          {% for medida in mediciones %}
-            {% with grasa_corporal=medida.get_grasa_corporal|as_percentage %}
-              <td>{{ grasa_corporal|floatformat:1 }}%</td>
-            {% endwith %}
-          {% endfor %}
-        </tr>
-        <tr>
-          <th class="font-weight-bold text-dark">&Sigma; 6 Pliegues</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_sum_pliegues }}</td>
-          {% endfor %}
-        </tr>
-        </tbody>
-      </table>
-      </div>
-
-      <div class="table-responsive">
-      <table id="zero_config" class="table table-bordered text-center">
-        <tbody>
-        <tr>
-          <th class="font-weight-bold text-dark">IMC</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_indice_masa_corporal|floatformat:1 }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-          <th class="font-weight-bold text-dark">AKS</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_indice_sustancia_activa|floatformat:1 }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-        </tbody>
-      </table>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <h4 class="card-title text-center text-dark font-weight-bold">CATEGORIZACIÓN</h4>
+      <div class="row my-3">
+        <div class="col-md-12 text-center">
+          <h6 class="card-title text-center text-dark font-weight-bold">PESO</h6>
+        </div>
+        <div class="col-md-12">
+          <div id="chart-peso" style="height: 200px;"></div>
         </div>
       </div>
+      <div class="table-responsive my-2">
+        <table id="zero_config" class="table table-bordered text-center">
+          <tbody>
+          <tr id="peso">
+            <th class="font-weight-bold text-dark">Peso</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.peso_bruto }}</td>
+            {% endfor %}
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <div class="table-responsive">
-      <table id="zero_config" class="table table-bordered text-center">
-        <tbody>
-        <tr>
-          <th class="font-weight-bold text-dark">Masa Grasa</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_observacion_masa_grasa.1 }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-          <th class="font-weight-bold text-dark">Masa Muscular</th>
-          {% for medida in mediciones %}
-            <td>{{ medida.get_observacion_masa_muscular.1 }}</td>
-          {% endfor %}
-        </tr>
-        <tr>
-        </tbody>
-      </table>
+      <div class="row my-3">
+        <div class="col-md-12 text-center">
+          <h6 class="card-title text-center text-dark font-weight-bold">%GRASA (YC)</h6>
+        </div>
+        <div class="col-md-12">
+          <div id="chart-grasa" style="height: 200px;"></div>
+        </div>
+      </div>
+      <div class="table-responsive my-2">
+        <table id="zero_config" class="table table-bordered text-center">
+          <tbody>
+
+          <tr id="grasa">
+            <th class="font-weight-bold text-dark">% Grasa (YC)</th>
+            {% for medida in mediciones %}
+              {% with grasa_corporal=medida.get_grasa_corporal|as_percentage %}
+                <td>{{ grasa_corporal|floatformat:1 }}%</td>
+              {% endwith %}
+            {% endfor %}
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-responsive my-2">
+        <table id="zero_config" class="table table-bordered text-center">
+          <tbody>
+          <tr>
+            <th class="font-weight-bold text-dark">&Sigma; 6 Pliegues</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_sum_pliegues }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">IMC</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_indice_masa_corporal|floatformat:1 }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">AKS</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_indice_sustancia_activa|floatformat:1 }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">Masa Grasa</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_observacion_masa_grasa.1 }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <th class="font-weight-bold text-dark">Masa Muscular</th>
+            {% for medida in mediciones %}
+              <td>{{ medida.get_observacion_masa_muscular.1 }}</td>
+            {% endfor %}
+          </tr>
+          </tbody>
+        </table>
       </div>
 
       <button class="btn btn-success my-3" type="button">Descargar excel</button>
@@ -156,3 +154,36 @@
   </div>
 {% endblock %}
 
+{% block extra_js %}
+  <script>
+      function get_dataset(type) {
+          let data_td = $('#' + type +' > td');
+          let data = [[0,]];
+          data_td.each(function (index, value) {
+              console.log(index);
+              console.log($(this).text());
+              data.push([index+1, parseInt($(this).text())])
+          });
+          data.push([data.length,]);
+          return [
+              {
+                  label: type,
+                  data: data
+              }
+          ];
+      }
+      var options = {
+          series: {
+              lines: {show:true},
+              points: {
+                  radius: 3,
+                  show: true,
+              }
+          }
+      };
+      $(document).ready(function () {
+          $.plot($('#chart-peso'), get_dataset('peso'), options);
+          $.plot($('#chart-grasa'), get_dataset('grasa'), options);
+      });
+  </script>
+{% endblock %}

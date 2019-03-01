@@ -30,7 +30,7 @@
       <form class="form-horizontal" method="GET"
             action="{% if reporter_type == 'entrenador'  %}{% url 'reporter-entrenador' %}{% elif reporter_type == 'deportista' %}{% url 'reporter-deportista' %}{% endif %}">
         <div class="form-row report entrenador {% if reporter_type == 'deportista' %}d-none{% endif %}">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="id_deporte">
               Deporte:
             </label>
@@ -46,7 +46,7 @@
               {% endfor %}
             </select>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="id_categoria">
               Categoria:
             </label>
@@ -64,6 +64,19 @@
               {% endfor %}
             </select>
           </div>
+          <div class="form-group col-md-4">
+            <label for="id_institucion">
+              Institucion:
+            </label>
+            <select class="form-control" name="institucion" id="id_institucion"
+            {% if reporter_type == 'entrenador' %}required{% endif %}>
+              <option value="" selected="">No definido</option>
+              {% for option in instituciones %}
+                <option value="{{ option.pk }}">{{ option.nombre }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
         </div>
         <div class="form-group report deportista {% if reporter_type == 'entrenador' %}d-none{% endif %}">
           <label for="id_deportista">Deportista:</label>
@@ -77,18 +90,9 @@
             {% endfor %}
           </select>
         </div>
-        <div class="form-row report">
-          <div class="col-md-6 form-group">
-            <label for="id_institucion">
-              Institucion:
-            </label>
-            <select class="form-control" name="institucion" id="id_institucion" required>
-              <option value="" selected="">No definido</option>
-              {% for option in instituciones %}
-                <option value="{{ option.pk }}">{{ option.nombre }}</option>
-              {% endfor %}
-            </select>
-          </div>
+        <div class="form-group report">
+          <label for="date">Desde:</label>
+          <input id="date" name="date" type="month" class="form-control">
         </div>
         <div class="border-top py-2">
           <button type="submit" class="btn btn-info">Vista previa</button>
