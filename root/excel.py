@@ -8,6 +8,7 @@ from .models import Deportista, Medida
 from openpyxl import Workbook
 # from openpyxl.writer.excel import save_virtual_workbook
 from openpyxl.styles import NamedStyle
+from openpyxl.utils import get_column_letter
 
 
 class ReporterTrainerExcelView(LoginRequiredMixin, View):
@@ -144,6 +145,16 @@ class ReporterTrainerExcelView(LoginRequiredMixin, View):
 
         return row_next, col_next
 
+    def set_header(self, ws, col_next, institucion, categoria):
+        _ = ws.cell(column=col_next - 1, row=1,
+                    value='{0}'.format(institucion).upper())
+        _ = ws.cell(column=col_next - 1, row=2, value='AREA DE NUTRICIÓN ')
+
+        ws.merge_cells('A3:' + get_column_letter(col_next-1)+str(3))
+        ws.cell(column=1, row=3).value = \
+            'INFORME DE EVALUACIÓN ANTROPOMÉTRICA - {0}'\
+                .format(categoria).upper()
+
     def get(self, request, *args, **kwargs):
         deporte = request.GET.get('deporte', None)
         date_input = request.GET.get('date', None)
@@ -167,11 +178,15 @@ class ReporterTrainerExcelView(LoginRequiredMixin, View):
             mediciones = Medida.objects.filter(deportista__in=deportistas) \
                 .order_by('-fecha_registro')
 
+        institucion = mediciones.first().deportista.institucion
+        categoria = mediciones.first().deportista.categoria
+
         wb = Workbook()
         ws = wb.active
 
         row_next = 7
         row_next, col_next = self.set_table(ws, row_next, mediciones)
+        self.set_header(ws, col_next, institucion, categoria)
 
         response = HttpResponse(content_type='application/ms-excel')
         response['Content-Disposition'] = 'attachment; filename="users.xls"'
