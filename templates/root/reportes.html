@@ -69,7 +69,7 @@
               Institucion:
             </label>
             <select class="form-control" name="institucion" id="id_institucion"
-            {% if reporter_type == 'entrenador' %}required{% endif %}>
+                    {% if reporter_type == 'entrenador' %}required{% endif %}>
               <option value="" selected="">No definido</option>
               {% for option in instituciones %}
                 <option value="{{ option.pk }}">{{ option.nombre }}</option>
@@ -92,7 +92,11 @@
         </div>
         <div class="form-group report">
           <label for="date">Desde:</label>
-          <input id="date" name="date" type="month" class="form-control">
+          <input id="date" name="date" type="month" class="form-control" required>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="check_all_dates" value="">
+          <label class="form-check-label" for="inlineCheckbox1">Todas las fechas</label>
         </div>
         <div class="border-top py-2">
           <button type="submit" class="btn btn-info">Vista previa</button>
@@ -137,6 +141,18 @@
           /* Select searchable */
           $('#id_deportista').selectstyle();
       }
+
+      $('#check_all_dates').change(function () {
+          let input_date = $('#date');
+          if(this.checked){
+              input_date.attr('required', false);
+              input_date.attr('disabled', true);
+          }
+          else {
+              input_date.attr('required', true);
+              input_date.attr('disabled', false);
+          }
+      })
 
   </script>
 {% endblock %}

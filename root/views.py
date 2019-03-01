@@ -259,6 +259,7 @@ class ReporterTrainerView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         deporte = request.GET.get('deporte', None)
+        date_input = request.GET.get('date', None)
         if not deporte:
             return HttpResponseRedirect(reverse_lazy('reporter'))
         categoria = request.GET.get('categoria', None)
@@ -268,9 +269,16 @@ class ReporterTrainerView(LoginRequiredMixin, View):
         else:
             deportistas = Deportista.objects.filter(deporte=deporte)
 
-        mediciones = Medida.objects.filter(deportista__in=deportistas)\
-            .order_by('deportista__apellidos', '-fecha_registro')
-
+        if date_input:
+            year, month = date_input.split('-')
+            mediciones = Medida.objects.filter(
+                deportista__in=deportistas,
+                fecha_registro__month__gte=month,
+                fecha_registro__year__gte=year
+            ).order_by('-fecha_registro')
+        else:
+            mediciones = Medida.objects.filter(deportista__in=deportistas)\
+                .order_by('-fecha_registro')
         context = {
             'mediciones': mediciones
         }
@@ -283,11 +291,20 @@ class ReporterDeportistaView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         deportista_pk = request.GET.get('deportista', None)
+        date_input = request.GET.get('date', None)
         if not deportista_pk:
             return HttpResponseRedirect(reverse_lazy('reporter'))
         deportista = Deportista.objects.get(pk=deportista_pk)
-        mediciones = Medida.objects.filter(deportista=deportista)\
-            .order_by('-fecha_registro')
+        if date_input:
+            year, month = date_input.split('-')
+            mediciones = Medida.objects.filter(
+                deportista=deportista,
+                fecha_registro__month__gte=month,
+                fecha_registro__year__gte=year
+            ).order_by('-fecha_registro')
+        else:
+            mediciones = Medida.objects.filter(deportista=deportista)\
+                .order_by('-fecha_registro')
         context = {
             'mediciones': mediciones,
             'deportista': deportista,
