@@ -23,6 +23,8 @@ from .views import (
     ReporterDeportistaView,
 )
 
+from .excel import ReporterTrainerExcelView
+
 
 urlpatterns = [
     path('', Index.as_view(), name='index'),
@@ -57,4 +59,6 @@ urlpatterns = [
          name='reporter-entrenador'),
     path('reportes/deportista/', ReporterDeportistaView.as_view(),
          name='reporter-deportista'),
+    path('reportes/entrenador/excel/', ReporterTrainerExcelView.as_view(),
+         name='reporter-entrenador-excel'),
 ]

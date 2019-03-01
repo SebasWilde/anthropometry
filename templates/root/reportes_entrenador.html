@@ -19,7 +19,7 @@
   <div class="card h-100">
     <div class="card-body">
       <h4 class="card-title">INFORME DE EVALUACIÓN ANTROPOMÉTRICA</h4>
-      <h5>Institucion - deporte - categoria</h5>
+      <h5>{{ mediciones.first.deportista.institucion }} - {{ mediciones.first.deportista.deporte }} - {{ mediciones.first.deportista.categoria }}</h5>
       <div class="table-responsive">
         <table id="zero_config" class="table table-striped table-bordered text-center">
           <thead>
@@ -88,7 +88,13 @@
           </tbody>
         </table>
       </div>
-      <button class="btn btn-success my-3" type="button">Descargar excel</button>
+      <form method="get" action="{% url 'reporter-entrenador-excel' %}">
+        <input type="hidden" name="deporte" id="id_deporte" value="{{ input_get.deporte }}">
+        <input type="hidden" name="categoria" id="id_categoria" value="{{ input_get.categoria }}">
+        <input type="hidden" name="institucion" id="id_institucion" value="{{ input_get.institucion }}">
+        <input type="hidden" name="date" id="date" {% if input_get.date %}value="{{ input_get.date }}"{% endif %}>
+        <button class="btn btn-success my-3" type="submit">Descargar excel</button>
+      </form>
     </div>
   </div>
 {% endblock %}

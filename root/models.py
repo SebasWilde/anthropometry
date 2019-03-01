@@ -146,7 +146,8 @@ class Medida(models.Model):
         years_int = int(years)
         months = (years - years_int) * 12
         months_int = int(months)
-        return "%s,%s" % (str(years_int), str(months_int))
+        age = float(years_int) + float(months_int/(10 * len(str(months_int))))
+        return age
 
     def get_sum_pliegues(self):
         sum_pliegues = self.triceps + self.subescapular + self.supraespinal + \
