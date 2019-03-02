@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/excel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/reportes_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/reportes_deportista.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,13 +21,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/views.py">
+        <entry file="file://$PROJECT_DIR$/root/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="287" column="30" selection-start-line="287" selection-start-column="20" selection-end-line="287" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="17" selection-start-line="10" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -30,20 +32,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/root/excel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="494" column="66" lean-forward="true" selection-start-line="494" selection-start-column="66" selection-end-line="494" selection-end-column="66" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#9156#9700#0" />
+                <element signature="e#9783#11599#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/general.css">
+        <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/chart/reference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="-908">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -51,45 +55,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="149" column="18" lean-forward="true" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+            <state relative-caret-position="187">
+              <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <element signature="e#703#907#0" />
                 <element signature="e#957#1935#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/root/reportes.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="94" column="38" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="38" />
-              <folding>
-                <element signature="n#div#1;n#form#1;n#div#0;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/root/reportes_entrenador.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-758">
-              <caret line="21" column="142" selection-start-line="21" selection-start-column="142" selection-end-line="21" selection-end-column="142" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="62" column="40" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,8 +80,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>twitter-follow-button</find>
-      <find>spre</find>
       <find>muslo_medio</find>
       <find>pant</find>
       <find>th</find>
@@ -139,6 +108,8 @@
       <find>row_header</find>
       <find>get_age_at_moment_metrics</find>
       <find>row + row_next</find>
+      <find>THIN_BORDER</find>
+      <find>START_COLUMN_IN</find>
     </findStrings>
     <replaceStrings>
       <replace>images</replace>
@@ -153,6 +124,7 @@
       <replace>row_header</replace>
       <replace>col</replace>
       <replace>row_next</replace>
+      <replace>start_column_in</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -164,7 +136,6 @@
         <option value="$PROJECT_DIR$/templates/root/index2.html" />
         <option value="$PROJECT_DIR$/antropometry/settings.py" />
         <option value="$PROJECT_DIR$/antropometry/urls.py" />
-        <option value="$PROJECT_DIR$/root/constants.py" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/static/css/profile.css" />
         <option value="$PROJECT_DIR$/templates/includes/add_asociacion.html" />
@@ -189,11 +160,13 @@
         <option value="$PROJECT_DIR$/templates/root/add_medida.html" />
         <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/templates/root/reportes.html" />
-        <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
-        <option value="$PROJECT_DIR$/root/urls.py" />
-        <option value="$PROJECT_DIR$/root/views.py" />
-        <option value="$PROJECT_DIR$/root/models.py" />
         <option value="$PROJECT_DIR$/templates/root/reportes_entrenador.html" />
+        <option value="$PROJECT_DIR$/root/views.py" />
+        <option value="$PROJECT_DIR$/root/urls.py" />
+        <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
+        <option value="$PROJECT_DIR$/root/utils.py" />
+        <option value="$PROJECT_DIR$/root/models.py" />
+        <option value="$PROJECT_DIR$/root/constants.py" />
         <option value="$PROJECT_DIR$/root/excel.py" />
       </list>
     </option>
@@ -210,6 +183,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,7 +211,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,17 +314,19 @@
       <workItem from="1550544678292" duration="3750000" />
       <workItem from="1550600119629" duration="211000" />
       <workItem from="1551393260864" duration="20114000" />
+      <workItem from="1551470164969" duration="3707000" />
+      <workItem from="1551476835344" duration="16487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171326000" />
+    <option name="totallyTimeSpent" value="191520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23782921" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24581006" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -401,21 +376,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/assets/libs/flot/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="9123" column="4" selection-start-line="9123" selection-start-column="4" selection-end-line="9123" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/dist/css/style.css" />
-    <entry file="file://$PROJECT_DIR$/antropometry/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/img/users/1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -461,13 +421,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/media/default/default_user.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/table.css" />
     <entry file="file://$PROJECT_DIR$/static/css/profile.css">
@@ -676,6 +629,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/utils/cell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1178">
+          <caret line="116" column="28" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/reportes_entrenador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="90" selection-start-line="90" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -683,43 +650,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/reportes_deportista.html">
+    <entry file="file://$PROJECT_DIR$/root/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="155" column="20" lean-forward="true" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
+        <state relative-caret-position="142">
+          <caret line="303" column="51" selection-start-line="303" selection-start-column="41" selection-end-line="303" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#6;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#7392#7399#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="62" column="40" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/reportes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="94" column="38" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="38" />
+        <state relative-caret-position="300">
+          <caret line="82" column="56" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
           <folding>
-            <element signature="n#div#1;n#form#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/reportes_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="132" column="55" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/chart/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-908">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/root/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="149" column="18" lean-forward="true" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+        <state relative-caret-position="187">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#703#907#0" />
@@ -728,29 +713,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/views.py">
+    <entry file="file://$PROJECT_DIR$/root/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="287" column="30" selection-start-line="287" selection-start-column="20" selection-end-line="287" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/reportes_entrenador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-758">
-          <caret line="21" column="142" selection-start-line="21" selection-start-column="142" selection-end-line="21" selection-end-column="142" />
+        <state relative-caret-position="150">
+          <caret line="10" column="17" selection-start-line="10" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/root/excel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+        <state relative-caret-position="323">
+          <caret line="494" column="66" lean-forward="true" selection-start-line="494" selection-start-column="66" selection-end-line="494" selection-end-column="66" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#9156#9700#0" />
+            <element signature="e#9783#11599#0" />
           </folding>
         </state>
       </provider>

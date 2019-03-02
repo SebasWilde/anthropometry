@@ -148,7 +148,11 @@
           </tbody>
         </table>
       </div>
-      <button class="btn btn-success my-3" type="button">Descargar excel</button>
+      <form method="get" action="{% url 'reporter-deportista-excel' %}">
+        <input type="hidden" name="deportista" id="id_deportista" value="{{ input_get.deportista }}">
+        <input type="hidden" name="date" id="date" {% if input_get.date %}value="{{ input_get.date }}"{% endif %}>
+        <button class="btn btn-success my-3" type="submit">Descargar excel</button>
+      </form>
     </div>
   </div>
 {% endblock %}

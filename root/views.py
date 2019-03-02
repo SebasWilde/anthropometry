@@ -319,6 +319,7 @@ class ReporterDeportistaView(LoginRequiredMixin, View):
         context = {
             'mediciones': mediciones,
             'deportista': deportista,
+            'input_get': request.GET,
         }
 
         return render(request, self.template_name, context)
