@@ -36,3 +36,8 @@ def merge_with_right(ws, cell_range, number__merge_cells):
             next_col = get_column_letter(col+1)
             ws.merge_cells('{0}{2}:{1}{2}'.format(init_col, next_col, row))
 
+
+def as_text(value):
+    if value is None:
+        return ""
+    return str(value)
