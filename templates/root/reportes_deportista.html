@@ -163,8 +163,6 @@
           let data_td = $('#' + type +' > td');
           let data = [[0,]];
           data_td.each(function (index, value) {
-              console.log(index);
-              console.log($(this).text());
               data.push([index+1, parseInt($(this).text())])
           });
           data.push([data.length,]);

@@ -261,7 +261,6 @@ class ReporterTrainerView(LoginRequiredMixin, View):
         deporte = request.GET.get('deporte', None)
         date_input = request.GET.get('date', None)
         institucion = request.GET.get('institucion', None)
-        print(institucion)
         if not deporte and not institucion:
             return HttpResponseRedirect(reverse_lazy('reporter'))
         categoria = request.GET.get('categoria', None)
@@ -312,10 +311,10 @@ class ReporterDeportistaView(LoginRequiredMixin, View):
                 deportista=deportista,
                 fecha_registro__month__gte=month,
                 fecha_registro__year__gte=year
-            ).order_by('-fecha_registro')
+            ).order_by('fecha_registro')
         else:
             mediciones = Medida.objects.filter(deportista=deportista)\
-                .order_by('-fecha_registro')
+                .order_by('fecha_registro')
         context = {
             'mediciones': mediciones,
             'deportista': deportista,

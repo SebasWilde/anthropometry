@@ -15,6 +15,7 @@ from openpyxl.chart import (
     Reference,
     LineChart,
     Series,
+    BarChart
 )
 
 
@@ -205,10 +206,10 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
         observacion_text = ws.cell(column=6, row=row_next+2, value=text)
         observacion_text.font = Font(name='Arial', size=10)
         lic = ws.cell(column=col_next-1, row=row_next+2,
-                    value='Lic. José Miguel Chambi Enríquez')
+                      value='Lic. José Miguel Chambi Enríquez')
         lic.font = Font(name='Arial', size=10, bold=True)
         cnp = ws.cell(column=col_next - 1, row=row_next + 3,
-                    value='CNP : 5582')
+                      value='CNP : 5582')
         cnp.font = Font(name='Arial', size=10, bold=True)
         row_next += 4
 
@@ -533,6 +534,25 @@ class ReporterDeportistaExcel(LoginRequiredMixin, View):
                 data.alignment = ALIGN_MIDDLE
             start_column += 2
 
+    def set_charts(self, ws):
+        chart_peso = BarChart()
+        chart_peso.type = "col"
+        chart_peso.style = 10
+        chart_peso.title = "Peso"
+        data = Reference(ws, min_col=5, min_row=29, max_col=15)
+        chart_peso.add_data(data, from_rows=True)
+        chart_peso.shape = 4
+        ws.add_chart(chart_peso, "C14")
+
+        chart_grasa = BarChart()
+        chart_grasa.type = "col"
+        chart_grasa.style = 10
+        chart_grasa.title = "%GRASA (YC)"
+        data = Reference(ws, min_col=5, min_row=45, max_col=15)
+        chart_grasa.add_data(data, from_rows=True)
+        chart_grasa.shape = 4
+        ws.add_chart(chart_grasa, "C30")
+
     def get(self, request, *args, **kwargs):
         deportista_pk = request.GET.get('deportista', None)
         date_input = request.GET.get('date', None)
@@ -569,6 +589,8 @@ class ReporterDeportistaExcel(LoginRequiredMixin, View):
         # Section categorazacion
         self.set_categorizacion(ws, mediciones, font_header_table,
                                 font_table_content)
+        # Set charts
+        self.set_charts(ws)
 
         for col in range(1, column_index_from_string('Q')+1):
             ws.column_dimensions[get_column_letter(col)].width = 6
