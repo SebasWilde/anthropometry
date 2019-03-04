@@ -4,17 +4,13 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 
 from .models import Deportista, Medida
-from .constants import DECIMAL_FORMAT, PERCENTAGE_FORMAT, DATE_STYLE, ONE_DECIMAL_STYLE, MEDIUM_BORDER, MEDIUM_BORDER_STYLE, DEPORTISTA_STYLE, RESULTS_TITLE_STYLE, ALIGN_MIDDLE
-from .utils import style_range, merge_with_right, as_text
+from .constants import DECIMAL_FORMAT, PERCENTAGE_FORMAT, DATE_STYLE, ONE_DECIMAL_STYLE, MEDIUM_BORDER, MEDIUM_BORDER_STYLE, DEPORTISTA_STYLE, RESULTS_TITLE_STYLE, ALIGN_MIDDLE, THIN_BORDER
+from .utils import style_range, merge_with_right
 from openpyxl import Workbook
-# from openpyxl.writer.excel import save_virtual_workbook
 from openpyxl.styles import NamedStyle, Side, Border, Font, Alignment
 from openpyxl.utils import get_column_letter, column_index_from_string
 from openpyxl.chart import (
-    ScatterChart,
     Reference,
-    LineChart,
-    Series,
     BarChart
 )
 
@@ -22,75 +18,188 @@ from openpyxl.chart import (
 class ReporterTrainerExcel(LoginRequiredMixin, View):
 
     def set_dimensions(self, ws):
-        ws['Y'].widht = 359
+        ws.column_dimensions['A'].width = 3.5
+        ws.column_dimensions['B'].width = 25
+        ws.column_dimensions['C'].width = 13
+        for col in range(4, column_index_from_string('Y')+1):
+            ws.column_dimensions[get_column_letter(col)].width = 8
+        ws.column_dimensions['Z'].width = 20
+        ws.column_dimensions['AA'].width = 40
+        ws.row_dimensions[7].height = 25
 
     def set_table(self, ws, row_next, mediciones):
+        # Header table
+        font_header = Font(name='Tw Cen MT Condensed', size=10, bold=True)
+        align_header = Alignment(horizontal='center', vertical='center',
+                                 wrap_text=True)
+        border_special_head = Border(left=Side(style='medium'),
+                                     right=Side(style='medium'),
+                                     top=Side(style='medium'),
+                                     bottom=Side(style='thin'))
+
+        border_special_head_2 = Border(left=Side(style='thin'),
+                                       right=Side(style='thin'),
+                                       top=Side(style='thin'),
+                                       bottom=Side(style='medium'))
+
+        border_special_head_3 = Border(left=Side(style='thin'),
+                                       right=Side(style='medium'),
+                                       top=Side(style='thin'),
+                                       bottom=Side(style='medium'))
+
         header = ['N°', 'Apellidos y Nombres', 'F. de Eval', 'Edad',
-                  'Peso bruto (kg)', 'Estatura (cm)', 'IMC', 'Masa magra (kg)',
+                  'Peso bruto (kg)', 'Estatura (cm)', 'IMC', 'Talla//Edad',
+                  'IMC/Edad', 'Masa magra (kg)',
                   'Sum pliegues (mm)', '% Grasa corporal', 'Talla sentado',
                   'Indice citura cadera', 'TRC', 'SUBS', 'BICP', 'SPRI',
                   'SPRE', 'ABD', 'MSM', 'PANT', 'Endo', 'Meso', 'Ecto',
                   'Catacterización', 'Observación']
 
+        for col in range(0, column_index_from_string('G')):
+            column = get_column_letter(col+1)
+            range_columns = '{0}{1}:{0}{2}'.format(column, row_next-1, row_next)
+            ws.merge_cells(range_columns)
+            style_range(ws, range_columns, MEDIUM_BORDER_STYLE)
+
+        for col in range(column_index_from_string('J'),
+                         column_index_from_string('O')):
+            column = get_column_letter(col)
+            range_columns = '{0}{1}:{0}{2}'.format(column, row_next-1, row_next)
+            ws.merge_cells(range_columns)
+            style_range(ws, range_columns, MEDIUM_BORDER_STYLE)
+
+        ws.merge_cells('AA{0}:AA{1}'.format(row_next - 1, row_next))
+        style_range(ws, 'AA{0}:AA{1}'.format(row_next - 1, row_next),
+                    MEDIUM_BORDER_STYLE)
+
+        ws.merge_cells('H6:I6')
+        head = ws.cell(row=6, column=column_index_from_string('H'), value='SALUD')
+        head.font = font_header
+        head.alignment = align_header
+        head.border = border_special_head
+
+        ws.merge_cells('O6:V6')
+        head = ws.cell(row=6, column=column_index_from_string('O'),
+                       value='Pliegues Cutáneos (mm)')
+        head.font = font_header
+        head.alignment = align_header
+        head.border = border_special_head
+
+        ws.merge_cells('W6:Z6')
+        head = ws.cell(row=6, column=column_index_from_string('W'),
+                       value='Somatotipo')
+        head.font = font_header
+        head.alignment = align_header
+        head.border = border_special_head
+
+        second_data = ['Talla//Edad', 'IMC/Edad', 'TRC', 'SUBS', 'BICP', 'SPRI',
+                       'SPRE', 'ABD', 'MSM', 'PANT', 'Endo', 'Meso', 'Ecto',
+                       'Catacterización']
+
         for col in range(0, len(header)):
-            _ = ws.cell(column=col + 1, row=row_next,
-                        value='{0}'.format(header[col]))
+            if header[col] in second_data:
+                head = ws.cell(column=col + 1, row=row_next,
+                               value='{0}'.format(header[col]))
+                if header[col] == 'IMC/Edad' or header[col] == 'PANT':
+                    head.border = border_special_head_3
+                else:
+                    head.border = border_special_head_2
+
+            else:
+                head = ws.cell(column=col + 1, row=row_next-1,
+                               value='{0}'.format(header[col]))
+            head.font = font_header
+            head.alignment = align_header
+
         row_next += 1
+
+        # Table content
 
         date_style = NamedStyle(name='date', number_format='DD/MM/YYYY')
         decimal_one_style = NamedStyle(name='decimal', number_format='0.0')
         font_table_content = Font(name='Tw Cen MT Condensed Extra Bold',
                                   size=11)
 
+        border_both_separtor = Border(left=Side(style='medium'),
+                                      right=Side(style='medium'),
+                                      top=Side(style='thin'),
+                                      bottom=Side(style='thin'))
+
+        border_left_separtor = Border(left=Side(style='medium'),
+                                      right=Side(style='thin'),
+                                      top=Side(style='thin'),
+                                      bottom=Side(style='thin'))
+
+        border_right_separtor = Border(left=Side(style='thin'),
+                                       right=Side(style='medium'),
+                                       top=Side(style='thin'),
+                                       bottom=Side(style='thin'))
+
         for row in range(0, mediciones.count()):
             col = 1
             data = ws.cell(column=col, row=row_next, value=row + 1)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value='{0}'.format(mediciones[row]
                                               .deportista.get_full_name()))
             data.font = font_table_content
+            data.border = border_both_separtor
             col += 1
 
             fecha_registro = ws.cell(column=col, row=row_next,
                                      value=mediciones[row].fecha_registro)
             fecha_registro.style = date_style
             fecha_registro.font = font_table_content
+            fecha_registro.alignment = ALIGN_MIDDLE
+            fecha_registro.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].get_age_at_moment_metrics())
             data.font = font_table_content
+            data.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].peso_bruto)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].estatura)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
 
             imc = ws.cell(column=col, row=row_next,
                           value=mediciones[row].get_indice_masa_corporal())
             imc.style = decimal_one_style
             imc.font = font_table_content
-            col += 1
+            imc.alignment = ALIGN_MIDDLE
+            imc.border = border_both_separtor
+            col += 3
 
             masa_magra = ws.cell(column=col, row=row_next,
                                  value=mediciones[row].get_masa_magra())
             masa_magra.style = decimal_one_style
             masa_magra.font = font_table_content
+            masa_magra.alignment = ALIGN_MIDDLE
+            masa_magra.border = border_both_separtor
             col += 1
 
-            suma_pliegues = ws.cell(column=col, row=row_next,
-                                    value=mediciones[row].get_sum_pliegues())
-            suma_pliegues.style = decimal_one_style
-            suma_pliegues.font = font_table_content
+            s_pligues = ws.cell(column=col, row=row_next,
+                                value=mediciones[row].get_sum_pliegues())
+            s_pligues.style = decimal_one_style
+            s_pligues.font = font_table_content
+            s_pligues.alignment = ALIGN_MIDDLE
+            s_pligues.border = border_both_separtor
             col += 1
 
             grasa_corporal = ws.cell(column=col, row=row_next,
@@ -98,81 +207,111 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
                                          row].get_grasa_corporal())
             grasa_corporal.number_format = PERCENTAGE_FORMAT
             grasa_corporal.font = font_table_content
+            grasa_corporal.alignment = ALIGN_MIDDLE
+            grasa_corporal.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].talla_sentado)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].get_indice_cintaura_cadera())
-            suma_pliegues.style = decimal_one_style
+            data.style = decimal_one_style
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].triceps)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_left_separtor
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].subescapular)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].biceps)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].suprailiaco)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].supraespinal)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].abdominales)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].muslo_medio)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value=mediciones[row].pliege_pierna)
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_right_separtor
             col += 1
 
             endo = ws.cell(column=col, row=row_next,
                            value=mediciones[row].get_endomorfismo())
             endo.style = decimal_one_style
             endo.font = font_table_content
+            endo.alignment = ALIGN_MIDDLE
+            endo.border = border_left_separtor
             col += 1
 
             meso = ws.cell(column=col, row=row_next,
                            value=mediciones[row].get_mesomorfismo())
             meso.style = decimal_one_style
             meso.font = font_table_content
+            meso.alignment = ALIGN_MIDDLE
+            meso.border = THIN_BORDER
             col += 1
 
             ecto = ws.cell(column=col, row=row_next,
                            value=mediciones[row].get_ectomorfismo())
             ecto.style = decimal_one_style
             ecto.font = font_table_content
+            ecto.alignment = ALIGN_MIDDLE
+            ecto.border = THIN_BORDER
             col += 1
 
             data = ws.cell(column=col, row=row_next,
                            value='{0}'.format(
                                mediciones[row].get_caracterizacion()))
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_right_separtor
             col += 1
 
             data = ws.cell(column=col,
@@ -183,8 +322,22 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
                                    mediciones[
                                        row].get_observacion_masa_muscular()[1]))
             data.font = font_table_content
+            data.alignment = ALIGN_MIDDLE
+            data.border = border_both_separtor
             col += 1
             row_next += 1
+
+        style_border_left = NamedStyle('style_border_left_table',
+                                       font=font_table_content,
+                                       alignment=ALIGN_MIDDLE,
+                                       border=border_left_separtor)
+        style_border_right = NamedStyle('style_border_right_table',
+                                        font=font_table_content,
+                                        alignment=ALIGN_MIDDLE,
+                                        border=border_right_separtor
+                                        )
+        style_range(ws, 'H8:H{0}'.format(row_next-1), style_border_left)
+        style_range(ws, 'I8:I{0}'.format(row_next-1), style_border_right)
 
         col_next = len(header) + 1
 
@@ -203,6 +356,8 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
                'muestra a los deportistas que presentan la relación de la ' \
                'talla para la edad y según esto son catalogados como ' \
                '"Altos", "Muy altos" o "Normales"'
+
+        ws.merge_cells('F{0}:Y{0}'.format(row_next+2))
         observacion_text = ws.cell(column=6, row=row_next+2, value=text)
         observacion_text.font = Font(name='Arial', size=10)
         lic = ws.cell(column=col_next-1, row=row_next+2,
@@ -264,15 +419,13 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
         row_next = 7
         row_next, col_next = self.set_table(ws, row_next, mediciones)
         self.set_header(ws, col_next, institucion, categoria)
-        ws.column_dimensions['A'].width = 5
-        ws.column_dimensions['B'].width = 25
-        ws.column_dimensions['C'].width = 13
-        for col in range(4, column_index_from_string('AP')+1):
-            ws.column_dimensions[get_column_letter(col)].width = 8
-        ws.column_dimensions['X'].width = 20
-        ws.column_dimensions['Y'].width = 40
+        self.set_dimensions(ws)
+        file_name = '{0}_{1}_{2}'.format(institucion,
+                                         mediciones.first().deportista.deporte,
+                                         mediciones.first().deportista.categoria)
         response = HttpResponse(content_type='application/ms-excel')
-        response['Content-Disposition'] = 'attachment; filename="users.xls"'
+        response['Content-Disposition'] = 'attachment; filename="{0}.xls"' \
+            .format(file_name)
         wb.save(response)
         return response
 

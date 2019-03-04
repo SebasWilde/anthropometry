@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/excel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/reportes_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/reportes_deportista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,62 +20,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="17" selection-start-line="10" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/excel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
-              <folding>
-                <element signature="e#840#11892#0" />
-                <element signature="e#11991#12536#0" />
-                <element signature="e#12600#14408#0" />
-                <element signature="e#14532#19008#0" />
-                <element signature="e#19134#22758#0" />
-                <element signature="e#22830#25246#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3585">
-              <caret line="263" selection-start-line="263" selection-end-line="263" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="14" selection-start-line="9" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/root/reportes_deportista.html">
+        <entry file="file://$PROJECT_DIR$/root/excel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2475">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
+            <state relative-caret-position="443">
+              <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#7;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#1241#16079#0" />
+                <element signature="e#6269#13867#0" />
+                <element signature="e#9188#10053#0" />
+                <element signature="e#11974#25291#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/models.py">
+        <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/worksheet/page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2385">
-              <caret line="184" column="34" selection-start-line="184" selection-start-column="8" selection-end-line="184" selection-end-column="34" />
+            <state relative-caret-position="-1590">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#703#907#0" />
-                <element signature="e#957#1935#0" />
+                <element signature="e#0#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,11 +162,11 @@
         <option value="$PROJECT_DIR$/templates/root/reportes_entrenador.html" />
         <option value="$PROJECT_DIR$/root/urls.py" />
         <option value="$PROJECT_DIR$/root/models.py" />
-        <option value="$PROJECT_DIR$/root/constants.py" />
-        <option value="$PROJECT_DIR$/root/utils.py" />
         <option value="$PROJECT_DIR$/root/views.py" />
-        <option value="$PROJECT_DIR$/root/excel.py" />
         <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
+        <option value="$PROJECT_DIR$/root/utils.py" />
+        <option value="$PROJECT_DIR$/root/constants.py" />
+        <option value="$PROJECT_DIR$/root/excel.py" />
       </list>
     </option>
   </component>
@@ -216,24 +197,7 @@
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -345,12 +309,12 @@
       <workItem from="1551393260864" duration="20114000" />
       <workItem from="1551470164969" duration="3707000" />
       <workItem from="1551476835344" duration="20844000" />
-      <workItem from="1551648527361" duration="3581000" />
+      <workItem from="1551648527361" duration="11281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199458000" />
+    <option name="totallyTimeSpent" value="207158000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -406,9 +370,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/img/users/1-old.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/img/users/1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -698,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="17" selection-start-line="10" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/root/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2385">
@@ -724,35 +678,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/chart/series_factory.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="9" column="81" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/excel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#840#11892#0" />
-            <element signature="e#11991#12536#0" />
-            <element signature="e#12600#14408#0" />
-            <element signature="e#14532#19008#0" />
-            <element signature="e#19134#22758#0" />
-            <element signature="e#22830#25246#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,6 +701,44 @@
           <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#7;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/worksheet/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1590">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="14" selection-start-line="9" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/excel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#1241#16079#0" />
+            <element signature="e#6269#13867#0" />
+            <element signature="e#9188#10053#0" />
+            <element signature="e#11974#25291#0" />
           </folding>
         </state>
       </provider>

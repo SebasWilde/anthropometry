@@ -14,6 +14,11 @@ MEDIUM_BORDER = Border(left=Side(style='medium'),
                        top=Side(style='medium'),
                        bottom=Side(style='medium'))
 
+THIN_BORDER = Border(left=Side(style='thin'),
+                       right=Side(style='thin'),
+                       top=Side(style='thin'),
+                       bottom=Side(style='thin'))
+
 MEDIUM_BORDER_STYLE = NamedStyle(name='medium_border', border=MEDIUM_BORDER)
 
 DEPORTISTA_STYLE = NamedStyle(name='deportista_style',
