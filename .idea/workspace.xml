@@ -4,7 +4,6 @@
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/root/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/excel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,25 +16,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/root/constants.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="14" selection-start-line="9" selection-end-line="9" selection-end-column="14" />
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/excel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
+            <state relative-caret-position="135">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#1241#16079#0" />
                 <element signature="e#6269#13867#0" />
-                <element signature="e#9188#10053#0" />
                 <element signature="e#11974#25291#0" />
               </folding>
             </state>
@@ -165,8 +161,8 @@
         <option value="$PROJECT_DIR$/root/views.py" />
         <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
         <option value="$PROJECT_DIR$/root/utils.py" />
-        <option value="$PROJECT_DIR$/root/constants.py" />
         <option value="$PROJECT_DIR$/root/excel.py" />
+        <option value="$PROJECT_DIR$/root/constants.py" />
       </list>
     </option>
   </component>
@@ -309,12 +305,12 @@
       <workItem from="1551393260864" duration="20114000" />
       <workItem from="1551470164969" duration="3707000" />
       <workItem from="1551476835344" duration="20844000" />
-      <workItem from="1551648527361" duration="11281000" />
+      <workItem from="1551648527361" duration="12187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207158000" />
+    <option name="totallyTimeSpent" value="208064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -722,24 +718,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/constants.py">
+    <entry file="file://$PROJECT_DIR$/root/excel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#6269#13867#0" />
+            <element signature="e#11974#25291#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/excel.py">
+    <entry file="file://$PROJECT_DIR$/root/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="428" column="25" lean-forward="true" selection-start-line="428" selection-start-column="25" selection-end-line="428" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#1241#16079#0" />
-            <element signature="e#6269#13867#0" />
-            <element signature="e#9188#10053#0" />
-            <element signature="e#11974#25291#0" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
         </state>
       </provider>
     </entry>

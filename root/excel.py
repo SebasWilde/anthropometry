@@ -4,7 +4,15 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 
 from .models import Deportista, Medida
-from .constants import DECIMAL_FORMAT, PERCENTAGE_FORMAT, DATE_STYLE, ONE_DECIMAL_STYLE, MEDIUM_BORDER, MEDIUM_BORDER_STYLE, DEPORTISTA_STYLE, RESULTS_TITLE_STYLE, ALIGN_MIDDLE, THIN_BORDER
+from .constants import (
+    DECIMAL_FORMAT,
+    PERCENTAGE_FORMAT,
+    MEDIUM_BORDER_STYLE,
+    DEPORTISTA_STYLE,
+    RESULTS_TITLE_STYLE,
+    ALIGN_MIDDLE,
+    THIN_BORDER,
+)
 from .utils import style_range, merge_with_right
 from openpyxl import Workbook
 from openpyxl.styles import NamedStyle, Side, Border, Font, Alignment

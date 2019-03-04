@@ -5,8 +5,6 @@ SEXO = (
     ('M', 'Mujer'),
 )
 
-DATE_STYLE = NamedStyle(name='date', number_format='DD/MM/YYYY')
-ONE_DECIMAL_STYLE = NamedStyle(name='decimal', number_format='0.0')
 DECIMAL_FORMAT = '0.0'
 PERCENTAGE_FORMAT = '0.0%'
 MEDIUM_BORDER = Border(left=Side(style='medium'),
