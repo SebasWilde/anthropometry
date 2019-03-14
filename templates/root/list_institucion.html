@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
+  <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}" rel="stylesheet">
   <link href="{% static 'css/general.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -39,7 +40,7 @@
             <tbody>
             {% for institucion in object_list %}
               <tr>
-                <td>{{ forloop.counter }}</td>
+                <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
                 <td><img src="{% get_media_prefix %}{{ institucion.logo }}" width="50px" height="50px"></td>
                 <td>{{ institucion|capfirst }}</td>
                 <td>{{ institucion.number_of_deportista }}</td>
@@ -54,12 +55,31 @@
           </table>
         </div>
       {% endif %}
+      {% if is_paginated %}
+        <div class="pagination row my-3">
+          <div class="col text-center">
+              <span class="page-links">
+                  {% if page_obj.has_previous %}
+                    <a class="mx-2" href="?page={{ page_obj.previous_page_number }}{% if search %}&search={{ search }}{% endif %}">Anterior</a>
+                  {% endif %}
+                <span class="page-current">
+                        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                  </span>
+                {% if page_obj.has_next %}
+                  <a class="mx-2" href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}">Siguiente</a>
+                {% endif %}
+              </span>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
   {% include 'includes/add_institucion.html' %}
 {% endblock %}
 
 {% block extra_js %}
+  <script src="{% static 'assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+
   <script>
       /*load image */
       function readURL(input) {
@@ -96,6 +116,13 @@
           let display_img = form.find('#display_img');
           display_img.attr('src', display_img.data('default'));
           modal_institucion.find('#title-modal').text('Agregar')
+      });
+
+      /* Smart table   */
+      $('#zero_config').DataTable({
+          searching: false,
+          paging: false,
+          info: false
       });
 
   </script>

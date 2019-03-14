@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
+  <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}" rel="stylesheet">
   <link href="{% static 'css/general.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -15,17 +16,7 @@
     <div class="card-body">
       <form method="get">
         <div class="row mb-3">
-          <div class="col-sm-12 col-md-6 form-inline">
-            <label for="id_ordering">Ordenar por:</label>
-            <select name="ordering" class="form-control form-control-sm mx-2" id="id_ordering">
-              <option value="nombres">Nombres</option>
-              <option value="apellidos">Apellidos</option>
-              <option value="fecha_nacimiento">Edad</option>
-              <option value="deporte">Deporte</option>
-              <option value="asociacion">Asociacion</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 form-inline">
+          <div class="col form-inline">
             <label>Buscar:</label>
             <input type="search" class="form-control form-control-sm ml-2 mr-0" name="search">
             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></button>
@@ -49,7 +40,7 @@
           <tbody>
           {% for deportista in object_list %}
             <tr data-url="{% url 'detail-deportista' deportista.id  %}" class="cursor-pointer">
-              <td>{{ forloop.counter }}</td>
+              <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
               <td>{{ deportista.nombres|capfirst }}</td>
               <td>{{ deportista.apellidos|capfirst }}</td>
               <td>{{ deportista.get_age }}</td>
@@ -65,10 +56,36 @@
           </tbody>
         </table>
       </div>
+      {% if is_paginated %}
+        <div class="pagination row my-3">
+            <div class="col text-center">
+              <span class="page-links">
+                  {% if page_obj.has_previous %}
+                    <a class="mx-2" href="?page={{ page_obj.previous_page_number }}{% if search %}&search={{ search }}{% endif %}">Anterior</a>
+                  {% endif %}
+                  <span class="page-current">
+                        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                  </span>
+                  {% if page_obj.has_next %}
+                    <a class="mx-2" href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}">Siguiente</a>
+                  {% endif %}
+              </span>
+            </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
 
 {% block extra_js %}
   <script src="{% static 'js/general.js' %}"></script>
+  <script src="{% static 'assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+  <script>
+      /* Smart table   */
+      $('#zero_config').DataTable({
+          searching: false,
+          paging: false,
+          info: false
+      });
+  </script>
 {% endblock %}

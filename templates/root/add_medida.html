@@ -3,7 +3,7 @@
 
 {% block extra_css %}
   <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
-  <link href="{% static 'css/selectstyle.css' %}" rel="stylesheet">
+  <link href="{% static 'css/select2.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Tomar medidas{% endblock %}
@@ -21,15 +21,14 @@
         <div id="medida-info-basica">
           <h4 class="card-title">Información básica</h4>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" id="contentDeportista">
               {% if deportista %}
                 <label>Deportista:</label>
                 <h5>{{ deportista }}</h5>
                 <input type="hidden" name="deportista" value="{{ deportista.pk }}">
               {% else %}
                 <label for="id_deportista">Deportista:</label>
-                <select class="form-control" name="deportista" required="" id="id_deportista"
-                        theme="google" placeholder="Selecciona a tu deportista" data-search="true">
+                <select class="form-control js-example-basic-single" name="deportista" required="" id="id_deportista" >
                   {% for option in form.fields.deportista.choices.queryset %}
                     <option value="{{ option.pk }}"
                         {% if object and option == object.deportista %}
@@ -214,7 +213,7 @@
 {% endblock %}
 {% block extra_js %}
   <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
-  <script src="{% static 'js/selectstyle.js' %}"></script>
+  <script src="{% static 'js/select2.min.js' %}"></script>
   <script>
       /*datwpicker*/
       jQuery('#id_fecha_registro').datepicker({
@@ -224,7 +223,9 @@
       });
 
       /* Select searchable */
-      $('#id_deportista').selectstyle();
+      $(document).ready(function() {
+          $('.js-example-basic-single').select2();
+      });
 
   </script>
 {% endblock %}

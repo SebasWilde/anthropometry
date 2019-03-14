@@ -2,7 +2,7 @@ from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.contrib.auth.models import User
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Deportista, Deporte, Institucion, Medida, Categoria, DeportistaInfo
@@ -30,21 +30,28 @@ class Index(LoginRequiredMixin, View):
         return render(request, self.template_class, {})
 
 
-# TODO: Do query
-# TODO: On change ordering submit
-# TODO: DO pagination
 class ListDeportista(LoginRequiredMixin, ListView):
     model = Deportista
     template_name = 'root/list_deportista.html'
     paginate_by = 10
 
-    def get_ordering(self):
-        ordering = self.request.GET.get('ordering', 'apellidos')
-        return ordering
+    def get_queryset(self):
+        search = self.request.GET.get('search', None)
+        if search:
+            queryset = Deportista.objects.filter(
+                Q(nombres__icontains=search) | Q(apellidos__icontains=search))
+        else:
+            queryset = Deportista.objects.all()
+        return queryset.order_by('apellidos', 'nombres')
+
+    def get_context_data(self, **kwargs):
+        context = super(ListDeportista, self).get_context_data(**kwargs)
+        search = self.request.GET.get('search', None)
+        if search:
+            context['search'] = search
+        return context
 
 
-# TODO:Do tab of extra info
-# TODO: Display text field
 class DetailDeportista(LoginRequiredMixin, DetailView):
     model = Deportista
     template_name = 'root/detail_deportista.html'
@@ -57,7 +64,6 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
         return context
 
 
-# TODO: Add personal info
 class CreateDeportista(LoginRequiredMixin, CreateView):
     model = Deportista
     form_class = DeportistaForm
@@ -136,18 +142,28 @@ class UpdateDeporte(LoginRequiredMixin, UpdateView):
     template_name = 'includes/add_deporte.html'
 
 
-# TODO: DO pagination
 class ListDeporte(LoginRequiredMixin, ListView):
     model = Deporte
     template_name = 'root/list_deporte.html'
 
     def get_queryset(self):
-        queryset = Deporte.objects.all()
+        search = self.request.GET.get('search', None)
+        if search:
+            queryset = Deporte.objects.filter(deporte__icontains=search)
+        else:
+            queryset = Deporte.objects.all()
         for deporte in queryset:
             number_of_deportista = Deportista.objects.filter(
                 deporte=deporte).count()
             deporte.number_of_deportista = number_of_deportista
-        return queryset
+        return queryset.order_by('deporte')
+
+    def get_context_data(self, **kwargs):
+        context = super(ListDeporte, self).get_context_data(**kwargs)
+        search = self.request.GET.get('search', None)
+        if search:
+            context['search'] = search
+        return context
 
 
 # TODO: Add pagination to categories
@@ -197,17 +213,29 @@ class UpdateInstitucion(LoginRequiredMixin, UpdateView):
     template_name = 'includes/add_institucion.html'
 
 
-# TODO: DO pagination
 class ListInstitucion(LoginRequiredMixin, ListView):
     template_name = 'root/list_institucion.html'
+    paginate_by = 1
 
     def get_queryset(self):
-        queryset = Institucion.objects.filter(user=self.request.user)
+        search = self.request.GET.get('search', None)
+        if search:
+            queryset = Institucion.objects.filter(user=self.request.user,
+                                                  nombre__icontains=search)
+        else:
+            queryset = Institucion.objects.filter(user=self.request.user)
         for institucion in queryset:
             number_of_deportista = Deportista.objects.filter(
                 institucion=institucion).count()
             institucion.number_of_deportista = number_of_deportista
-        return queryset
+        return queryset.order_by('nombre')
+
+    def get_context_data(self, **kwargs):
+        context = super(ListInstitucion, self).get_context_data(**kwargs)
+        search = self.request.GET.get('search', None)
+        if search:
+            context['search'] = search
+        return context
 
 
 class CreateMedida(LoginRequiredMixin, CreateView):
@@ -280,7 +308,7 @@ class ReporterTrainerView(LoginRequiredMixin, View):
                 fecha_registro__year__gte=year
             ).order_by('-fecha_registro')
         else:
-            mediciones = Medida.objects.filter(deportista__in=deportistas)\
+            mediciones = Medida.objects.filter(deportista__in=deportistas) \
                 .order_by('-fecha_registro')
         input_get = {
             'deporte': deporte,
@@ -313,7 +341,7 @@ class ReporterDeportistaView(LoginRequiredMixin, View):
                 fecha_registro__year__gte=year
             ).order_by('fecha_registro')
         else:
-            mediciones = Medida.objects.filter(deportista=deportista)\
+            mediciones = Medida.objects.filter(deportista=deportista) \
                 .order_by('fecha_registro')
         context = {
             'mediciones': mediciones,

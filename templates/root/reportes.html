@@ -4,7 +4,7 @@
 {% block extra_css %}
   <link rel="stylesheet" type="text/css" href="{%  static 'assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
-  <link href="{% static 'css/selectstyle.css' %}" rel="stylesheet">
+  <link href="{% static 'css/select2.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -20,7 +20,7 @@
       <h4 class="card-title">Panel de configuración</h4>
       <form class="form-horizontal" method="get">
         <div class="form-group">
-          <label>Tipo de reporte:</label>
+          <label for="id_reporter_type">Tipo de reporte:</label>
           <select class="form-control" name="reporter_type" id="id_reporter_type">
             <option value="entrenador" {% if reporter_type == 'entrenador' %}selected{% endif %}>Entrenador</option>
             <option value="deportista" {% if reporter_type == 'deportista' %}selected{% endif %}>Deportista</option>
@@ -80,8 +80,7 @@
         </div>
         <div class="form-group report deportista {% if reporter_type == 'entrenador' %}d-none{% endif %}">
           <label for="id_deportista">Deportista:</label>
-          <select class="form-control" name="deportista" {% if reporter_type == 'deportista' %}required{% endif %} id="id_deportista"
-                  theme="google" placeholder="Selecciona a tu deportista" data-search="true">
+          <select class="form-control js-example-basic-single" name="deportista" {% if reporter_type == 'deportista' %}required{% endif %} id="id_deportista">
             {% for option in deportistas %}
               <option value="{{ option.pk }}"
                   {% if object and option == object.deportista %}
@@ -109,7 +108,7 @@
 
 {% block extra_js %}
   <script src="{% static 'assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
-  <script src="{% static 'js/selectstyle.js' %}"></script>
+  <script src="{% static 'js/select2.min.js' %}"></script>
 
   <script>
       let type_reporter = $('#id_reporter_type');
@@ -137,10 +136,7 @@
           });
       }
 
-      if (!forms_deportista.hasClass('d-none')){
-          /* Select searchable */
-          $('#id_deportista').selectstyle();
-      }
+
 
       $('#check_all_dates').change(function () {
           let input_date = $('#date');
@@ -152,7 +148,14 @@
               input_date.attr('required', true);
               input_date.attr('disabled', false);
           }
-      })
+      });
 
+      /* Select searchable */
+      $(document).ready(function() {
+          if (!forms_deportista.hasClass('d-none')){
+              /* Select searchable */
+              $('.js-example-basic-single').select2();
+          }
+      });
   </script>
 {% endblock %}
