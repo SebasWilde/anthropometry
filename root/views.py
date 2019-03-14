@@ -16,13 +16,6 @@ from .forms import (
 )
 
 
-class Index2(View):
-    template_class = 'root/index2.html'
-
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_class, {})
-
-
 class Index(LoginRequiredMixin, View):
     template_class = 'root/index.html'
 

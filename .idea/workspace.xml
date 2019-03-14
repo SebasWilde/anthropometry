@@ -3,14 +3,160 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/selectstyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/selectstyle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/add_medida.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/add_medida.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/list_deporte.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/list_deporte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/list_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/list_deportista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/list_institucion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/list_institucion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/reportes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/reportes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/calendar/calendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/gritter/jquery.gritter.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/gritter/jquery.gritter.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/multicheck/datatable-checkbox-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/multicheck/jquery.multicheck.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/multicheck/multicheck.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/extra-libs/sparkline/sparkline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/Sorting icons.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/datatables/media/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/magnific-popup/animation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/magnific-popup/meg.init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/ender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-dz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-kw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-ly.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-ma.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-sa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar-tn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/bm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/bn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/bo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/bs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/cv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/cy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/de-at.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/de-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/dv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-au.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-gb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-ie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-il.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/en-nz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/eo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/es-do.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/es-us.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fr-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fr-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/fy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/gd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/gom-latn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/gu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/hy-am.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/jv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/km.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/kn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/lb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/lo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/me.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/mi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ml.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/mn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/mr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ms-my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/mt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/nl-be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/nn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/pa-in.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/pt-br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/se.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/si.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sr-cyrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ss.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ta.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/te.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tl-ph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tlh.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tzl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tzm-latn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/tzm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ug-cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/ur.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/uz-latn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/uz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/x-pseudo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/yo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/zh-cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/zh-hk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/locale/zh-tw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/min/locales.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/min/moment-with-locales.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/min/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/moment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/moment/package.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/toastr/toastr-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/libs/toastr/toastr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/index2.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,15 +183,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#584#721#0" />
                 <element signature="e#767#903#0" />
+                <element signature="e#947#1628#0" />
                 <element signature="e#1667#2034#0" />
                 <element signature="e#1814#2988#0" />
                 <element signature="e#3051#4471#0" />
@@ -56,12 +202,22 @@
                 <element signature="e#6342#6440#0" />
                 <element signature="e#6504#6608#0" />
                 <element signature="e#6672#6776#0" />
+                <element signature="e#6858#7979#0" />
                 <element signature="e#7300#7706#0" />
                 <element signature="e#7765#7850#0" />
                 <element signature="e#7903#8740#0" />
                 <element signature="e#8800#10395#0" />
                 <element signature="e#10458#11450#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/root/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -92,8 +248,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/root/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4515">
-              <caret line="301" selection-start-line="301" selection-end-line="301" />
+            <state relative-caret-position="173">
+              <caret line="298" selection-start-line="298" selection-end-line="298" />
             </state>
           </provider>
         </entry>
@@ -121,7 +277,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>plus</find>
       <find>asociacion</find>
       <find>1</find>
       <find>get_grasa_corporal</find>
@@ -151,6 +306,7 @@
       <find>andSelf</find>
       <find>addBack()</find>
       <find>pagination</find>
+      <find>gritter-notice-wrapper</find>
     </findStrings>
     <replaceStrings>
       <replace>images</replace>
@@ -197,9 +353,7 @@
         <option value="$PROJECT_DIR$/templates/root/detail_deportista.html" />
         <option value="$PROJECT_DIR$/static/css/selectstyle.css" />
         <option value="$PROJECT_DIR$/templates/root/index.html" />
-        <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/templates/root/reportes_entrenador.html" />
-        <option value="$PROJECT_DIR$/root/urls.py" />
         <option value="$PROJECT_DIR$/root/models.py" />
         <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
         <option value="$PROJECT_DIR$/root/utils.py" />
@@ -211,7 +365,9 @@
         <option value="$PROJECT_DIR$/templates/root/list_deporte.html" />
         <option value="$PROJECT_DIR$/templates/root/list_institucion.html" />
         <option value="$PROJECT_DIR$/templates/root/list_deportista.html" />
+        <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/root/views.py" />
+        <option value="$PROJECT_DIR$/root/urls.py" />
       </list>
     </option>
   </component>
@@ -248,19 +404,31 @@
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
@@ -287,6 +455,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
@@ -387,12 +556,12 @@
       <workItem from="1551669919227" duration="6000" />
       <workItem from="1551731885612" duration="161000" />
       <workItem from="1552328953905" duration="380000" />
-      <workItem from="1552529584655" duration="6684000" />
+      <workItem from="1552529584655" duration="7434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215295000" />
+    <option name="totallyTimeSpent" value="216045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -412,7 +581,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32899022" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -448,30 +617,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/assets/libs/bootstrap/dist/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="5" column="36958" selection-start-line="5" selection-start-column="36958" selection-end-line="5" selection-end-column="36958" />
-          <folding>
-            <element signature="e#58441#58641#2" expanded="true" />
-            <element signature="e#58849#58998#2" expanded="true" />
-            <element signature="e#59500#59646#2" expanded="true" />
-            <element signature="e#59947#60113#1" expanded="true" />
-            <element signature="e#70793#71036#2" expanded="true" />
-            <element signature="e#71903#72152#2" expanded="true" />
-            <element signature="e#98915#99105#2" expanded="true" />
-            <element signature="e#99151#99341#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/dist/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="2531" column="59" selection-start-line="2531" selection-start-column="59" selection-end-line="2531" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/media/default/default_user.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -655,16 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/anthropometry/lib/python3.6/site-packages/openpyxl/worksheet/worksheet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2568">
@@ -757,13 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4515">
-          <caret line="301" selection-start-line="301" selection-end-line="301" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/reportes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1043">
@@ -824,14 +952,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/extra-libs/gritter/jquery.gritter.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/extra-libs/gritter/jquery.gritter.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="941" selection-start-column="941" selection-end-column="941" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/root/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#584#721#0" />
             <element signature="e#767#903#0" />
+            <element signature="e#947#1628#0" />
             <element signature="e#1667#2034#0" />
             <element signature="e#1814#2988#0" />
             <element signature="e#3051#4471#0" />
@@ -842,12 +991,20 @@
             <element signature="e#6342#6440#0" />
             <element signature="e#6504#6608#0" />
             <element signature="e#6672#6776#0" />
+            <element signature="e#6858#7979#0" />
             <element signature="e#7300#7706#0" />
             <element signature="e#7765#7850#0" />
             <element signature="e#7903#8740#0" />
             <element signature="e#8800#10395#0" />
             <element signature="e#10458#11450#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

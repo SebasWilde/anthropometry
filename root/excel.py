@@ -432,7 +432,7 @@ class ReporterTrainerExcel(LoginRequiredMixin, View):
                                          mediciones.first().deportista.deporte,
                                          mediciones.first().deportista.categoria)
         response = HttpResponse(content_type='application/ms-excel')
-        response['Content-Disposition'] = 'attachment; filename="{0}.xls"' \
+        response['Content-Disposition'] = 'attachment; filename="{0}.xlsx"' \
             .format(file_name)
         wb.save(response)
         return response
