@@ -157,6 +157,23 @@
                 </tbody>
               </table>
             </div>
+            {% if is_paginated %}
+              <div class="pagination row my-3">
+                <div class="col text-center">
+              <span class="page-links">
+                  {% if medidas.has_previous %}
+                    <a class="mx-2" href="?page={{ medidas.previous_page_number }}">Anterior</a>
+                  {% endif %}
+                <span class="page-current">
+                        Página {{ medidas.number }} de {{ medidas.paginator.num_pages }}.
+                  </span>
+                {% if medidas.has_next %}
+                  <a class="mx-2" href="?page={{ medidas.next_page_number }}">Siguiente</a>
+                {% endif %}
+              </span>
+                </div>
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>

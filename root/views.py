@@ -2,6 +2,7 @@ from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -51,9 +52,13 @@ class DetailDeportista(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailDeportista, self).get_context_data(**kwargs)
-        medidas = Medida.objects.filter(deportista__id=self.kwargs.get('pk')) \
+        medidas_list = Medida.objects.filter(deportista__id=self.kwargs.get('pk')) \
             .order_by('-fecha_registro')
+        paginator = Paginator(medidas_list, 10)
+        page = self.request.GET.get('page')
+        medidas = paginator.get_page(page)
         context['medidas'] = medidas
+        context['is_paginated'] = paginator.num_pages > 1
         return context
 
 
