@@ -3,7 +3,7 @@ from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Deportista, Deporte, Institucion, Medida, Categoria, DeportistaInfo
@@ -143,6 +143,7 @@ class UpdateDeporte(LoginRequiredMixin, UpdateView):
 class ListDeporte(LoginRequiredMixin, ListView):
     model = Deporte
     template_name = 'root/list_deporte.html'
+    paginate_by = 10
 
     def get_queryset(self):
         search = self.request.GET.get('search', None)
@@ -150,10 +151,7 @@ class ListDeporte(LoginRequiredMixin, ListView):
             queryset = Deporte.objects.filter(deporte__icontains=search)
         else:
             queryset = Deporte.objects.all()
-        for deporte in queryset:
-            number_of_deportista = Deportista.objects.filter(
-                deporte=deporte).count()
-            deporte.number_of_deportista = number_of_deportista
+        queryset = queryset.annotate(number_of_deportista=Count('deportista'))
         return queryset.order_by('deporte')
 
     def get_context_data(self, **kwargs):
@@ -164,7 +162,6 @@ class ListDeporte(LoginRequiredMixin, ListView):
         return context
 
 
-# TODO: Add pagination to categories
 class DetailDeporte(LoginRequiredMixin, DetailView):
     model = Deporte
     template_name = 'root/detail_deporte.html'
@@ -178,11 +175,15 @@ class DetailDeporte(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailDeporte, self).get_context_data(**kwargs)
-        categorias = Categoria.objects.filter(deporte__id=self.kwargs.get('pk'))
-        for categoria in categorias:
+        categorias_list = Categoria.objects.filter(deporte__id=self.kwargs.get('pk'))
+        for categoria in categorias_list:
             number_of_deportista = Deportista.objects.filter(
                 categoria=categoria).count()
             categoria.number_of_deportista = number_of_deportista
+        paginator = Paginator(categorias_list, 10)
+        page = self.request.GET.get('page')
+        categorias = paginator.get_page(page)
+        context['is_paginated'] = paginator.num_pages > 1
         context['categorias'] = categorias
         return context
 
@@ -213,7 +214,7 @@ class UpdateInstitucion(LoginRequiredMixin, UpdateView):
 
 class ListInstitucion(LoginRequiredMixin, ListView):
     template_name = 'root/list_institucion.html'
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
         search = self.request.GET.get('search', None)
@@ -222,10 +223,7 @@ class ListInstitucion(LoginRequiredMixin, ListView):
                                                   nombre__icontains=search)
         else:
             queryset = Institucion.objects.filter(user=self.request.user)
-        for institucion in queryset:
-            number_of_deportista = Deportista.objects.filter(
-                institucion=institucion).count()
-            institucion.number_of_deportista = number_of_deportista
+        queryset = queryset.annotate(number_of_deportista=Count('deportista'))
         return queryset.order_by('nombre')
 
     def get_context_data(self, **kwargs):

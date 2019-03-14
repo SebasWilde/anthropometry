@@ -89,6 +89,23 @@
           </div>
         </div>
       {% endfor %}
+      {% if is_paginated %}
+        <div class="pagination row my-3">
+          <div class="col text-center">
+              <span class="page-links">
+                  {% if categorias.has_previous %}
+                    <a class="mx-2" href="?page={{ categorias.previous_page_number }}">Anterior</a>
+                  {% endif %}
+                <span class="page-current">
+                        Página {{ categorias.number }} de {{ categorias.paginator.num_pages }}.
+                  </span>
+                {% if categorias.has_next %}
+                  <a class="mx-2" href="?page={{ categorias.next_page_number }}">Siguiente</a>
+                {% endif %}
+              </span>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
   {% include 'includes/add_deporte.html' %}

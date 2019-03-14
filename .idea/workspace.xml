@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ec344b-655d-426f-ab52-4547a50084c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/root/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/root/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/root/detail_deportista.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/detail_deportista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/root/detail_deporte.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/root/detail_deporte.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/root/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+            <state relative-caret-position="417">
+              <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <element signature="e#767#903#0" />
@@ -43,13 +43,11 @@
                 <element signature="e#3051#4471#0" />
                 <element signature="e#4531#4623#0" />
                 <element signature="e#4683#4775#0" />
-                <element signature="e#4853#5627#0" />
                 <element signature="e#5304#6120#0" />
                 <element signature="e#6182#6280#0" />
                 <element signature="e#6342#6440#0" />
                 <element signature="e#6504#6608#0" />
                 <element signature="e#6672#6776#0" />
-                <element signature="e#6858#7979#0" />
                 <element signature="e#7300#7706#0" />
                 <element signature="e#7765#7850#0" />
                 <element signature="e#7903#8740#0" />
@@ -61,30 +59,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/excel.py">
+        <entry file="file://$PROJECT_DIR$/templates/root/list_institucion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="434" column="73" selection-start-line="434" selection-start-column="73" selection-end-line="434" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#779#1167#0" />
-                <element signature="e#1228#16358#0" />
-                <element signature="e#16432#17297#0" />
-                <element signature="e#19177#19722#0" />
-                <element signature="e#19786#21594#0" />
-                <element signature="e#21718#26194#0" />
-                <element signature="e#26320#29944#0" />
-                <element signature="e#29984#30612#0" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="45" column="55" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/urls.py">
+        <entry file="file://$PROJECT_DIR$/templates/root/detail_deporte.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="180">
+              <caret line="36" column="75" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="75" />
+              <folding>
+                <element signature="e#2774#4447#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,11 +82,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+            <state relative-caret-position="420">
+              <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#703#907#0" />
                 <element signature="e#957#1935#0" />
               </folding>
             </state>
@@ -104,34 +93,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/root/list_deportista.html">
+        <entry file="file://$PROJECT_DIR$/templates/root/list_deporte.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="58" selection-start-line="58" selection-end-line="75" />
-              <folding>
-                <element signature="n#if#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="169" column="29" selection-start-line="169" selection-start-column="29" selection-end-line="169" selection-end-column="29" />
-              <folding>
-                <element signature="e#3478#7641#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="298" selection-start-line="298" selection-end-line="298" />
+              <caret line="42" column="49" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -227,7 +192,6 @@
         <option value="$PROJECT_DIR$/root/forms.py" />
         <option value="$PROJECT_DIR$/templates/includes/add_deporte.html" />
         <option value="$PROJECT_DIR$/templates/includes/add_categoria.html" />
-        <option value="$PROJECT_DIR$/templates/root/detail_deporte.html" />
         <option value="$PROJECT_DIR$/templates/includes/add_institucion.html" />
         <option value="$PROJECT_DIR$/static/css/general.css" />
         <option value="$PROJECT_DIR$/templates/root/add_deportista.html" />
@@ -235,7 +199,6 @@
         <option value="$PROJECT_DIR$/static/css/selectstyle.css" />
         <option value="$PROJECT_DIR$/templates/root/index.html" />
         <option value="$PROJECT_DIR$/templates/root/reportes_entrenador.html" />
-        <option value="$PROJECT_DIR$/root/models.py" />
         <option value="$PROJECT_DIR$/templates/root/reportes_deportista.html" />
         <option value="$PROJECT_DIR$/root/utils.py" />
         <option value="$PROJECT_DIR$/root/constants.py" />
@@ -248,8 +211,10 @@
         <option value="$PROJECT_DIR$/templates/root/base.html" />
         <option value="$PROJECT_DIR$/root/urls.py" />
         <option value="$PROJECT_DIR$/root/excel.py" />
-        <option value="$PROJECT_DIR$/root/views.py" />
         <option value="$PROJECT_DIR$/templates/root/detail_deportista.html" />
+        <option value="$PROJECT_DIR$/templates/root/detail_deporte.html" />
+        <option value="$PROJECT_DIR$/root/models.py" />
+        <option value="$PROJECT_DIR$/root/views.py" />
       </list>
     </option>
   </component>
@@ -271,6 +236,11 @@
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anthropometry" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anthropometry" type="b2602c69:ProjectViewProjectNode" />
@@ -398,12 +368,12 @@
       <workItem from="1551669919227" duration="6000" />
       <workItem from="1551731885612" duration="161000" />
       <workItem from="1552328953905" duration="380000" />
-      <workItem from="1552529584655" duration="8197000" />
+      <workItem from="1552529584655" duration="10250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216808000" />
+    <option name="totallyTimeSpent" value="218861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -593,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/detail_deporte.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="83" column="87" selection-start-line="83" selection-start-column="87" selection-end-line="83" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/add_deportista.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1958">
@@ -727,16 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/list_deporte.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="57" column="129" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="129" />
-          <folding>
-            <element signature="e#389#945#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/root/reportes_deportista.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
@@ -751,16 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/list_institucion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="62" column="129" selection-start-line="62" selection-start-column="83" selection-end-line="62" selection-end-column="129" />
-          <folding>
-            <element signature="e#397#961#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/assets/extra-libs/gritter/jquery.gritter.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -772,13 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="941" selection-start-column="941" selection-end-column="941" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="298" selection-start-line="298" selection-end-line="298" />
         </state>
       </provider>
     </entry>
@@ -817,22 +753,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="159" selection-start-line="159" selection-end-line="176" />
+          <folding>
+            <element signature="e#3478#7641#0#HTML" />
+            <element signature="e#7658#7679#0#DjangoTemplate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="31" column="64" lean-forward="true" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#703#907#0" />
             <element signature="e#957#1935#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/list_deporte.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/list_institucion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="45" column="55" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/root/detail_deporte.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="36" column="75" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="75" />
+          <folding>
+            <element signature="e#2774#4447#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/root/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+        <state relative-caret-position="417">
+          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
             <element signature="e#767#903#0" />
@@ -841,28 +818,16 @@
             <element signature="e#3051#4471#0" />
             <element signature="e#4531#4623#0" />
             <element signature="e#4683#4775#0" />
-            <element signature="e#4853#5627#0" />
             <element signature="e#5304#6120#0" />
             <element signature="e#6182#6280#0" />
             <element signature="e#6342#6440#0" />
             <element signature="e#6504#6608#0" />
             <element signature="e#6672#6776#0" />
-            <element signature="e#6858#7979#0" />
             <element signature="e#7300#7706#0" />
             <element signature="e#7765#7850#0" />
             <element signature="e#7903#8740#0" />
             <element signature="e#8800#10395#0" />
             <element signature="e#10458#11450#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/root/detail_deportista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="169" column="29" selection-start-line="169" selection-start-column="29" selection-end-line="169" selection-end-column="29" />
-          <folding>
-            <element signature="e#3478#7641#0#HTML" />
           </folding>
         </state>
       </provider>
