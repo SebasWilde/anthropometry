@@ -1,1 +1,1 @@
-web: gunicorn anthropometry.wsgi --log-file -
+web: gunicorn anthropometry.wsgi
