@@ -103,3 +103,10 @@ venv.bak/
 .mypy_cache/
 
 .idea/
+.idea/workspace.xml
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
