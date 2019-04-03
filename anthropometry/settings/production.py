@@ -14,4 +14,4 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
